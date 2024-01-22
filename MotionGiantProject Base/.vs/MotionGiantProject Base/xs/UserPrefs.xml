@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{EB1DE711-FF18-CBA0-A64A-07334A376EF5}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
+    <Files>
+      <File FileName="../../../../Downloads/CMPUT 250 Lab 2 Base/Assets/Scripts/Player.cs" Line="22" Column="27" IsPinned="True" />
+      <File FileName="Assets/Scripts/Player.cs" Line="44" Column="1" />
+      <File FileName="Assets/Scripts/AnimatedEntity.cs" Line="7" Column="47" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b4108340-fb65-4ad8-bc12-7eac26433962" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
