@@ -25,6 +25,8 @@ public class Player : AnimatedEntity
 
     public Sprite idleSprite;
 
+    private Vector2 leftMovement;
+    private Vector2 rightMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,10 @@ public class Player : AnimatedEntity
         activeMoveSpeed = Speed;
         walkingAudioSource = GetComponents<AudioSource>()[0];
         dashAudioSource = GetComponents<AudioSource>()[1];
+
+        rightMovement = transform.localScale;
+        leftMovement = transform.localScale;
+        leftMovement.x *= -1;
     }
 
     // Update is called once per frame
@@ -50,6 +56,13 @@ public class Player : AnimatedEntity
 
         if (movement != Vector2.zero)
         {
+            if(movement.x > 0)
+            {
+                transform.localScale = rightMovement;
+            } else
+            {
+                transform.localScale = leftMovement;
+            }
             AnimationUpdate();
             Debug.Log("Walking");
         } else
