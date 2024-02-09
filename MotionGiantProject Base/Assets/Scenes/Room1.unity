@@ -2905,7 +2905,7 @@ MonoBehaviour:
   Speed: 5
   rb2d: {fileID: 1796668556}
   dashSpeed: 15
-  smoothMovementCountdown: 0.12
+  smoothMovementCountdown: 0.06
   dashLength: 0.3
   dashCooldown: 0.03
   walkingAudioSource: {fileID: 1796668554}
