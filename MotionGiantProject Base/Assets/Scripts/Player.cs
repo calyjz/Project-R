@@ -44,6 +44,27 @@ public class Player : AnimatedEntity
     public AudioMixerGroup dashMixerGroup;
 
     // Start is called before the first frame update
+
+
+    public float attackTime;
+    public float startTimeAttack;
+    // Start is called before the first frame update
+    public Transform attackLocation;
+    public float attackRange;
+    public LayerMask enemies;
+    public float scaleAttackRange = 0.2f;
+
+    // Quick fix
+    public SpriteRenderer sword;
+    public SpriteRenderer swing;
+
+    public Sprite swordSprite;
+    public Sprite swingSprite;
+
+    private Vector2 rangeVector;
+
+    private float leftorRight = -1;
+
     void Start()
     {
         AnimationSetup();
@@ -56,9 +77,53 @@ public class Player : AnimatedEntity
 
     }
 
+
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Vector2 rangeVector2 = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
+
+        Gizmos.DrawSphere(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector2, attackRange);
+    }
     // Update is called once per frame
+
+    void checkForAttack()
+    {
+        if (attackTime <= 0)
+        {
+            swing.sprite = null;
+            sword.sprite = swordSprite;
+            //Debug.Log("Waiting for fire1");
+            if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
+            {
+                Vector2 rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
+                Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
+                Debug.Log(rangeVector);
+                float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
+                swing.transform.eulerAngles = new Vector3(0, 0, angle);
+
+
+                for (int i = 0; i < damage.Length; i++)
+                {
+                    Destroy(damage[i].gameObject);
+                }
+                attackTime = startTimeAttack;
+            }
+
+        }
+        else
+        {
+            attackTime -= Time.deltaTime;
+            swing.sprite = swingSprite;
+            sword.sprite = null;
+            //anim.SetBool("Is_attacking", false);
+        }
+    }
     void Update()
     {
+
+        checkForAttack();
         //Movement controls
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -74,9 +139,11 @@ public class Player : AnimatedEntity
             if(movement.x > 0)
             {
                 transform.localScale = rightMovement;
+                leftorRight = 1;
             } else
             {
                 transform.localScale = leftMovement;
+                leftorRight = -1;
             }
             AnimationUpdate();
             Debug.Log("Walking");
