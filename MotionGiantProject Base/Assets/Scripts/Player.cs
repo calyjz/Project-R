@@ -13,7 +13,7 @@ public class Player : AnimatedEntity
     private float activeMoveSpeed;
     public float dashSpeed = 15f;
 
-    public float smoothMovementCountdown = 0.12f;
+    public float smoothMovementCountdown = 0.06f;
     public float dashLength = 0.3f;
     public float dashCooldown = 1f;
 
