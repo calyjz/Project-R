@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Audio;
 
 public class Player : AnimatedEntity
 {
@@ -21,24 +22,32 @@ public class Player : AnimatedEntity
     private float dashCounter;
     private float dashCoolCounter;
 
-    public AudioSource walkingAudioSource;
-    public AudioSource dashAudioSource;
-
     public Sprite idleSprite;
 
     private Vector2 leftMovement;
     private Vector2 rightMovement;
 
     private Light light;
-    
+
+    //Audio Attributes
+    public AudioClip dashingSoundClip;
+    public float dashVolume;
+
+    public AudioClip footstep1, footstep2, footstep3, footstep4;
+    public float footStepVolume;
+
+    private int oldAnimFrameIndex;
+    private AudioClip lastFootstepSound = null;
+    private int footstepIndex = 0;
+
+    public AudioMixerGroup walkingMixerGroup;
+    public AudioMixerGroup dashMixerGroup;
+
     // Start is called before the first frame update
     void Start()
     {
         AnimationSetup();
         activeMoveSpeed = Speed;
-        walkingAudioSource = GetComponents<AudioSource>()[0];
-        dashAudioSource = GetComponents<AudioSource>()[1];
-
         rightMovement = transform.localScale;
         leftMovement = transform.localScale;
         leftMovement.x *= -1;
@@ -80,9 +89,12 @@ public class Player : AnimatedEntity
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
-                dashAudioSource.Play();
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
+                if (movement != Vector2.zero)
+                {
+                    SoundFXManager.instance.PlayerSoundFXClip(dashingSoundClip, this.transform, dashVolume, dashMixerGroup);
+                }
             }
         }
 
@@ -102,16 +114,19 @@ public class Player : AnimatedEntity
             dashCoolCounter -= Time.deltaTime;
         }
 
-        // If the player is moving and the walking sound is not playing, play the sound
-        if (movement != Vector2.zero && !walkingAudioSource.isPlaying)
+        Sprite currentSprite = GetCurrentSprite();
+        if (currentSprite.name.ToLower().Contains("walk"))
         {
-            walkingAudioSource.Play();
+            int index = getIndex();
+            if (index != oldAnimFrameIndex)
+            {
+                // The frame has changed, so play the sound
+                AudioClip randomFootStep = ChooseRandomFootstepSound();
+                SoundFXManager.instance.PlayerSoundFXClip(randomFootStep, this.transform, footStepVolume, walkingMixerGroup);
+            }
+            oldAnimFrameIndex = index;
         }
-        // If the player is not moving and the walking sound is playing, stop the sound
-        else if (movement == Vector2.zero && walkingAudioSource.isPlaying)
-        {
-            walkingAudioSource.Stop();
-        }
+
     }
     // When the player picks up a lantern
     void OnTriggerEnter2D(Collider2D other)
@@ -123,5 +138,21 @@ public class Player : AnimatedEntity
             Destroy(other.gameObject);
             light.Pickup();
         }
+    }
+
+    AudioClip ChooseRandomFootstepSound()
+    {
+        // Add your footstep sounds to this list
+        List<AudioClip> footstepSounds = new List<AudioClip>() { this.footstep1, this.footstep2, this.footstep3, this.footstep4 };
+
+        // Remove the last played sound from the list
+        if (lastFootstepSound != null)
+        {
+            footstepSounds.Remove(lastFootstepSound);
+        }
+
+        int randomIndex = Random.Range(0, footstepSounds.Count);
+        lastFootstepSound = footstepSounds[randomIndex];
+        return lastFootstepSound;
     }
 }
