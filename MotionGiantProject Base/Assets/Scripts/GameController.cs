@@ -18,12 +18,14 @@ public class GameController : MonoBehaviour
     public int currentRoom = 0;
 
     GameObject Player;
+    GameObject MainCamera;
 
     private void Awake()
     {
         _instance = this;
         UpdateGameState(GameState.Start);
         Player = GameObject.FindGameObjectWithTag("Player");
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         if (Player == null)
         {
             Debug.Log("Player object not found");
@@ -70,6 +72,7 @@ public class GameController : MonoBehaviour
 
         //Makes player object visible and loads first scene
         DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(MainCamera);
         SceneManager.LoadScene("Room1");
         Player.SetActive(true);
 
