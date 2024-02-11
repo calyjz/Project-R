@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : AnimatedEntity
 {
@@ -9,7 +10,7 @@ public class Player : AnimatedEntity
     private Vector2 movement;
     private Vector2 smoothMovement;
     private Vector2 movementSmoothVelocity;
-
+    
     private float activeMoveSpeed;
     public float dashSpeed = 15f;
 
@@ -28,6 +29,8 @@ public class Player : AnimatedEntity
     private Vector2 leftMovement;
     private Vector2 rightMovement;
 
+    private Light light;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,9 @@ public class Player : AnimatedEntity
         rightMovement = transform.localScale;
         leftMovement = transform.localScale;
         leftMovement.x *= -1;
+        
+        light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
+
     }
 
     // Update is called once per frame
@@ -104,9 +110,18 @@ public class Player : AnimatedEntity
         // If the player is not moving and the walking sound is playing, stop the sound
         else if (movement == Vector2.zero && walkingAudioSource.isPlaying)
         {
-
             walkingAudioSource.Stop();
         }
-
+    }
+    // When the player picks up a lantern
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Collided with "+ other.name);
+        if (other.tag == "LanternObject")
+        {
+            
+            Destroy(other.gameObject);
+            light.Pickup();
+        }
     }
 }
