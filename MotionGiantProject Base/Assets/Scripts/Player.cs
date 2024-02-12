@@ -72,7 +72,8 @@ public class Player : AnimatedEntity
     public float freezeDuration = 0.4f;
     private float freezeTime = 0f;
     public LayerMask obstacles;
-    
+
+    public int HP = 100;
     void Start()
     {
         AnimationSetup();
@@ -128,7 +129,10 @@ public class Player : AnimatedEntity
             //anim.SetBool("Is_attacking", false);
         }
     }
-
+    public void resetMe()
+    {
+        HP = 100;
+    }
     void checkForDamage()
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
@@ -151,9 +155,15 @@ public class Player : AnimatedEntity
                 }
 
                 else {
+                    
                     Destroy(damage[i].gameObject);
                     freezeTime = freezeDuration;
                     SpriteRenderer.sprite = NevHurtSprite;
+                    HP -= 10;
+                    if (HP<=0)
+                    {
+                        GameController.Instance.UpdateGameState(GameState.Respawn);
+                    }
                 }
             }
             }

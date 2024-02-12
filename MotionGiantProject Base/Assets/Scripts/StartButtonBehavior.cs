@@ -7,6 +7,7 @@ public class StartButtonBehavior : MonoBehaviour
 {
     public void OnButtonPress()
     {
+        Debug.Log("Button Clicked");
         GameController.Instance.UpdateGameState(GameState.Run);
     }
 }

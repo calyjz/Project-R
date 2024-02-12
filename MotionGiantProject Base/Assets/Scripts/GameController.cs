@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
                 break;
             case GameState.Respawn:
                 //call function to reset the layout and restart the run
+                PlayerRespawn();
                 break;
             case GameState.Win:
                 //call function when player wins
@@ -131,6 +132,8 @@ public class GameController : MonoBehaviour
 
     void PlayerRespawn()
     {
+        DontDestroyOnLoad(this);
+        Player.GetComponent<Player>().resetMe();
         Player.SetActive(false);
         SceneManager.LoadScene("Respawn");
         
