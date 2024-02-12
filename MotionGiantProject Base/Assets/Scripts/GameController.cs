@@ -42,9 +42,11 @@ public class GameController : MonoBehaviour
         {
             case GameState.Start:
                 //Call function to load the starting screen
+                loadStartingScreen();
                 break;
             case GameState.Run:
                 //Call function to start the run
+                StartRun();
                 break;
             case GameState.Respawn:
                 //call function to reset the layout and restart the run
@@ -127,6 +129,12 @@ public class GameController : MonoBehaviour
         return currentRoom;
     }
 
+    void PlayerRespawn()
+    {
+        Player.SetActive(false);
+        SceneManager.LoadScene("Respawn");
+        
+    }
 }
 
 public enum GameState

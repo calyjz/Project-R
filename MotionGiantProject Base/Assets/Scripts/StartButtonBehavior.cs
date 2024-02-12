@@ -7,6 +7,6 @@ public class StartButtonBehavior : MonoBehaviour
 {
     public void OnButtonPress()
     {
-        GameController.Instance.StartRun();
+        GameController.Instance.UpdateGameState(GameState.Run);
     }
 }
