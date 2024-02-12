@@ -361,6 +361,37 @@ Transform:
   m_LocalScale: {x: -20, y: 20, z: 20}
   m_Children: []
   m_Father: {fileID: 1442735287}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &626846651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626846652}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626846652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626846651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 849130648}
+  m_Father: {fileID: 1442735287}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792764558
@@ -506,8 +537,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 923300dc97b08cf4990b572968bfa121, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 80088c647dcab814ab792270b80c1640, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -526,11 +557,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849130646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 22}
-  m_LocalScale: {x: 4, y: 2.5, z: 20}
+  m_LocalPosition: {x: 5.43, y: 2.05, z: 22}
+  m_LocalScale: {x: 3, y: 1.5, z: 20}
   m_Children: []
-  m_Father: {fileID: 1442735287}
-  m_RootOrder: 1
+  m_Father: {fileID: 626846652}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122956521
 GameObject:
@@ -569,7 +600,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -897,7 +928,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.25, y: 11.999999}
+    oldSize: {x: 12.8, y: 12.8}
     newSize: {x: 9.25, y: 11.999999}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -982,8 +1013,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8859526952130150963, guid: 26085db9fefbb499cb19a5e841b730ab,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 035a13672a21c80448c1382c02fe4d9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1006,8 +1036,8 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.05}
   m_Children:
   - {fileID: 69354328}
-  - {fileID: 849130648}
   - {fileID: 178190187}
+  - {fileID: 626846652}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1057,7 +1087,13 @@ MonoBehaviour:
   sword: {fileID: 178190186}
   swing: {fileID: 849130647}
   swordSprite: {fileID: 21300000, guid: 7774cff4d7abd064ea383aa9340179e7, type: 3}
-  swingSprite: {fileID: 21300000, guid: 923300dc97b08cf4990b572968bfa121, type: 3}
+  swingSprite: {fileID: 21300000, guid: 80088c647dcab814ab792270b80c1640, type: 3}
+  swingPivot: {fileID: 626846651}
+  NevHurtSprite: {fileID: 21300000, guid: 035a13672a21c80448c1382c02fe4d9b, type: 3}
+  freezeDuration: 0.1
+  obstacles:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1766066754
 GameObject:
   m_ObjectHideFlags: 0

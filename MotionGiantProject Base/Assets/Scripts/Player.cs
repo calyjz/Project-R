@@ -60,11 +60,19 @@ public class Player : AnimatedEntity
 
     public Sprite swordSprite;
     public Sprite swingSprite;
+    public GameObject swingPivot;
+
 
     private Vector2 rangeVector;
 
     private float leftorRight = -1;
 
+
+    public Sprite NevHurtSprite;
+    public float freezeDuration = 0.4f;
+    private float freezeTime = 0f;
+    public LayerMask obstacles;
+    
     void Start()
     {
         AnimationSetup();
@@ -101,7 +109,7 @@ public class Player : AnimatedEntity
                 Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
                 Debug.Log(rangeVector);
                 float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
-                swing.transform.eulerAngles = new Vector3(0, 0, angle);
+                swingPivot.transform.eulerAngles = new Vector3(0, 0, angle);
 
 
                 for (int i = 0; i < damage.Length; i++)
@@ -120,11 +128,42 @@ public class Player : AnimatedEntity
             //anim.SetBool("Is_attacking", false);
         }
     }
-    void Update()
-    {
 
-        checkForAttack();
-        //Movement controls
+    void checkForDamage()
+    {
+        Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
+        
+        
+            
+       
+
+            if (damage.Length > 0)
+            {
+            
+            for (int i = 0; i < damage.Length; i++)
+            {
+                if (attackTime > 0)
+                {
+                    Vector2 normal = (transform.position - damage[i].transform.position).normalized;
+                    //movingDir = Vector2.Reflect(movingDir, normal);
+                    damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+
+                }
+
+                else {
+                    Destroy(damage[i].gameObject);
+                    freezeTime = freezeDuration;
+                    SpriteRenderer.sprite = NevHurtSprite;
+                }
+            }
+            }
+            {
+                
+            }
+        
+    }
+    void MovePlayer()
+    {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -136,18 +175,20 @@ public class Player : AnimatedEntity
 
         if (movement != Vector2.zero)
         {
-            if(movement.x > 0)
+            if (movement.x > 0)
             {
                 transform.localScale = rightMovement;
                 leftorRight = 1;
-            } else
+            }
+            else
             {
                 transform.localScale = leftMovement;
                 leftorRight = -1;
             }
             AnimationUpdate();
             Debug.Log("Walking");
-        } else
+        }
+        else
         {
             SpriteRenderer.sprite = idleSprite;
         }
@@ -193,6 +234,21 @@ public class Player : AnimatedEntity
             }
             oldAnimFrameIndex = index;
         }
+    }
+    void Update()
+    {
+
+        checkForDamage();
+        checkForAttack();
+        if (freezeTime <= 0)
+        {
+            MovePlayer();
+        }
+        else
+        {
+            freezeTime -= Time.deltaTime;
+        }
+        
 
     }
     // When the player picks up a lantern
