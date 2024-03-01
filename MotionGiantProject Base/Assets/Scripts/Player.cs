@@ -99,12 +99,16 @@ public class Player : AnimatedEntity
 
     void checkForAttack()
     {
+        if(Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
+        {
+            attackTime = -1;
+        }
         if (attackTime <= 0)
         {
             swing.sprite = null;
             sword.sprite = swordSprite;
             //Debug.Log("Waiting for fire1");
-            if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
+            if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
             {
                 Vector2 rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
                 Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
@@ -146,7 +150,7 @@ public class Player : AnimatedEntity
             
             for (int i = 0; i < damage.Length; i++)
             {
-                if (attackTime > 0)
+                if (attackTime > 0.1f)
                 {
                     Vector2 normal = (transform.position - damage[i].transform.position).normalized;
                     //movingDir = Vector2.Reflect(movingDir, normal);
@@ -248,8 +252,9 @@ public class Player : AnimatedEntity
     void Update()
     {
 
-        checkForDamage();
         checkForAttack();
+        checkForDamage();
+        
         if (freezeTime <= 0)
         {
             MovePlayer();

@@ -96,9 +96,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  spawnTime: 1.5
   enemiesLayer:
     serializedVersion: 2
     m_Bits: 256
+  wallsLayer:
+    serializedVersion: 2
+    m_Bits: 2064
 --- !u!58 &2090422420604948396
 CircleCollider2D:
   m_ObjectHideFlags: 0

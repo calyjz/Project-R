@@ -12,15 +12,16 @@ public class ShootTowardsPlayer : MonoBehaviour
 
     private float startTime;
     public float speed = 1.0f;
-    private float journeyLength;
+    public float spawnTime = 2f;
 
     public LayerMask enemiesLayer;
     private float totalTime = 0f;
+
+    public LayerMask wallsLayer;
     void Start()
     {
         startPos = transform.position;
         movingDir = (GameObject.FindGameObjectWithTag("Player").transform.position- transform.position).normalized * 10f;
-        journeyLength = Vector3.Distance(startPos, endPos);
         startTime = Time.time;
     }
 
@@ -38,13 +39,14 @@ public class ShootTowardsPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distCovered = (Time.time - startTime + totalTime) * speed;
-        float fractionOfJourney = distCovered / journeyLength;
-        if (fractionOfJourney > 0.95f)
+        float timeSpent= (Time.time - startTime);
+        //Debug.Log(fractionOfJourney);
+        Debug.Log(timeSpent);
+        if (timeSpent > spawnTime)
         {
             Destroy(gameObject);
         }
-        distCovered = (Time.time - startTime) * speed;
+        float distCovered = (Time.time - startTime) * speed;
         transform.position = startPos+distCovered* movingDir;
 
         Collider2D[] enemiesSelf = Physics2D.OverlapCircleAll(transform.position, 0.12f, enemiesLayer);
@@ -55,9 +57,10 @@ public class ShootTowardsPlayer : MonoBehaviour
             for (int i = 0; i < enemiesSelf.Length; i++)
             {
                 
-                if(fractionOfJourney>0.035f)
+                if(timeSpent>0.2f)
                 {
-                    Destroy(enemiesSelf[i].gameObject);
+                    //Destroy(enemiesSelf[i].gameObject);
+                    //Debug.Log("De");
                     Destroy(gameObject);
                 }
                 
@@ -68,6 +71,12 @@ public class ShootTowardsPlayer : MonoBehaviour
                 //    // Reflect the direction
                 //    movingDir = Vector2.Reflect(movingDir, normal);
         }
+
+        Collider2D[] wallHit = Physics2D.OverlapCircleAll(transform.position, 0.12f, wallsLayer);
+        if (wallHit.Length>0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void deflect(Vector3 normal)
@@ -77,6 +86,15 @@ public class ShootTowardsPlayer : MonoBehaviour
         totalTime += Time.time - startTime;
         startTime = Time.time-0.05f;
     }
+
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log(collision);
+    //    //if (collision.gameObject.tag == "myObject")//you can also have a specific name as well
+    //    //{
+    //    //    do something
+    //    //}
+    //}
     //void CollisionEnter2D(Collision2D collide) {
     //    Debug.Log(collide);
     //    movingDir = Vector3.Reflect(movingDir, collide.contacts[0].normal);

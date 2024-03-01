@@ -9,7 +9,8 @@ public class Light : MonoBehaviour
     private Vector3 initialPosition;
     public float lightSize = 1;
 
-    
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,8 @@ public class Light : MonoBehaviour
         initialZ = transform.localScale.z;
         
         StartCoroutine("decreaseLightSize");
+
+        //spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     IEnumerator decreaseLightSize()
@@ -32,15 +35,17 @@ public class Light : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        transform.localScale = new Vector3(initialX*lightSize, initialY*lightSize, initialZ*lightSize);
+    {
+        transform.localScale = new Vector3(initialX * lightSize, initialY * lightSize, initialZ * lightSize);
+        // Clear the previous hit points
+        
     }
     
     public void Pickup()
     {
         if (lightSize + 0.4 > 1)
         {
-            lightSize = 1;
+           lightSize = 1;
         }
         else
         {

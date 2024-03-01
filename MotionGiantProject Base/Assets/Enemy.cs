@@ -12,8 +12,9 @@ public class Enemy : MonoBehaviour
     public float attackTime;
     public float startTimeAttack;
 
-    private string mode = "patrol";
+    private string mode = "new";
     public float Speed = 2f;
+    private float PatrolSpeed = 1f;
     Transform playerPos;
 
     private Vector3 directionVector;
@@ -52,23 +53,27 @@ public class Enemy : MonoBehaviour
             return false;
         }
     }
-
-    void setPatrolPath()
+    int findClosestPath()
     {
         int closest = -1;
         float closestDistance = 9999f;
         int walls = LayerMask.GetMask("Obstacle");
 
-        for (int index  = 0; index < path.Count; index += 1)
+        for (int index = 0; index < path.Count; index += 1)
         {
 
-            if (Vector3.Distance(path[index], transform.position) < closestDistance && Physics2D.Linecast(path[index], transform.position, walls).collider==null)
+            if (Vector3.Distance(path[index], transform.position) < closestDistance && Physics2D.Linecast(path[index], transform.position, walls).collider == null)
             {
                 closest = index;
                 closestDistance = (Vector3.Distance(path[index], transform.position));
             }
         }
-        Debug.Log(closest); ;
+        return closest;
+    }
+
+    void setPatrolPath()
+    {
+        int closest = findClosestPath();
         if (closest == -1)
         {
             directionVector = new Vector3(0, 0, 0);
@@ -82,7 +87,6 @@ public class Enemy : MonoBehaviour
 
     void keepPatrolling()
     {
-        //Debug.Log(nextPointIndex);
         if (nextPointIndex == -1)
         {
             transform.position += directionVector * Time.deltaTime * Speed;
@@ -90,13 +94,18 @@ public class Enemy : MonoBehaviour
         }
         if ((nextPointPos - transform.position).magnitude < 0.1f)
         {
+            Debug.Log("Yes?");
             transform.position = nextPointPos;
             nextPointIndex += reversed;
             if (nextPointIndex >= path.Count || nextPointIndex <= 0)
             {
                 reversed *= -1;
+                
             }
-
+            if (nextPointIndex >= path.Count)
+            {
+                nextPointIndex += reversed;
+            }
             nextPointPos = path[nextPointIndex];
             directionVector = (nextPointPos - transform.position).normalized;
             //float angle = Mathf.Atan2(directionVector.x, -directionVector.y) * Mathf.Rad2Deg;
@@ -104,7 +113,7 @@ public class Enemy : MonoBehaviour
 
             //Debug.Log(directionVector);
         }
-        transform.position += directionVector * Time.deltaTime * Speed;
+        transform.position += directionVector * Time.deltaTime * PatrolSpeed;
 
     }
     bool isPlayerInCleanSight()
@@ -129,7 +138,7 @@ public class Enemy : MonoBehaviour
         // ..Follow Player till wall reached
         //isPlayerInCleanSight();
         //return;
-
+        //Debug.Log(mode);
 
         bool isPlayerAttackable = isPlayerInAttackRange();
         bool isPlayerVisible = isPlayerInCleanSight();
