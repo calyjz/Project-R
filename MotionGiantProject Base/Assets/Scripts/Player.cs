@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 
 public class Player : AnimatedEntity
 {
+    
     public float Speed;
     public Rigidbody2D rb2d;
     private Vector2 movement;
@@ -17,7 +18,8 @@ public class Player : AnimatedEntity
 
     public float smoothMovementCountdown = 0.06f;
     public float dashLength = 0.3f;
-    public float dashCooldown = 1f;
+    private float dashCooldown = GameController.dashCooldown;
+    private float attackPower = GameController.attackPower;
 
     private float dashCounter;
     private float dashCoolCounter;
@@ -73,7 +75,7 @@ public class Player : AnimatedEntity
     private float freezeTime = 0f;
     public LayerMask obstacles;
 
-    public int HP = 100;
+    public int HP = GameController.hp_max;
     void Start()
     {
         AnimationSetup();
@@ -131,16 +133,20 @@ public class Player : AnimatedEntity
     }
     public void resetMe()
     {
-        HP = 100;
+        HP = GameController.hp_max;
+        light.NotifyChange();
+        dashCooldown = GameController.dashCooldown;
+        attackPower = GameController.attackPower;
+        light.RestartLight();
+    }
+
+    public void newRoom()
+    {
+        light.RestartLight();
     }
     void checkForDamage()
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
-        
-        
-            
-       
-
             if (damage.Length > 0)
             {
             
@@ -232,6 +238,9 @@ public class Player : AnimatedEntity
             dashCoolCounter -= Time.deltaTime;
         }
 
+        if (dashCoolCounter < 0)
+            dashCoolCounter = 0;
+
         Sprite currentSprite = GetCurrentSprite();
         if (currentSprite.name.ToLower().Contains("walk"))
         {
@@ -259,7 +268,6 @@ public class Player : AnimatedEntity
             freezeTime -= Time.deltaTime;
         }
         
-
     }
     // When the player picks up a lantern
     void OnTriggerEnter2D(Collider2D other)
@@ -287,5 +295,11 @@ public class Player : AnimatedEntity
         int randomIndex = Random.Range(0, footstepSounds.Count);
         lastFootstepSound = footstepSounds[randomIndex];
         return lastFootstepSound;
+    }
+
+    
+    public float getDashCoolCurrent()
+    {
+        return (dashCooldown - dashCoolCounter);
     }
 }

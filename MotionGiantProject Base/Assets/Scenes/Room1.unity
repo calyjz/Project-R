@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 25386331}
   m_Layer: 8
   m_Name: enemy1 (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 122444494}
   m_Layer: 8
   m_Name: enemy1 (8)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 281348091}
   m_Layer: 8
   m_Name: enemy1 (4)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 520006113}
   m_Layer: 8
   m_Name: enemy1 (7)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1150,6 +1150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591296686}
   - component: {fileID: 591296685}
+  - component: {fileID: 591296687}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1184,6 +1185,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591296687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591296684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9b35673648a4c5e90a82b21abc2028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &592189959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1353,7 @@ GameObject:
   - component: {fileID: 713600290}
   m_Layer: 8
   m_Name: enemy1 (11)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3551,7 +3564,7 @@ GameObject:
   - component: {fileID: 932218875}
   m_Layer: 8
   m_Name: enemy1 (6)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3712,7 +3725,7 @@ GameObject:
   - component: {fileID: 997399042}
   m_Layer: 0
   m_Name: Darkness
-  m_TagString: Untagged
+  m_TagString: Darkness
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3856,7 +3869,7 @@ GameObject:
   - component: {fileID: 1211830612}
   m_Layer: 8
   m_Name: enemy1 (5)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4129,7 +4142,7 @@ GameObject:
   - component: {fileID: 1415214120}
   m_Layer: 8
   m_Name: enemy1 (10)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4545,7 +4558,7 @@ GameObject:
   - component: {fileID: 1876028300}
   m_Layer: 8
   m_Name: enemy1 (9)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5046,7 +5059,7 @@ GameObject:
   - component: {fileID: 2132343531}
   m_Layer: 8
   m_Name: enemy1 (12)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
