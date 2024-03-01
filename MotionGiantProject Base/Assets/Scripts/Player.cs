@@ -6,7 +6,11 @@ using UnityEngine.Audio;
 
 public class Player : AnimatedEntity
 {
+<<<<<<< HEAD
     [Header("Movement Settings")]
+=======
+    
+>>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
     public float Speed;
     public Rigidbody2D rb2d;
     private Vector2 movement;
@@ -18,7 +22,8 @@ public class Player : AnimatedEntity
 
     public float smoothMovementCountdown = 0.06f;
     public float dashLength = 0.3f;
-    public float dashCooldown = 1f;
+    private float dashCooldown = GameController.dashCooldown;
+    private float attackPower = GameController.attackPower;
 
     private float dashCounter;
     private float dashCoolCounter;
@@ -63,8 +68,12 @@ public class Player : AnimatedEntity
     private float freezeTime = 0f;
     public LayerMask obstacles;
 
+<<<<<<< HEAD
     public int HP = 100;
 
+=======
+    public int HP = GameController.hp_max;
+>>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
     void Start()
     {
         AnimationSetup();
@@ -72,8 +81,13 @@ public class Player : AnimatedEntity
         rightMovement = transform.localScale;
         leftMovement = transform.localScale;
         leftMovement.x *= -1;
+<<<<<<< HEAD
         
         lantern = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
+=======
+        Debug.Log(GameObject.FindGameObjectWithTag("LightObject"));
+        light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
+>>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
 
     }
 
@@ -90,12 +104,16 @@ public class Player : AnimatedEntity
 
     void checkForAttack()
     {
+        if(Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
+        {
+            attackTime = -1;
+        }
         if (attackTime <= 0)
         {
             swing.sprite = null;
             sword.sprite = swordSprite;
             //Debug.Log("Waiting for fire1");
-            if (Input.GetButton("Fire1") || Input.GetButtonDown("Fire2"))
+            if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
             {
                 Vector2 rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
                 Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
@@ -124,16 +142,37 @@ public class Player : AnimatedEntity
     }
     public void resetMe()
     {
-        HP = 100;
+        light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>(); // quick fix
+
+
+        HP = GameController.hp_max;
+        light.NotifyChange();
+        dashCooldown = GameController.dashCooldown;
+        attackPower = GameController.attackPower;
+        light.RestartLight();
+    }
+
+    public void newRoom()
+    {
+        light.RestartLight();
     }
     void checkForDamage()
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
+<<<<<<< HEAD
 
             if (damage.Length > 0)
             {
             
                 for (int i = 0; i < damage.Length; i++)
+=======
+            if (damage.Length > 0)
+            {
+            
+            for (int i = 0; i < damage.Length; i++)
+            {
+                if (attackTime > 0.1f)
+>>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
                 {
                     if (attackTime > 0)
                     {
@@ -219,6 +258,9 @@ public class Player : AnimatedEntity
             dashCoolCounter -= Time.deltaTime;
         }
 
+        if (dashCoolCounter < 0)
+            dashCoolCounter = 0;
+
         Sprite currentSprite = GetCurrentSprite();
         if (currentSprite.name.ToLower().Contains("walk"))
         {
@@ -235,8 +277,9 @@ public class Player : AnimatedEntity
     void Update()
     {
 
-        checkForDamage();
         checkForAttack();
+        checkForDamage();
+        
         if (freezeTime <= 0)
         {
             MovePlayer();
@@ -246,7 +289,6 @@ public class Player : AnimatedEntity
             freezeTime -= Time.deltaTime;
         }
         
-
     }
     // When the player picks up a lantern
     void OnTriggerEnter2D(Collider2D other)
@@ -274,5 +316,11 @@ public class Player : AnimatedEntity
         int randomIndex = Random.Range(0, footstepSounds.Count);
         lastFootstepSound = footstepSounds[randomIndex];
         return lastFootstepSound;
+    }
+
+    
+    public float getDashCoolCurrent()
+    {
+        return (dashCooldown - dashCoolCounter);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,5 +45,16 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log(directionVector);
         }
         transform.position += directionVector*Time.deltaTime*speed;
+    }
+
+    void OnDestroy()
+    {
+        if (!GameController.death)
+        {
+           GameController.exp += 5;
+           Debug.Log("Enemy killed");
+           Debug.Log(GameController.exp); 
+        }
+        
     }
 }

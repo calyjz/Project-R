@@ -1,0 +1,25 @@
+<<<<<<< HEAD:MotionGiantProject Base/Library/PackageCache/com.unity.2d.animation@3.2.6/Editor/ICharacterDataProvider.cs.meta
+fileFormatVersion: 2
+guid: d02894817219f7c43bd5dad401749d7e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 9f9b35673648a4c5e90a82b21abc2028
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b:MotionGiantProject Base/Assets/Scripts/LoadedRoom.cs.meta
