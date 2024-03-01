@@ -1,16 +1,19 @@
 ﻿<Properties StartupConfiguration="{EB1DE711-FF18-CBA0-A64A-07334A376EF5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SoundFXManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OmbreArt.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="37" Column="33" />
-      <File FileName="Assets/Scripts/AnimatedEntity.cs" Line="11" Column="30" />
-      <File FileName="Assets/Scripts/EnterDoor.cs" Line="41" Column="1" />
-      <File FileName="Assets/PlayerSpawner.cs" Line="7" Column="1" />
-      <File FileName="Assets/Scripts/SoundFXManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="265" Column="10" />
+      <File FileName="Assets/Scripts/MusicManager.cs" Line="63" Column="6" />
+      <File FileName="Assets/Scripts/EnemyMovement.cs" Line="14" Column="30" />
+      <File FileName="Assets/Enemy.cs" Line="20" Column="6" />
+      <File FileName="Assets/ShootTowardsPlayer.cs" Line="64" Column="14" />
+      <File FileName="Assets/Scripts/StartButtonBehavior.cs" Line="17" Column="6" />
+      <File FileName="Assets/SoundFXManager.cs" Line="20" Column="31" />
+      <File FileName="Assets/Scripts/OmbreArt.cs" Line="62" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4c068c04-aec3-40eb-aa44-2a53d766f534" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7039226d-246a-4161-a03c-29360cef70a9" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

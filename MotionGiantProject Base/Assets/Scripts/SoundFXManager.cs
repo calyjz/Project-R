@@ -4,11 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+[System.Serializable]
+public class AudioData
+{
+    public string name;
+    public AudioClip audioClip;
+    public AudioMixerGroup audioMixerGroup;
+}
+
 public class SoundFXManager : MonoBehaviour
 {
     public static SoundFXManager instance;
 
     [SerializeField] private AudioSource soundFXObject;
+    [SerializeField] private List<AudioData> audioDataList = new List<AudioData>();
+
+    private Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
+    private Dictionary<string, AudioMixerGroup> audioMixerGroups = new Dictionary<string, AudioMixerGroup>();
 
     private void Awake()
     {
@@ -17,29 +29,56 @@ public class SoundFXManager : MonoBehaviour
             instance = this;
         }
         GameObject.DontDestroyOnLoad(this.gameObject);
+
+        foreach (var data in audioDataList)
+        {
+            audioClips[data.name] = data.audioClip;
+            audioMixerGroups[data.name] = data.audioMixerGroup;
+        }
     }
 
-    public void PlayerSoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, AudioMixerGroup audioMixerGroup)
+    public AudioSource PlaySoundFXClip(string audioClipName, Transform spawnTransform)
     {
-        //spawn in gameObject
+        // Check if the audio clip exists in the dictionary
+        if (!audioClips.ContainsKey(audioClipName))
+        {
+            Debug.LogError("Audio clip not found: " + audioClipName);
+            return null;
+        }
+
+        // Check if the audio mixer group exists in the dictionary
+        if (!audioMixerGroups.ContainsKey(audioClipName))
+        {
+            Debug.LogError("Audio mixer group not found: " + audioClipName);
+            return null;
+        }
+
+        // Get the audio clip and audio mixer group from the dictionaries
+        AudioClip audioClip = audioClips[audioClipName];
+        AudioMixerGroup audioMixerGroup = audioMixerGroups[audioClipName];
+
+        // Spawn in gameObject
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
-        //assign Audioclip
+        // Assign Audioclip
         audioSource.clip = audioClip;
 
-        //assign volume
-        audioSource.volume = volume;
+        // Assign volume
+        audioSource.volume = 1;
 
-        //assign output to AudioMixerGroup
+        // Assign output to AudioMixerGroup
         audioSource.outputAudioMixerGroup = audioMixerGroup;
 
-        //play sound
+        // Play sound
         audioSource.Play();
 
-        //get length of clip
+        // Get length of clip
         float clipLength = audioSource.clip.length;
 
-        //destroy clip after certain amount of time
+        // Destroy clip after certain amount of time
         Destroy(audioSource.gameObject, clipLength);
+
+        return audioSource;
     }
 }
+

@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public class Player : AnimatedEntity
 {
-    
+    [Header("Movement Settings")]
     public float Speed;
     public Rigidbody2D rb2d;
     private Vector2 movement;
@@ -31,23 +31,12 @@ public class Player : AnimatedEntity
 
     private Light light;
 
-    //Audio Attributes
-    public AudioClip dashingSoundClip;
-    public float dashVolume;
-
-    public AudioClip footstep1, footstep2, footstep3, footstep4;
-    public float footStepVolume;
-
+    [Header("Audio Settings")]
     private int oldAnimFrameIndex;
-    private AudioClip lastFootstepSound = null;
-    private int footstepIndex = 0;
-
-    public AudioMixerGroup walkingMixerGroup;
-    public AudioMixerGroup dashMixerGroup;
+    private string lastFootstepSound = null;
 
     // Start is called before the first frame update
-
-
+    [Header("Attack Settings")]
     public float attackTime;
     public float startTimeAttack;
     // Start is called before the first frame update
@@ -121,9 +110,11 @@ public class Player : AnimatedEntity
 
                 for (int i = 0; i < damage.Length; i++)
                 {
+                    SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
                     Destroy(damage[i].gameObject);
                 }
                 attackTime = startTimeAttack;
+                SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
             }
 
         }
@@ -154,34 +145,34 @@ public class Player : AnimatedEntity
     void checkForDamage()
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
+
             if (damage.Length > 0)
             {
             
-            for (int i = 0; i < damage.Length; i++)
-            {
-                if (attackTime > 0.1f)
+                for (int i = 0; i < damage.Length; i++)
                 {
-                    Vector2 normal = (transform.position - damage[i].transform.position).normalized;
-                    //movingDir = Vector2.Reflect(movingDir, normal);
-                    damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
-
-                }
-
-                else {
-                    
-                    Destroy(damage[i].gameObject);
-                    freezeTime = freezeDuration;
-                    SpriteRenderer.sprite = NevHurtSprite;
-                    HP -= 10;
-                    if (HP<=0)
+                    if (attackTime > 0.1f)
                     {
-                        GameController.Instance.UpdateGameState(GameState.Respawn);
+                        Vector2 normal = (transform.position - damage[i].transform.position).normalized;
+                        //movingDir = Vector2.Reflect(movingDir, normal);
+                        damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+
+                    } else {
+                    
+                        Destroy(damage[i].gameObject);
+                        freezeTime = freezeDuration;
+                        SpriteRenderer.sprite = NevHurtSprite;
+                        HP -= 10;
+                        SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
+                        Debug.Log(HP);
+                        if (HP<=0)
+                        {
+                            SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
+                            MusicManager.instance.PlayDeathMusic();
+                            GameController.Instance.UpdateGameState(GameState.Respawn);
+                        }
                     }
                 }
-            }
-            }
-            {
-                
             }
         
     }
@@ -224,7 +215,7 @@ public class Player : AnimatedEntity
                 dashCounter = dashLength;
                 if (movement != Vector2.zero)
                 {
-                    SoundFXManager.instance.PlayerSoundFXClip(dashingSoundClip, this.transform, dashVolume, dashMixerGroup);
+                    SoundFXManager.instance.PlaySoundFXClip("PlayerDash", this.transform);
                 }
             }
         }
@@ -255,8 +246,8 @@ public class Player : AnimatedEntity
             if (index != oldAnimFrameIndex)
             {
                 // The frame has changed, so play the sound
-                AudioClip randomFootStep = ChooseRandomFootstepSound();
-                SoundFXManager.instance.PlayerSoundFXClip(randomFootStep, this.transform, footStepVolume, walkingMixerGroup);
+                string randomFootStep = ChooseRandomFootstepSound();
+                SoundFXManager.instance.PlaySoundFXClip(randomFootStep, this.transform);
             }
             oldAnimFrameIndex = index;
         }
@@ -283,16 +274,16 @@ public class Player : AnimatedEntity
         Debug.Log("Collided with "+ other.name);
         if (other.tag == "LanternObject")
         {
-            
+            SoundFXManager.instance.PlaySoundFXClip("LanternPickup", this.transform);
             Destroy(other.gameObject);
             light.Pickup();
         }
     }
 
-    AudioClip ChooseRandomFootstepSound()
+    string ChooseRandomFootstepSound()
     {
         // Add your footstep sounds to this list
-        List<AudioClip> footstepSounds = new List<AudioClip>() { this.footstep1, this.footstep2, this.footstep3, this.footstep4 };
+        List<string> footstepSounds = new List<string>() { "PlayerFootstep1", "PlayerFootstep2", "PlayerFootstep3", "PlayerFootstep4" };
 
         // Remove the last played sound from the list
         if (lastFootstepSound != null)

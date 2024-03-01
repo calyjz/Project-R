@@ -8,6 +8,11 @@ public class StartButtonBehavior : MonoBehaviour
     public void OnButtonPress()
     {
         Debug.Log("Button Clicked");
+        if (tag.Contains("Respawn"))
+        {
+            MusicManager.instance.ResumeMusic();
+        }
         GameController.Instance.UpdateGameState(GameState.Run);
+        
     }
 }
