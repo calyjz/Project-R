@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnterDoor : MonoBehaviour
 {
 	public char Door;
-
 	
-
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if (col.gameObject.tag == "Player")
@@ -34,10 +32,9 @@ public class EnterDoor : MonoBehaviour
 				default:
 					Debug.Log("Wrong Direction entered");
 					break;
-			}	
-
+			}
+			
 			GameController.Instance.loadNextRoom(doorDirection);
-
 		}
 	}
 }

@@ -17,6 +17,14 @@ public class GameController : MonoBehaviour
 
     public int currentRoom = 0;
 
+    // The player statistics that last for the duration of the game
+    public static bool death;
+    public static int exp = 150;
+    public static int hp_max = 100;
+    public static float dashCooldown = 1.00f;
+    public static float attackPower = 1.00f;
+    public static float lightDecrease = 0.5f;
+
     GameObject Player;
     GameObject MainCamera;
 
@@ -46,10 +54,13 @@ public class GameController : MonoBehaviour
                 break;
             case GameState.Run:
                 //Call function to start the run
+                death = false;
                 StartRun();
+                Player.GetComponent<Player>().resetMe();
                 break;
             case GameState.Respawn:
                 //call function to reset the layout and restart the run
+                death = true;
                 PlayerRespawn();
                 break;
             case GameState.Win:
@@ -85,13 +96,14 @@ public class GameController : MonoBehaviour
     public void loadNextRoom(int DoorDirection)
     {//loads the next room
         int nextRoom = roomDoors[currentRoom-1, DoorDirection];
-
+    
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         if (Player == null)
         {
             Debug.Log("Cannot find player object");
         }
-        
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newRoom();
+
         //debug message
         Debug.Log("Exiting Room" + currentRoom.ToString() + "through D" + DoorDirection.ToString() + ", entering Room" + nextRoom.ToString());
 
@@ -99,7 +111,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(Player);
         SceneManager.LoadScene("Room" + nextRoom.ToString());
         currentRoom = nextRoom;
-
+        
         //set new player position
         switch (DoorDirection)
         {
@@ -118,10 +130,7 @@ public class GameController : MonoBehaviour
             default:
                 Debug.Log("incorrect door direction variable");
                 break;
-
         }
-
-
 
     }
 
@@ -136,8 +145,8 @@ public class GameController : MonoBehaviour
         Player.GetComponent<Player>().resetMe();
         Player.SetActive(false);
         SceneManager.LoadScene("Respawn");
-        
     }
+    
 }
 
 public enum GameState
