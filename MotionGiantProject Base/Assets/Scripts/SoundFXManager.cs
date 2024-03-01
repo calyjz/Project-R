@@ -19,7 +19,7 @@ public class SoundFXManager : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
     }
 
-    public void PlayerSoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, AudioMixerGroup audioMixerGroup)
+    public AudioSource PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, AudioMixerGroup audioMixerGroup)
     {
         //spawn in gameObject
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
@@ -28,7 +28,7 @@ public class SoundFXManager : MonoBehaviour
         audioSource.clip = audioClip;
 
         //assign volume
-        audioSource.volume = volume;
+        audioSource.volume = 1;
 
         //assign output to AudioMixerGroup
         audioSource.outputAudioMixerGroup = audioMixerGroup;
@@ -41,5 +41,8 @@ public class SoundFXManager : MonoBehaviour
 
         //destroy clip after certain amount of time
         Destroy(audioSource.gameObject, clipLength);
+
+        return audioSource;
     }
 }
+
