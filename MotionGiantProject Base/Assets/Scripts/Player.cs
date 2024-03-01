@@ -28,28 +28,11 @@ public class Player : AnimatedEntity
     private Vector2 leftMovement;
     private Vector2 rightMovement;
 
-    private Light light;
+    private Light lantern;
 
     [Header("Audio Settings")]
-    public AudioClip dashingSoundClip;
-    public AudioClip axeSwing;
-    public AudioClip damageSound;
-    public AudioClip oofSound;
-    public AudioClip footstep1, footstep2, footstep3, footstep4;
-    public AudioClip enemyDamage;
-    public AudioClip lanternPickupSound;
-
     private int oldAnimFrameIndex;
-    private AudioClip lastFootstepSound = null;
-    private int footstepIndex = 0;
-
-    public AudioMixerGroup lanternMixerGroup;
-    public AudioMixerGroup enemyDamageMixerGroup;
-    public AudioMixerGroup walkingMixerGroup;
-    public AudioMixerGroup dashMixerGroup;
-    public AudioMixerGroup attackMixerGroup;
-    public AudioMixerGroup playerDamageMixerGroup;
-    public AudioMixerGroup playerOofMixerGroup;
+    private string lastFootstepSound = null;
 
     // Start is called before the first frame update
     [Header("Attack Settings")]
@@ -90,7 +73,7 @@ public class Player : AnimatedEntity
         leftMovement = transform.localScale;
         leftMovement.x *= -1;
         
-        light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
+        lantern = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
 
     }
 
@@ -123,11 +106,11 @@ public class Player : AnimatedEntity
 
                 for (int i = 0; i < damage.Length; i++)
                 {
-                    SoundFXManager.instance.PlaySoundFXClip(enemyDamage, damage[i].gameObject.transform, enemyDamageMixerGroup);
+                    SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
                     Destroy(damage[i].gameObject);
                 }
                 attackTime = startTimeAttack;
-                SoundFXManager.instance.PlaySoundFXClip(axeSwing, this.transform, attackMixerGroup);
+                SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
             }
 
         }
@@ -164,10 +147,10 @@ public class Player : AnimatedEntity
                         freezeTime = freezeDuration;
                         SpriteRenderer.sprite = NevHurtSprite;
                         HP -= 10;
-                        SoundFXManager.instance.PlaySoundFXClip(oofSound, this.transform, playerOofMixerGroup);
+                        SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
                         if (HP<=0)
                         {
-                            SoundFXManager.instance.PlaySoundFXClip(damageSound, this.transform, playerDamageMixerGroup);
+                            SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                             MusicManager.instance.PlayDeathMusic();
                             GameController.Instance.UpdateGameState(GameState.Respawn);
                         }
@@ -215,7 +198,7 @@ public class Player : AnimatedEntity
                 dashCounter = dashLength;
                 if (movement != Vector2.zero)
                 {
-                    SoundFXManager.instance.PlaySoundFXClip(dashingSoundClip, this.transform, dashMixerGroup);
+                    SoundFXManager.instance.PlaySoundFXClip("PlayerDash", this.transform);
                 }
             }
         }
@@ -243,8 +226,8 @@ public class Player : AnimatedEntity
             if (index != oldAnimFrameIndex)
             {
                 // The frame has changed, so play the sound
-                AudioClip randomFootStep = ChooseRandomFootstepSound();
-                SoundFXManager.instance.PlaySoundFXClip(randomFootStep, this.transform, walkingMixerGroup);
+                string randomFootStep = ChooseRandomFootstepSound();
+                SoundFXManager.instance.PlaySoundFXClip(randomFootStep, this.transform);
             }
             oldAnimFrameIndex = index;
         }
@@ -271,16 +254,16 @@ public class Player : AnimatedEntity
         Debug.Log("Collided with "+ other.name);
         if (other.tag == "LanternObject")
         {
-            SoundFXManager.instance.PlaySoundFXClip(lanternPickupSound, this.transform, lanternMixerGroup);
+            SoundFXManager.instance.PlaySoundFXClip("LanternPickup", this.transform);
             Destroy(other.gameObject);
-            light.Pickup();
+            lantern.Pickup();
         }
     }
 
-    AudioClip ChooseRandomFootstepSound()
+    string ChooseRandomFootstepSound()
     {
         // Add your footstep sounds to this list
-        List<AudioClip> footstepSounds = new List<AudioClip>() { this.footstep1, this.footstep2, this.footstep3, this.footstep4 };
+        List<string> footstepSounds = new List<string>() { "PlayerFootstep1", "PlayerFootstep2", "PlayerFootstep3", "PlayerFootstep4" };
 
         // Remove the last played sound from the list
         if (lastFootstepSound != null)
