@@ -41,7 +41,7 @@ public class ShootTowardsPlayer : MonoBehaviour
     {
         float timeSpent= (Time.time - startTime);
         //Debug.Log(fractionOfJourney);
-        Debug.Log(timeSpent);
+        //Debug.Log(timeSpent);
         if (timeSpent > spawnTime)
         {
             Destroy(gameObject);

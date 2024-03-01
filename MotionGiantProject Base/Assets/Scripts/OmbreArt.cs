@@ -61,14 +61,18 @@ public class OmbreArt : MonoBehaviour
     {
         DrawTexture();
     }
-
+    public void ChangeColor(Color color2, int index)
+    {
+        colorStops[index].color = color2;
+        DrawTexture();
+    }
     // Update is called once per frame
     void Update()
     {
         // Create a new texture
         
         // Useful in Edit Mode
-        DrawTexture();
+        //DrawTexture();
         //GetComponent<Renderer>().material.mainTexture = texture;
     }
 }

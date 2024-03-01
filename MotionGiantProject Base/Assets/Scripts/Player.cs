@@ -83,7 +83,7 @@ public class Player : AnimatedEntity
         rightMovement = transform.localScale;
         leftMovement = transform.localScale;
         leftMovement.x *= -1;
-        
+        Debug.Log(GameObject.FindGameObjectWithTag("LightObject"));
         light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
 
     }
@@ -137,6 +137,9 @@ public class Player : AnimatedEntity
     }
     public void resetMe()
     {
+        light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>(); // quick fix
+
+
         HP = GameController.hp_max;
         light.NotifyChange();
         dashCooldown = GameController.dashCooldown;

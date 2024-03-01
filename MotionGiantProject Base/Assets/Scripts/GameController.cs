@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     // The player statistics that last for the duration of the game
     public static bool death;
-    public static int exp = 0;
+    public static int exp = 150;
     public static int hp_max = 100;
     public static float dashCooldown = 1.00f;
     public static float attackPower = 1.00f;

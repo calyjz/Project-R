@@ -11,7 +11,7 @@ public class Light : MonoBehaviour
     private bool run_light;
     public float lightSize = 1f;
     public float lightDecrease = GameController.lightDecrease;
-    
+    public GameObject ombre;
 
 
    
@@ -48,12 +48,14 @@ public class Light : MonoBehaviour
         darkness = GameObject.FindGameObjectWithTag("Darkness");
         if (!GameObject.FindGameObjectWithTag("Enemy"))
         {
+            ombre.SetActive(false);
             Destroy(darkness);
             run_light = false;
             Debug.Log("Room is clear");
         }
         else
         {
+            ombre.SetActive(true);
             run_light = true;
             Debug.Log("Room is not clear");
         }
