@@ -6,11 +6,7 @@ using UnityEngine.Audio;
 
 public class Player : AnimatedEntity
 {
-<<<<<<< HEAD
     [Header("Movement Settings")]
-=======
-    
->>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
     public float Speed;
     public Rigidbody2D rb2d;
     private Vector2 movement;
@@ -33,7 +29,7 @@ public class Player : AnimatedEntity
     private Vector2 leftMovement;
     private Vector2 rightMovement;
 
-    private Light lantern;
+    private Light light;
 
     [Header("Audio Settings")]
     private int oldAnimFrameIndex;
@@ -68,12 +64,7 @@ public class Player : AnimatedEntity
     private float freezeTime = 0f;
     public LayerMask obstacles;
 
-<<<<<<< HEAD
-    public int HP = 100;
-
-=======
     public int HP = GameController.hp_max;
->>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
     void Start()
     {
         AnimationSetup();
@@ -81,13 +72,8 @@ public class Player : AnimatedEntity
         rightMovement = transform.localScale;
         leftMovement = transform.localScale;
         leftMovement.x *= -1;
-<<<<<<< HEAD
-        
-        lantern = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
-=======
         Debug.Log(GameObject.FindGameObjectWithTag("LightObject"));
         light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
->>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
 
     }
 
@@ -159,22 +145,13 @@ public class Player : AnimatedEntity
     void checkForDamage()
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
-<<<<<<< HEAD
 
             if (damage.Length > 0)
             {
             
                 for (int i = 0; i < damage.Length; i++)
-=======
-            if (damage.Length > 0)
-            {
-            
-            for (int i = 0; i < damage.Length; i++)
-            {
-                if (attackTime > 0.1f)
->>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b
                 {
-                    if (attackTime > 0)
+                    if (attackTime > 0.1f)
                     {
                         Vector2 normal = (transform.position - damage[i].transform.position).normalized;
                         //movingDir = Vector2.Reflect(movingDir, normal);
@@ -187,6 +164,7 @@ public class Player : AnimatedEntity
                         SpriteRenderer.sprite = NevHurtSprite;
                         HP -= 10;
                         SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
+                        Debug.Log(HP);
                         if (HP<=0)
                         {
                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
@@ -298,7 +276,7 @@ public class Player : AnimatedEntity
         {
             SoundFXManager.instance.PlaySoundFXClip("LanternPickup", this.transform);
             Destroy(other.gameObject);
-            lantern.Pickup();
+            light.Pickup();
         }
     }
 

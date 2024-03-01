@@ -1,16 +1,3 @@
-<<<<<<< HEAD:MotionGiantProject Base/Library/PackageCache/com.unity.2d.animation@3.2.6/Editor/Analytics.cs.meta
-fileFormatVersion: 2
-guid: 783ca490d14f68c4891dfa4ca54364fc
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-=======
 fileFormatVersion: 2
 guid: ef115f12f2a9a7241b62c19175628f8a
 MonoImporter:
@@ -22,4 +9,3 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
->>>>>>> 19b7bd40fba86c5e10ff71e274c9253021a11c6b:MotionGiantProject Base/Assets/Scripts/OmbreArt.cs.meta
