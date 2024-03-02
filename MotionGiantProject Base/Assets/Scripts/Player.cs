@@ -162,10 +162,16 @@ public class Player : AnimatedEntity
                         Destroy(damage[i].gameObject);
                         freezeTime = freezeDuration;
                         SpriteRenderer.sprite = NevHurtSprite;
+                        //change nev red when hit for a sec
+
+                        SpriteRenderer.color = Color.red;
+                  
+
                         HP -= 10;
                         SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
                         Debug.Log(HP);
-                        if (HP<=0)
+
+                    if (HP<=0)
                         {
                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                             MusicManager.instance.PlayDeathMusic();
@@ -183,7 +189,7 @@ public class Player : AnimatedEntity
 
         movement.Normalize();
 
-        smoothMovement = Vector2.SmoothDamp(smoothMovement, movement, ref movementSmoothVelocity, smoothMovementCountdown);
+        smoothMovement = Vector2.SmoothDamp(smoothMovement, movement, ref movementSmoothVelocity, smoothMovementCountdown, Mathf.Infinity, Time.deltaTime);
 
         rb2d.velocity = smoothMovement * activeMoveSpeed;
 
@@ -200,11 +206,13 @@ public class Player : AnimatedEntity
                 leftorRight = -1;
             }
             AnimationUpdate();
+            SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             Debug.Log("Walking");
         }
         else
         {
             SpriteRenderer.sprite = idleSprite;
+            SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -212,6 +220,7 @@ public class Player : AnimatedEntity
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
                 dashCounter = dashLength;
                 if (movement != Vector2.zero)
                 {
@@ -224,10 +233,13 @@ public class Player : AnimatedEntity
         {
             dashCounter -= Time.deltaTime;
 
+
             if (dashCounter <= 0)
             {
                 activeMoveSpeed = Speed;
                 dashCoolCounter = dashCooldown;
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+
             }
         }
 

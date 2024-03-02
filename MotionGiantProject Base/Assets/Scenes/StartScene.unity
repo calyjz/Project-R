@@ -1714,8 +1714,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefaultAnimationCycle:
-  - {fileID: -8859526952130150963, guid: 26085db9fefbb499cb19a5e841b730ab, type: 3}
-  - {fileID: -4340987377032340429, guid: 26085db9fefbb499cb19a5e841b730ab, type: 3}
+  - {fileID: 21300000, guid: 714e1540264fef34ab56b428bbe06e0a, type: 3}
+  - {fileID: 21300000, guid: c37437fbe91b7f745a53d758cc06ae53, type: 3}
+  - {fileID: 21300000, guid: 5dbcb71d23619f84c9fd21efdfff7016, type: 3}
+  - {fileID: 21300000, guid: 6d207b7d347000e44998bd7db94a15f5, type: 3}
+  - {fileID: 21300000, guid: 9c2c25c863c9fa54db8bf24518bec6a2, type: 3}
+  - {fileID: 21300000, guid: 1ecae9abd7ca0ec4ca4a6361169f291c, type: 3}
   Framerate: 4
   SpriteRenderer: {fileID: 1442735286}
   Speed: 5
