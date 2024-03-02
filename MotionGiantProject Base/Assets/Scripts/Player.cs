@@ -112,8 +112,8 @@ public class Player : AnimatedEntity
                 {
                     SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
 
-                    //call the defeated function from the enemy script
-                    damage[i].gameObject.GetComponent<Enemy>().defeated();
+                    //call the defeated function from the enemy script  
+                    damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
                     //Destroy(damage[i].gameObject);
                 }
                 attackTime = startTimeAttack;
@@ -278,7 +278,9 @@ public class Player : AnimatedEntity
         if (other.tag == "LanternObject")
         {
             SoundFXManager.instance.PlaySoundFXClip("LanternPickup", this.transform);
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Lantern>().RemoveLantern();
+
+            //Destroy(other.gameObject);
             light.Pickup();
         }
     }

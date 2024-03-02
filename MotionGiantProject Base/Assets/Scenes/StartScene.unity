@@ -934,6 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   currentRoom: 0
+  numOfEnemies: 2
 --- !u!4 &792764560
 Transform:
   m_ObjectHideFlags: 0
@@ -1244,7 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1442735279}
-  smoothSpeed: 0.125
+  smoothSpeed: 1
 --- !u!1 &1365437806
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\EnterDoor.cs" />
     <Compile Include="Assets\Scripts\ExperiencePointUI.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Lantern.cs" />
     <Compile Include="Assets\Scripts\Light.cs" />
     <Compile Include="Assets\Scripts\LoadedRoom.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
@@ -80,11 +81,11 @@
     <Compile Include="Assets\Scripts\PolygonGenerator.cs" />
     <Compile Include="Assets\Scripts\ShootTowardsPlayer.cs" />
     <Compile Include="Assets\Scripts\SoundFXManager.cs" />
+    <Compile Include="Assets\Scripts\StartButtonBehavior.cs" />
     <Compile Include="Assets\Scripts\StatButtons\AttackButton.cs" />
     <Compile Include="Assets\Scripts\StatButtons\DashButton.cs" />
     <Compile Include="Assets\Scripts\StatButtons\HPButton.cs" />
     <Compile Include="Assets\Scripts\StatButtons\LightButton.cs" />
-    <Compile Include="Assets\Sound Effects\StartButtonBehavior.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
