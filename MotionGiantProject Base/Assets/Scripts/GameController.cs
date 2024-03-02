@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour
         }
 
         //displays all lanterns (1 for removed, 0 for displayed)
-        for (int i = 0; i < numOfEnemies; i++)
+        for (int i = 0; i < numOfLanterns; i++)
         {
             Debug.Log("creating " + "Lantern_no key " + (i + 1).ToString());
             PlayerPrefs.SetInt("Lantern_no " + (i + 1).ToString(), 0);
