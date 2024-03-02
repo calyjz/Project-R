@@ -283,6 +283,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &25386329
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -365,6 +366,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -498,6 +500,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &122444495
 CapsuleCollider2D:
@@ -532,6 +535,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &122444497
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -664,6 +668,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &281348092
 CapsuleCollider2D:
@@ -698,6 +703,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &281348094
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1160,6 +1166,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &520006114
 CapsuleCollider2D:
@@ -1194,6 +1201,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &520006116
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1587,6 +1595,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -1626,6 +1635,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &699015945
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1728,6 +1738,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &713600291
 CapsuleCollider2D:
@@ -1762,6 +1773,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &713600293
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1867,7 +1879,6 @@ GameObject:
   m_Component:
   - component: {fileID: 745678642}
   - component: {fileID: 745678641}
-  - component: {fileID: 745678640}
   - component: {fileID: 745678639}
   - component: {fileID: 745678638}
   m_Layer: 8
@@ -1894,6 +1905,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 2
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -1916,23 +1928,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.27, y: -1.85}
   m_Size: {x: 8.87, y: 6.23}
   m_Direction: 1
---- !u!114 &745678640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745678637}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ccd6effbd27af746aca4fae99a906e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path:
-  - {fileID: 1832216100}
-  - {fileID: 1120033943}
-  - {fileID: 103447703}
-  speed: 0
 --- !u!212 &745678641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6917,7 +6912,6 @@ GameObject:
   m_Component:
   - component: {fileID: 932218879}
   - component: {fileID: 932218878}
-  - component: {fileID: 932218877}
   - component: {fileID: 932218876}
   - component: {fileID: 932218875}
   m_Layer: 8
@@ -6926,7 +6920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &932218875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6944,6 +6938,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 1
   path: []
 --- !u!70 &932218876
 CapsuleCollider2D:
@@ -6961,23 +6956,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.27, y: -1.85}
   m_Size: {x: 8.87, y: 6.23}
   m_Direction: 1
---- !u!114 &932218877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932218874}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ccd6effbd27af746aca4fae99a906e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path:
-  - {fileID: 1832216100}
-  - {fileID: 1120033943}
-  - {fileID: 103447703}
-  speed: 0
 --- !u!212 &932218878
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7281,6 +7259,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -7320,6 +7299,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &1198778679
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7422,6 +7402,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &1211830613
 CapsuleCollider2D:
@@ -7456,6 +7437,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &1211830615
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7697,6 +7679,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &1415214121
 CapsuleCollider2D:
@@ -7731,6 +7714,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &1415214123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7863,6 +7847,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -7902,6 +7887,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &1476650294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8395,6 +8381,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &1876028301
 CapsuleCollider2D:
@@ -8429,6 +8416,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &1876028303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8814,6 +8802,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -8853,6 +8842,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &1944559581
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8955,6 +8945,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -8994,6 +8985,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &1964501713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9125,6 +9117,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &2127680218
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9242,6 +9235,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
+  enemy_no: 0
   path: []
 --- !u!70 &2132343532
 CapsuleCollider2D:
@@ -9276,6 +9270,7 @@ MonoBehaviour:
   - {fileID: 1120033943}
   - {fileID: 103447703}
   speed: 0
+  enemy_no: 0
 --- !u!212 &2132343534
 SpriteRenderer:
   m_ObjectHideFlags: 0

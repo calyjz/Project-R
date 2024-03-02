@@ -51,13 +51,11 @@ public class Light : MonoBehaviour
             ombre.SetActive(false);
             Destroy(darkness);
             run_light = false;
-            Debug.Log("Room is clear");
         }
         else
         {
             ombre.SetActive(true);
             run_light = true;
-            Debug.Log("Room is not clear");
         }
         
        
