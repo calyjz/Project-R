@@ -5,6 +5,13 @@ using UnityEngine;
 public class AnimatedEntity : MonoBehaviour
 {
     public List<Sprite> DefaultAnimationCycle;
+
+    public List<Sprite> WalkAnimationCycle;
+    public List<Sprite> DashAnimationCycle; // just player maybe
+    public List<Sprite> HurtAnimationCycle;
+    public List<Sprite> IdleAnimationCycle;
+
+
     public float Framerate = 12f;//frames per second
     public SpriteRenderer SpriteRenderer;//spriteRenderer
 
@@ -30,6 +37,8 @@ public class AnimatedEntity : MonoBehaviour
     //Default animation update
     protected void AnimationUpdate()
     {
+        Debug.Log(index);
+        Debug.Log(DefaultAnimationCycle);
         animationTimer += Time.deltaTime;
 
         if (animationTimer > animationTimerMax)
@@ -47,6 +56,7 @@ public class AnimatedEntity : MonoBehaviour
                 if (DefaultAnimationCycle.Count > 0)
                 {
                     SpriteRenderer.sprite = DefaultAnimationCycle[index];
+                    Debug.Log("anything");
                 }
             }
             else
@@ -74,6 +84,27 @@ public class AnimatedEntity : MonoBehaviour
         previousIndex = 0;
         interruptAnimation = _interruptAnimation;
         SpriteRenderer.sprite = interruptAnimation[index];
+    }
+    
+    protected void switchAnimation(string mode)
+    {
+        Debug.Log(mode);
+        if(mode == "walk")
+        {
+            DefaultAnimationCycle = WalkAnimationCycle;
+        }
+        if(mode == "hurt")
+        {
+            DefaultAnimationCycle = HurtAnimationCycle;
+        }
+        if(mode == "dash")
+        {
+            DefaultAnimationCycle = DashAnimationCycle;
+        }
+        if( mode == "idle")
+        {
+            DefaultAnimationCycle = IdleAnimationCycle;
+        }
     }
 
     public int getIndex()

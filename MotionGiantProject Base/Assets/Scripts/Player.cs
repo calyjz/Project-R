@@ -149,7 +149,8 @@ public class Player : AnimatedEntity
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
 
-            if (damage.Length > 0)
+
+        if (damage.Length > 0)
             {
             
                 for (int i = 0; i < damage.Length; i++)
@@ -165,11 +166,19 @@ public class Player : AnimatedEntity
                         Destroy(damage[i].gameObject);
                         
                         freezeTime = freezeDuration;
-                        SpriteRenderer.sprite = NevHurtSprite;
+                    //SpriteRenderer.sprite = NevHurtSprite;
+                    switchAnimation("hurt");
+
+                    //change nev red when hit for a sec
+
+                    SpriteRenderer.color = Color.red;
+                  
+
                         HP -= 10;
                         SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
-                        Debug.Log(HP);
-                        if (HP<=0)
+                        //Debug.Log(HP);
+
+                    if (HP<=0)
                         {
                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                             MusicManager.instance.PlayDeathMusic();
@@ -187,12 +196,14 @@ public class Player : AnimatedEntity
 
         movement.Normalize();
 
-        smoothMovement = Vector2.SmoothDamp(smoothMovement, movement, ref movementSmoothVelocity, smoothMovementCountdown);
+        smoothMovement = Vector2.SmoothDamp(smoothMovement, movement, ref movementSmoothVelocity, smoothMovementCountdown, Mathf.Infinity, Time.deltaTime);
 
         rb2d.velocity = smoothMovement * activeMoveSpeed;
 
         if (movement != Vector2.zero)
         {
+            switchAnimation("walk");
+
             if (movement.x > 0)
             {
                 transform.localScale = rightMovement;
@@ -203,11 +214,18 @@ public class Player : AnimatedEntity
                 transform.localScale = leftMovement;
                 leftorRight = -1;
             }
-            AnimationUpdate();
+
+            SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+
         }
         else
         {
-            SpriteRenderer.sprite = idleSprite;
+            //SpriteRenderer.sprite = idleSprite;
+            switchAnimation("idle");
+
+            SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -215,10 +233,14 @@ public class Player : AnimatedEntity
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
+                GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f,0.5f);
+
+
                 dashCounter = dashLength;
                 if (movement != Vector2.zero)
                 {
                     SoundFXManager.instance.PlaySoundFXClip("PlayerDash", this.transform);
+
                 }
             }
         }
@@ -227,10 +249,15 @@ public class Player : AnimatedEntity
         {
             dashCounter -= Time.deltaTime;
 
+
             if (dashCounter <= 0)
             {
                 activeMoveSpeed = Speed;
                 dashCoolCounter = dashCooldown;
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+
+
             }
         }
 
@@ -257,16 +284,18 @@ public class Player : AnimatedEntity
     }
     void Update()
     {
-
+        AnimationUpdate();
         checkForAttack();
         checkForDamage();
         
         if (freezeTime <= 0)
         {
             MovePlayer();
+
         }
         else
         {
+
             freezeTime -= Time.deltaTime;
         }
         
