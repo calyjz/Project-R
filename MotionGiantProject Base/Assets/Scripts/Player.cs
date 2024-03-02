@@ -146,7 +146,8 @@ public class Player : AnimatedEntity
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
 
-            if (damage.Length > 0)
+
+        if (damage.Length > 0)
             {
             
                 for (int i = 0; i < damage.Length; i++)
@@ -161,15 +162,17 @@ public class Player : AnimatedEntity
                     
                         Destroy(damage[i].gameObject);
                         freezeTime = freezeDuration;
-                        SpriteRenderer.sprite = NevHurtSprite;
-                        //change nev red when hit for a sec
+                    //SpriteRenderer.sprite = NevHurtSprite;
+                    switchAnimation("hurt");
 
-                        SpriteRenderer.color = Color.red;
+                    //change nev red when hit for a sec
+
+                    SpriteRenderer.color = Color.red;
                   
 
                         HP -= 10;
                         SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
-                        Debug.Log(HP);
+                        //Debug.Log(HP);
 
                     if (HP<=0)
                         {
@@ -195,6 +198,8 @@ public class Player : AnimatedEntity
 
         if (movement != Vector2.zero)
         {
+            switchAnimation("walk");
+
             if (movement.x > 0)
             {
                 transform.localScale = rightMovement;
@@ -205,14 +210,19 @@ public class Player : AnimatedEntity
                 transform.localScale = leftMovement;
                 leftorRight = -1;
             }
-            AnimationUpdate();
+            //AnimationUpdate();
             SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-            Debug.Log("Walking");
+
+            //Debug.Log("Walking");
         }
         else
         {
-            SpriteRenderer.sprite = idleSprite;
+            //SpriteRenderer.sprite = idleSprite;
+            switchAnimation("idle");
+
             SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -220,11 +230,14 @@ public class Player : AnimatedEntity
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
-                SpriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
+                GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f,0.5f);
+
+
                 dashCounter = dashLength;
                 if (movement != Vector2.zero)
                 {
                     SoundFXManager.instance.PlaySoundFXClip("PlayerDash", this.transform);
+
                 }
             }
         }
@@ -239,6 +252,8 @@ public class Player : AnimatedEntity
                 activeMoveSpeed = Speed;
                 dashCoolCounter = dashCooldown;
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+
 
             }
         }
@@ -266,16 +281,18 @@ public class Player : AnimatedEntity
     }
     void Update()
     {
-
+        AnimationUpdate();
         checkForAttack();
         checkForDamage();
         
         if (freezeTime <= 0)
         {
             MovePlayer();
+
         }
         else
         {
+
             freezeTime -= Time.deltaTime;
         }
         
