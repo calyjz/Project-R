@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour
     public static float attackPower = 1.00f;
     public static float lightDecrease = 0.5f;
 
+    //variable storing the total number of enemies in a game
+    public int numOfEnemies = 2;
+
     GameObject Player;
     GameObject MainCamera;
 
@@ -84,6 +87,13 @@ public class GameController : MonoBehaviour
 
         currentRoom = 1;
 
+        //sets all enemy states to undefeated (1 for defeated, 0 for undefeated)
+        for (int i = 0; i < numOfEnemies; i++)
+        {
+            Debug.Log("creating " + "Enemy_no key " + (i + 1).ToString());
+            PlayerPrefs.SetInt("Enemy_no " + (i + 1).ToString(), 0);
+        }
+
         //Makes player object visible and loads first scene
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(MainCamera);
@@ -141,10 +151,19 @@ public class GameController : MonoBehaviour
 
     void PlayerRespawn()
     {
+        //resets and hides player, displays respawn scene
         DontDestroyOnLoad(this);
         Player.GetComponent<Player>().resetMe();
         Player.SetActive(false);
+
+        //resets all enemy states to undefeated (1 for defeated, 0 for undefeated)
+        for (int i = 0; i < numOfEnemies; i++)
+        {
+            Debug.Log("creating " + "Enemy_no key " + (i + 1).ToString());
+            PlayerPrefs.SetInt("Enemy_no " + (i + 1).ToString(), 0);
+        }
         SceneManager.LoadScene("Respawn");
+
     }
     
 }
