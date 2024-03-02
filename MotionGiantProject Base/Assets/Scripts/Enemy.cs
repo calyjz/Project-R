@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     private int nextPointIndex;
     private Vector3 nextPointPos;
     private int reversed = 1;
+    public int enemy_no;
+
 
     public List<Vector3> path;
     void Start()
@@ -167,6 +169,52 @@ public class Enemy : MonoBehaviour
         {
             attackTime -= Time.deltaTime;
         }
-            
+
+        Debug.Log("Debugging" + enemy_no.ToString() + " to " + PlayerPrefs.GetInt("Enemy_no " + enemy_no));
+        //check if enemy was previously defeated 
+        if (PlayerPrefs.GetInt("Enemy_no " + enemy_no) == 1)
+        {
+            Destroy(this.gameObject);
+        }
     }
+
+    public void defeated()
+    {   //check if player is not dead
+        if (!GameController.death)
+        {
+            //check if the enemy wasnt defeated before (store a value inside a file associated with enemy#. 1 for defeated, 0 for not defeated)
+            if (PlayerPrefs.GetInt("Enemy_no " + enemy_no) == 0)
+            {
+                GameController.exp += 5;
+                Debug.Log("Enemy killed bruh");
+                Debug.Log(GameController.exp);
+
+                //set enemy status to defeated
+                PlayerPrefs.SetInt("Enemy_no " + enemy_no, 1);
+                Debug.Log("setting" + enemy_no.ToString() + " to " + PlayerPrefs.GetInt("Enemy_no " + enemy_no));
+            }
+
+        }
+
+    }
+    /*
+    void OnDestroy()
+    {
+        if (!GameController.death)
+        {   
+            if (PlayerPrefs.GetInt("Enemy_no " + enemy_no) == 0)
+            {
+                GameController.exp += 5;
+                Debug.Log("Enemy killed bruh");
+                Debug.Log(GameController.exp);
+
+                //store a value inside a file associated with enemy#. 1 for defeated, 0 for not defeated
+                PlayerPrefs.SetInt("Enemy_no " + enemy_no, 1);
+                Debug.Log("setting" + enemy_no.ToString() + " to " + PlayerPrefs.GetInt("Enemy_no " + enemy_no));
+            }
+                
+        }
+
+    }
+    */
 }

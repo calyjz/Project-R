@@ -111,7 +111,10 @@ public class Player : AnimatedEntity
                 for (int i = 0; i < damage.Length; i++)
                 {
                     SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
-                    Destroy(damage[i].gameObject);
+
+                    //call the defeated function from the enemy script
+                    damage[i].gameObject.GetComponent<Enemy>().defeated();
+                    //Destroy(damage[i].gameObject);
                 }
                 attackTime = startTimeAttack;
                 SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
@@ -161,6 +164,7 @@ public class Player : AnimatedEntity
                     } else {
                     
                         Destroy(damage[i].gameObject);
+                        
                         freezeTime = freezeDuration;
                     //SpriteRenderer.sprite = NevHurtSprite;
                     switchAnimation("hurt");
@@ -210,10 +214,9 @@ public class Player : AnimatedEntity
                 transform.localScale = leftMovement;
                 leftorRight = -1;
             }
-            //AnimationUpdate();
+
             SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
 
-            //Debug.Log("Walking");
         }
         else
         {
