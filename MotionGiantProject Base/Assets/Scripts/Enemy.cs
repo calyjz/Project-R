@@ -178,11 +178,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void defeated()
+    public void RemoveEnemy()
     {   //check if player is not dead
         if (!GameController.death)
         {
-            //check if the enemy wasnt defeated before (store a value inside a file associated with enemy#. 1 for defeated, 0 for not defeated)
+            //check if the enemy wasnt defeated before (store a value inside a file associated with enemy#. 1 for removed, 0 for not defeated)
             if (PlayerPrefs.GetInt("Enemy_no " + enemy_no) == 0)
             {
                 GameController.exp += 5;
