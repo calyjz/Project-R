@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.Audio;
+//using UnityEngine.UIElements;
+//using UnityEngine.Audio;
 
 public class Player : AnimatedEntity
 {
@@ -29,7 +29,7 @@ public class Player : AnimatedEntity
     private Vector2 leftMovement;
     private Vector2 rightMovement;
 
-    private Light light;
+    private Light lightObject;
 
     [Header("Audio Settings")]
     private int oldAnimFrameIndex;
@@ -73,7 +73,7 @@ public class Player : AnimatedEntity
         leftMovement = transform.localScale;
         leftMovement.x *= -1;
         Debug.Log(GameObject.FindGameObjectWithTag("LightObject"));
-        light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
+        lightObject = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
 
     }
 
@@ -101,9 +101,9 @@ public class Player : AnimatedEntity
             //Debug.Log("Waiting for fire1");
             if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
             {
-                Vector2 rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
+                rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
                 Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
-                Debug.Log(rangeVector);
+                //Debug.Log(rangeVector);
                 float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
                 swingPivot.transform.eulerAngles = new Vector3(0, 0, angle);
 
@@ -131,19 +131,19 @@ public class Player : AnimatedEntity
     }
     public void resetMe()
     {
-        light = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>(); // quick fix
+        lightObject = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>(); // quick fix
 
 
         HP = GameController.hp_max;
-        light.NotifyChange();
+        lightObject.NotifyChange();
         dashCooldown = GameController.dashCooldown;
         attackPower = GameController.attackPower;
-        light.RestartLight();
+        lightObject.RestartLight();
     }
 
     public void newRoom()
     {
-        light.RestartLight();
+        lightObject.RestartLight();
     }
     void checkForDamage()
     {
@@ -155,7 +155,7 @@ public class Player : AnimatedEntity
             
                 for (int i = 0; i < damage.Length; i++)
                 {
-                    if (attackTime > 0.1f)
+                    if (attackTime > 0f)
                     {
                         Vector2 normal = (transform.position - damage[i].transform.position).normalized;
                         //movingDir = Vector2.Reflect(movingDir, normal);
@@ -187,7 +187,35 @@ public class Player : AnimatedEntity
                     }
                 }
             }
-        
+
+
+
+
+
+
+        //damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
+        damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, obstacles);
+
+        if (damage.Length > 0)
+        {
+
+            for (int i = 0; i < damage.Length; i++)
+            {
+                if (attackTime > 0f)
+                {
+                    Vector2 normal = (transform.position - damage[i].transform.position).normalized;
+                    //movingDir = Vector2.Reflect(movingDir, normal);
+                    damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+
+                }
+                else
+                {
+
+                    
+                }
+            }
+        }
+
     }
     void MovePlayer()
     {
@@ -308,7 +336,7 @@ public class Player : AnimatedEntity
         {
             SoundFXManager.instance.PlaySoundFXClip("LanternPickup", this.transform);
             Destroy(other.gameObject);
-            light.Pickup();
+            lightObject.Pickup();
         }
     }
 

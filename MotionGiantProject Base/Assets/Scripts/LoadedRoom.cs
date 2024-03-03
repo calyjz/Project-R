@@ -9,7 +9,7 @@ public class LoadedRoom : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newRoom();
         //this does not work?
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().GetComponent<Light>().RestartLight();
+        GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>().RestartLight();
     }
 
     
