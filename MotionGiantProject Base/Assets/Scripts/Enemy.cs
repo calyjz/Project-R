@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour
         }
         if ((nextPointPos - transform.position).magnitude < 0.1f)
         {
-            Debug.Log("Yes?");
+            //Debug.Log("Yes?");
             transform.position = nextPointPos;
             nextPointIndex += reversed;
             if (nextPointIndex >= path.Count || nextPointIndex <= 0)
@@ -197,6 +197,20 @@ public class Enemy : MonoBehaviour
         }
 
     }
+    //void OnDestroy()
+    //{
+    //    if (!GameController.death)
+    //    {
+    //        GameController.exp += 5;
+    //        Debug.Log("Enemy killed bruh");
+    //        Debug.Log(GameController.exp);
+
+    //        //store a value inside a file associated with enemy#. 1 for defeated, 0 for not defeated
+    //        PlayerPrefs.SetInt("Enemy_no " + enemy_no.ToString(), 1);
+    //        Debug.Log("Setting to defeated " + PlayerPrefs.GetInt("Enemy_no " + enemy_no).ToString());
+    //    }
+
+    //}
     /*
     void OnDestroy()
     {
