@@ -40,7 +40,11 @@ public class Enemy : MonoBehaviour
     {
         if (attackTime <= 0)
         {
-            Instantiate(shoot, spawner.position, Quaternion.identity);
+            //instaniate then do getcomponent
+            Instantiate(shoot, spawner.position, Quaternion.identity);//get comp.
+            //set directi directly to comp -> 
+            //set speed directly to comp
+
             attackTime = startTimeAttack;
         }
     }

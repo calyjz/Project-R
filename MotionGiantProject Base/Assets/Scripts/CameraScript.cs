@@ -17,7 +17,7 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         Vector3 desiredPosition = player.transform.position - offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed*Time.deltaTime*60);
         transform.position = smoothedPosition;
     }
 }
