@@ -12,9 +12,8 @@ public class Light : MonoBehaviour
     public float lightSize = 1f;
     public float lightDecrease = GameController.lightDecrease;
     public GameObject ombre;
+    public GameObject winOmbre;
 
-
-   
     // Start is called before the first frame update
     void Start()
     {
@@ -51,11 +50,13 @@ public class Light : MonoBehaviour
             ombre.SetActive(false);
             Destroy(darkness);
             run_light = false;
+            winOmbre.SetActive(true);
         }
         else
         {
             ombre.SetActive(true);
             run_light = true;
+            winOmbre.SetActive(false);
         }
         
        

@@ -59,9 +59,9 @@ public class ShootTowardsPlayer : MonoBehaviour
             for (int i = 0; i < enemiesSelf.Length; i++)
             {
                 
-                if(timeSpent>0.2f)
+                if(timeSpent>0.22f)
                 {
-                    //Destroy(enemiesSelf[i].gameObject);
+                    Destroy(enemiesSelf[i].gameObject);
                     //Debug.Log("De");
                     Destroy(gameObject);
                 }

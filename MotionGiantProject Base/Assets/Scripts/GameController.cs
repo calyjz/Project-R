@@ -19,14 +19,16 @@ public class GameController : MonoBehaviour
 
     // The player statistics that last for the duration of the game
     public static bool death;
-    public static int exp = 150;
+    public static int exp = 50; // Default XP
     public static int hp_max = 100;
     public static float dashCooldown = 1.00f;
     public static float attackPower = 1.00f;
     public static float lightDecrease = 0.5f;
 
     //variable storing the total number of enemies in a game
-    public int numOfEnemies = 2;
+    public int numOfEnemies = 4;
+    //variable storing the total number of lanterns in a game
+    public int numOfLanterns = 8;
 
     GameObject Player;
     GameObject MainCamera;
@@ -94,11 +96,21 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("Enemy_no " + (i + 1).ToString(), 0);
         }
 
+        //displays all lanterns (1 for removed, 0 for displayed)
+        for (int i = 0; i < numOfLanterns; i++)
+        {
+            Debug.Log("creating " + "Lantern_no key " + (i + 1).ToString());
+            PlayerPrefs.SetInt("Lantern_no " + (i + 1).ToString(), 0);
+        }
+
         //Makes player object visible and loads first scene
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(MainCamera);
         SceneManager.LoadScene("Room1");
         Player.SetActive(true);
+
+        //sets player positon
+        Player.transform.position = new Vector3(0, 0, (float)-1.1);
 
 
     }

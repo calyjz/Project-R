@@ -8,6 +8,7 @@ TagManager:
   - LanternObject
   - Darkness
   - Enemy
+  - WinOmbre
   layers:
   - Default
   - TransparentFX

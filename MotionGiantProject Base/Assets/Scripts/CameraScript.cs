@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     public GameObject player;
-    public float smoothSpeed = 0.125f;
+    public float smoothSpeed = 1f;
     Vector3 offset;
     // Start is called before the first frame update
     void Start()
