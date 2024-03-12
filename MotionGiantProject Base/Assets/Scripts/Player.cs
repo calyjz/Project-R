@@ -24,8 +24,6 @@ public class Player : AnimatedEntity
     private float dashCounter;
     private float dashCoolCounter;
 
-    public Sprite idleSprite;
-
     private Vector2 leftMovement;
     private Vector2 rightMovement;
 
