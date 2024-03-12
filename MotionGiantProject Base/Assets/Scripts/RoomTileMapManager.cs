@@ -1,19 +1,19 @@
-﻿//https://youtu.be/eK2SlZxNjiU?si=qB2iNv49pq2KSsAj
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Tilemaps;
 using UnityEngine;
 
-public class RoomManager : MonoBehaviour
+public class RoomTileMapManager : MonoBehaviour
 {
     [SerializeField] GameObject roomPrefab;
     [SerializeField] private int maxRooms = 15;
     [SerializeField] private int minRooms = 10;
 
-    int roomWidth = 15;
-    int roomHeight = 10;
+    private int roomWidth = 24;
+    private int roomHeight = 17;
 
-    int gridSizeX = 10;
-    int gridSizeY = 10;
+    private int gridSizeX = 10;
+    private int gridSizeY = 10;
 
     private List<GameObject> roomObjects = new List<GameObject>();
 
@@ -64,6 +64,7 @@ public class RoomManager : MonoBehaviour
         int y = roomIndex.y;
         roomGrid[x, y] = 1;
         roomCount++;
+        Debug.Log("Room Generation");
         var initialRoom = Instantiate(roomPrefab, GetPositionFromGridIndex(roomIndex), Quaternion.identity);
         initialRoom.name = $"Room-{roomCount}";
         initialRoom.GetComponent<Room>().RoomIndex = roomIndex;
@@ -182,18 +183,23 @@ public class RoomManager : MonoBehaviour
         return new Vector3(roomWidth * (gridX - gridSizeX / 2), roomHeight * (gridY - gridSizeY / 2));
     }
 
-    private void OnDrawGizmos()
+    public Room GetCurrentRoom(Vector3 position)
     {
-        Color gizmoColor = new Color(0, 1, 1, 0.05f);
-        Gizmos.color = gizmoColor;
+        Vector2Int gridIndex = new Vector2Int(
+            Mathf.FloorToInt((position.x + roomWidth * gridSizeX / 2) / roomWidth),
+            Mathf.FloorToInt((position.y + roomHeight * gridSizeY / 2) / roomHeight)
+        );
 
-        for (int x = 0; x < gridSizeX; x++)
-        {
-            for (int y = 0; y < gridSizeY; y++)
-            {
-                Vector3 position = GetPositionFromGridIndex(new Vector2Int(x, y));
-                Gizmos.DrawWireCube(position, new Vector3(roomWidth, roomHeight, 1));
-            }
-        }
+        return GetRoomScriptAt(gridIndex);
+    }
+
+    public int getRoomWidth()
+    {
+        return roomWidth;
+    }
+
+    public int getRoomHeight()
+    {
+        return roomHeight;
     }
 }
