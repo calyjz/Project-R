@@ -79,6 +79,8 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerStatUI.cs" />
     <Compile Include="Assets\Scripts\PolygonGenerator.cs" />
+    <Compile Include="Assets\Scripts\Room.cs" />
+    <Compile Include="Assets\Scripts\RoomManager.cs" />
     <Compile Include="Assets\Scripts\ShootTowardsPlayer.cs" />
     <Compile Include="Assets\Scripts\SoundFXManager.cs" />
     <Compile Include="Assets\Scripts\StartButtonBehavior.cs" />

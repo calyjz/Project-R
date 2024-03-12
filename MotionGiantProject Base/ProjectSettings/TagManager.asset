@@ -22,9 +22,9 @@ TagManager:
   - Projectile
   - Reflect
   - Obstacle
-  - 
-  - 
-  - 
+  - Door
+  - Wall
+  - Player
   - 
   - 
   - 
