@@ -24,7 +24,7 @@ public class PlayerStatUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hp = playerObject.HP.ToString();
+        hp = playerObject.hp.ToString();
         dashCurrent = Math.Round(playerObject.getDashCoolCurrent(), 2).ToString();
         dashCooldown = GameController.dashCooldown.ToString();
         attackPower = GameController.attackPower.ToString();
