@@ -30,28 +30,28 @@ public class CameraScript : MonoBehaviour
         Vector3 size = renderer.bounds.size;
 
         Vector2 playerPosition = player.transform.position;
-        if ((playerPosition.x - 9.78) - size.x / 2 > maxPosition.x)
-        {
-            maxPosition.x += map.getRoomWidth();
-            minPosition.x += map.getRoomWidth();
-        }
+        //if ((playerPosition.x - 9.78) - size.x / 2 > maxPosition.x)
+        //{
+        //    maxPosition.x += map.getRoomWidth();
+        //    minPosition.x += map.getRoomWidth();
+        //}
 
-        if (playerPosition.x + 9.78 < minPosition.x)
-        {
-            maxPosition.x -= map.getRoomWidth();
-            minPosition.x -= map.getRoomWidth();
-        }
+        //if (playerPosition.x + 9.78 < minPosition.x)
+        //{
+        //    maxPosition.x -= map.getRoomWidth();
+        //    minPosition.x -= map.getRoomWidth();
+        //}
 
-        if (playerPosition.y - 6.46 > maxPosition.y)
-        {
-            maxPosition.y += map.getRoomHeight();
-            minPosition.y += map.getRoomHeight();
-        }
+        //if (playerPosition.y - 6.46 > maxPosition.y)
+        //{
+        //    maxPosition.y += map.getRoomHeight();
+        //    minPosition.y += map.getRoomHeight();
+        //}
 
-        if (playerPosition.y + 6.46 < minPosition.y)
-        {
-            maxPosition.y -= map.getRoomHeight();
-            minPosition.y -= map.getRoomHeight();
-        }
+        //if (playerPosition.y + 6.46 < minPosition.y)
+        //{
+        //    maxPosition.y -= map.getRoomHeight();
+        //    minPosition.y -= map.getRoomHeight();
+        //}
     }
 }
