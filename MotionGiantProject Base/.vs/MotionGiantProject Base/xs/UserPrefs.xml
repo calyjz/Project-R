@@ -1,15 +1,11 @@
 ﻿<Properties StartupConfiguration="{EB1DE711-FF18-CBA0-A64A-07334A376EF5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RoomTileMapManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RoomTransitionInScene.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="265" Column="1" />
-      <File FileName="Assets/Scripts/MusicManager.cs" />
-      <File FileName="Assets/Scripts/EnemyMovement.cs" />
-      <File FileName="Assets/Scripts/StartButtonBehavior.cs" />
-      <File FileName="Assets/Scripts/RoomTileMapManager.cs" Line="203" Column="56" />
-      <File FileName="Assets/Scripts/Room.cs" Line="23" Column="53" />
-      <File FileName="Assets/Scripts/RoomObjectScript.cs" Line="22" Column="32" />
-      <File FileName="Assets/Scripts/CameraScript.cs" Line="14" Column="53" />
-      <File FileName="Assets/Scripts/VectorValue.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/RoomTileMapManager.cs" Line="13" Column="46" />
+      <File FileName="Assets/Scripts/RoomTransitionInScene.cs" Line="10" Column="9" />
+      <File FileName="Assets/Scripts/Room.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/RoomObjectScript.cs" Line="15" Column="32" />
+      <File FileName="Assets/Scripts/SpawnPointScript.cs" Line="10" Column="43" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +13,7 @@
           <Node name="MotionGiantProject Base" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="RoomTileMapManager.cs" selected="True" />
+                <Node name="RoomTransitionInScene.cs" selected="True" />
               </Node>
             </Node>
           </Node>

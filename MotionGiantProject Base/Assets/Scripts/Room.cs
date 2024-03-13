@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Room
 {
     private string roomName;
-    private Scene roomScene;
+    public GameObject roomObject;
 
     private int gridXPosition;
     private int gridYPosition;
@@ -37,5 +37,4 @@ public class Room
     public string RoomName { get => roomName; set => roomName = value; }
     public bool StartRoom { get => startRoom; set => startRoom = value; }
     public bool EndRoom { get => endRoom; set => endRoom = value; }
-    public Scene RoomScene { get => roomScene; set => roomScene = value; }
 }

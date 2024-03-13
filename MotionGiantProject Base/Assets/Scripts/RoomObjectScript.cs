@@ -5,39 +5,132 @@ using UnityEngine.Tilemaps;
 
 public class RoomObjectScript : MonoBehaviour
 {
-
-    [SerializeField] public GameObject SceneTransitionUp;
-    [SerializeField] public GameObject SceneTransitionDown;
-    [SerializeField] public GameObject SceneTransitionLeft;
-    [SerializeField] public GameObject SceneTransitionRight;
-    private Room room;
+    public Room room;
+    public GameObject player;
 
     public Tilemap tilemap;
     public Tile doorTile;
 
-    public Room RoomGetSet { get => room; set => room = value; }
+    public GameObject currentRoom;
+    public GameObject leftRoom;
+    public GameObject rightRoom;
+    public GameObject topRoom;
+    public GameObject bottomRoom;
+
+    [Header("Room Transitions")]
+    [SerializeField] public GameObject RoomTransitionUp;
+    [SerializeField] public GameObject RoomTransitionDown;
+    [SerializeField] public GameObject RoomTransitionLeft;
+    [SerializeField] public GameObject RoomTransitionRight;
+
+    [Header("Room SpawnPoints")]
+    [SerializeField] public GameObject SpawnPointUp;
+    [SerializeField] public GameObject SpawnPointDown;
+    [SerializeField] public GameObject SpawnPointLeft;
+    [SerializeField] public GameObject SpawnPointRight;
+
+    public void assignTransitions()
+    {
+        if (RoomTransitionUp != null)
+        {
+            RoomTransitionInScene upScript = RoomTransitionUp.GetComponent<RoomTransitionInScene>();
+            if (upScript != null)
+            {
+                upScript.player = player;
+                upScript.currentRoom = currentRoom;
+                if (topRoom != null)
+                {
+                    upScript.nextRoom = topRoom;
+                    RoomObjectScript topRoomScript = topRoom.GetComponent<RoomObjectScript>();
+                    if (topRoomScript != null && topRoomScript.SpawnPointDown != null)
+                    {
+                        upScript.nextRoomSpawnPoint = topRoomScript.SpawnPointDown.transform.position;
+                    }
+                }
+            }
+        }
+
+        if (RoomTransitionDown != null)
+        {
+            RoomTransitionInScene downScript = RoomTransitionDown.GetComponent<RoomTransitionInScene>();
+            if (downScript != null)
+            {
+                downScript.player = player;
+                downScript.currentRoom = currentRoom;
+                if (bottomRoom != null)
+                {
+                    downScript.nextRoom = bottomRoom;
+                    RoomObjectScript bottomRoomScript = bottomRoom.GetComponent<RoomObjectScript>();
+                    if (bottomRoomScript != null && bottomRoomScript.SpawnPointUp != null)
+                    {
+                        downScript.nextRoomSpawnPoint = bottomRoomScript.SpawnPointUp.transform.position;
+                    }
+                }
+            }
+        }
+
+        if (RoomTransitionLeft != null)
+        {
+            RoomTransitionInScene leftScript = RoomTransitionLeft.GetComponent<RoomTransitionInScene>();
+            if (leftScript != null)
+            {
+                leftScript.player = player;
+                leftScript.currentRoom = currentRoom;
+                if (leftRoom != null)
+                {
+                    leftScript.nextRoom = leftRoom;
+                    RoomObjectScript leftRoomScript = leftRoom.GetComponent<RoomObjectScript>();
+                    if (leftRoomScript != null && leftRoomScript.SpawnPointRight != null)
+                    {
+                        leftScript.nextRoomSpawnPoint = leftRoomScript.SpawnPointLeft.transform.position;
+                    }
+                }
+            }
+        }
+
+        if (RoomTransitionRight != null)
+        {
+            RoomTransitionInScene rightScript = RoomTransitionRight.GetComponent<RoomTransitionInScene>();
+            if (rightScript != null)
+            {
+                rightScript.player = player;
+                rightScript.currentRoom = currentRoom;
+                if (rightRoom != null)
+                {
+                    rightScript.nextRoom = rightRoom;
+                    RoomObjectScript rightRoomScript = rightRoom.GetComponent<RoomObjectScript>();
+                    if (rightRoomScript != null && rightRoomScript.SpawnPointLeft != null)
+                    {
+                        rightScript.nextRoomSpawnPoint = rightRoomScript.SpawnPointRight.transform.position;
+                    }
+                }
+            }
+        }
+    }
 
     public void OpenDoors()
     {
-        
+        //Order is wrong for some reason, that is why the things don't line up, it all works though
         if (room.TopDoor)
         {
-            openTopDoor();
+            
+            openLeftDoor();
         }
 
         if (room.BottomDoor)
         {
-            openBottomDoor();
+
+            openRightDoor();
         }
 
         if (room.LeftDoor)
         {
-            openLeftDoor();
+            openTopDoor();
         }
 
         if (room.RightDoor)
         {
-            openRightDoor();
+            openBottomDoor();
         }
     }
 

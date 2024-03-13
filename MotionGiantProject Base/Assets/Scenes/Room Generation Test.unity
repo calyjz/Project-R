@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780312296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 9.84, y: 6.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -217,67 +217,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7692f7c1bcee23240a34d94441847d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2116334280}
+  player: {fileID: 947371411}
   smoothSpeed: 1
-  maxPosition: {x: 10, y: 10}
-  minPosition: {x: 0, y: 0}
+  maxPosition: {x: 100, y: 100}
+  minPosition: {x: -100, y: -100}
   map: {fileID: 2025641765}
---- !u!1 &2025641764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2025641766}
-  - component: {fileID: 2025641765}
-  m_Layer: 0
-  m_Name: TileMapRoomManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2025641765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025641764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dafcb4672e24d4254910c619f5284f9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 571139542480570672, guid: 22132b114713d4e3796e4a0388a2efcb,
-    type: 3}
-  playerPrefab: {fileID: 1702945596203282804, guid: a80a426bcd8bd42b8a9d7388e892c462,
-    type: 3}
-  maxRooms: 5
-  minRooms: 3
---- !u!4 &2025641766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025641764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.4305654, y: -1.2648617, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2116334280 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1702945596203282804, guid: a80a426bcd8bd42b8a9d7388e892c462,
-    type: 3}
-  m_PrefabInstance: {fileID: 1702945596037891004}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1702945596037891004
+--- !u!1001 &947371410
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -292,12 +237,12 @@ PrefabInstance:
     - target: {fileID: 1702945596203282800, guid: a80a426bcd8bd42b8a9d7388e892c462,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.78
+      value: 9.89
       objectReference: {fileID: 0}
     - target: {fileID: 1702945596203282800, guid: a80a426bcd8bd42b8a9d7388e892c462,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.46
+      value: 6.18
       objectReference: {fileID: 0}
     - target: {fileID: 1702945596203282800, guid: a80a426bcd8bd42b8a9d7388e892c462,
         type: 3}
@@ -344,5 +289,65 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 1702945596203282804, guid: a80a426bcd8bd42b8a9d7388e892c462,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a80a426bcd8bd42b8a9d7388e892c462, type: 3}
+--- !u!1 &947371411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1702945596203282804, guid: a80a426bcd8bd42b8a9d7388e892c462,
+    type: 3}
+  m_PrefabInstance: {fileID: 947371410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2025641764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025641766}
+  - component: {fileID: 2025641765}
+  m_Layer: 0
+  m_Name: TileMapRoomManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2025641765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025641764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafcb4672e24d4254910c619f5284f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomPrefab: {fileID: 571139542480570672, guid: 22132b114713d4e3796e4a0388a2efcb,
+    type: 3}
+  playerPrefab: {fileID: 1702945596203282804, guid: a80a426bcd8bd42b8a9d7388e892c462,
+    type: 3}
+  maxRooms: 5
+  minRooms: 3
+--- !u!4 &2025641766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025641764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.8, y: 5.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

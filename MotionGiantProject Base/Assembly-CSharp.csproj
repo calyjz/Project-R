@@ -84,14 +84,15 @@
     <Compile Include="Assets\Scripts\Room.cs" />
     <Compile Include="Assets\Scripts\RoomObjectScript.cs" />
     <Compile Include="Assets\Scripts\RoomTileMapManager.cs" />
+    <Compile Include="Assets\Scripts\RoomTransitionInScene.cs" />
     <Compile Include="Assets\Scripts\ShootTowardsPlayer.cs" />
     <Compile Include="Assets\Scripts\SoundFXManager.cs" />
+    <Compile Include="Assets\Scripts\SpawnPointScript.cs" />
     <Compile Include="Assets\Scripts\StartButtonBehavior.cs" />
     <Compile Include="Assets\Scripts\StatButtons\AttackButton.cs" />
     <Compile Include="Assets\Scripts\StatButtons\DashButton.cs" />
     <Compile Include="Assets\Scripts\StatButtons\HPButton.cs" />
     <Compile Include="Assets\Scripts\StatButtons\LightButton.cs" />
-    <Compile Include="Assets\Scripts\VectorValue.cs" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
