@@ -111,8 +111,11 @@ public class Player : AnimatedEntity
                 {
                     SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
 
-                    //call the defeated function from the enemy script  
-                    damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
+                    //call the defeated function from the enemy script
+                    if (damage[i].gameObject.GetComponent<Enemy>() != null)
+                    {
+                        damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
+                    }
                     //Destroy(damage[i].gameObject);
                 }
                 attackTime = startTimeAttack;
@@ -180,7 +183,7 @@ public class Player : AnimatedEntity
                     if (hp<=0)
                         {
                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
-                            MusicManager.instance.PlayDeathMusic();
+                            //MusicManager.instance.PlayDeathMusic();
                             GameController.Instance.UpdateGameState(GameState.Respawn);
                         }
                     }
