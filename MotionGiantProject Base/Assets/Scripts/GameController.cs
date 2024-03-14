@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(MainCamera);
         SceneManager.LoadScene("Room1");
+
         Player.SetActive(true);
 
         //sets player positon
