@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Player : AnimatedEntity
 {
+    // Player movement values
     [Header("Movement Settings")]
     public float Speed;
     public Rigidbody2D rb2d;
@@ -13,24 +14,27 @@ public class Player : AnimatedEntity
     private Vector2 smoothMovement;
     private Vector2 movementSmoothVelocity;
     
+    // Values which are used for move speed and dash speed
     private float activeMoveSpeed;
     public float dashSpeed = 15f;
-
-    public float smoothMovementCountdown = 0.06f;
-    public float dashLength = 0.3f;
-    private float dashCooldown = GameController.dashCooldown;
-    private float attackPower = GameController.attackPower;
-
     private float dashCounter;
     private float dashCoolCounter;
+    [Header("Dash Settings")]
+    public float smoothMovementCountdown = 0.06f;
+    public float dashLength = 0.3f;
 
-    public Sprite idleSprite;
+    // Player Stats
+    public int hp = GameController.hp_max;
+    private float dashCooldown = GameController.dashCooldown;
+    private float attackPower = GameController.attackPower;
+    private Light lightObject;  // light stats are contained in light script
+    
+    // Used when determining which way the player must face
+    private Vector2 leftFacingDirection;
+    private Vector2 rightFacingDirection;
+    private int leftorRight = 1;
 
-    private Vector2 leftMovement;
-    private Vector2 rightMovement;
-
-    private Light lightObject;
-
+    // Audio values
     [Header("Audio Settings")]
     private int oldAnimFrameIndex;
     private string lastFootstepSound = null;
@@ -48,33 +52,28 @@ public class Player : AnimatedEntity
     // Quick fix
     public SpriteRenderer sword;
     public SpriteRenderer swing;
-
     public Sprite swordSprite;
     public Sprite swingSprite;
     public GameObject swingPivot;
-
-
+    
+    // For debugging
     private Vector2 rangeVector;
 
-    private float leftorRight = -1;
-
-
-    public Sprite NevHurtSprite;
+    // Attack cooldown
     public float freezeDuration = 0.4f;
     private float freezeTime = 0f;
-    public LayerMask obstacles;
+    
+    public LayerMask obstacles;  // idfk
 
-    public int HP = GameController.hp_max;
     void Start()
     {
         AnimationSetup();
         activeMoveSpeed = Speed;
-        rightMovement = transform.localScale;
-        leftMovement = transform.localScale;
-        leftMovement.x *= -1;
+        rightFacingDirection = transform.localScale;
+        leftFacingDirection = transform.localScale;
+        leftFacingDirection.x *= -1;
         Debug.Log(GameObject.FindGameObjectWithTag("LightObject"));
         lightObject = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
-
     }
 
 
@@ -134,7 +133,7 @@ public class Player : AnimatedEntity
         lightObject = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>(); // quick fix
 
 
-        HP = GameController.hp_max;
+        hp = GameController.hp_max;
         lightObject.NotifyChange();
         dashCooldown = GameController.dashCooldown;
         attackPower = GameController.attackPower;
@@ -174,11 +173,11 @@ public class Player : AnimatedEntity
                     SpriteRenderer.color = Color.red;
                   
 
-                        HP -= 10;
+                        hp -= 10;
                         SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
                         //Debug.Log(HP);
 
-                    if (HP<=0)
+                    if (hp<=0)
                         {
                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                             MusicManager.instance.PlayDeathMusic();
@@ -198,7 +197,6 @@ public class Player : AnimatedEntity
 
         if (damage.Length > 0)
         {
-
             for (int i = 0; i < damage.Length; i++)
             {
                 if (attackTime > 0f)
@@ -206,16 +204,9 @@ public class Player : AnimatedEntity
                     Vector2 normal = (transform.position - damage[i].transform.position).normalized;
                     //movingDir = Vector2.Reflect(movingDir, normal);
                     damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
-
-                }
-                else
-                {
-
-                    
                 }
             }
         }
-
     }
     void MovePlayer()
     {
@@ -231,20 +222,17 @@ public class Player : AnimatedEntity
         if (movement != Vector2.zero)
         {
             switchAnimation("walk");
-
             if (movement.x > 0)
             {
-                transform.localScale = rightMovement;
+                transform.localScale = rightFacingDirection;
                 leftorRight = 1;
             }
             else
             {
-                transform.localScale = leftMovement;
+                transform.localScale = leftFacingDirection;
                 leftorRight = -1;
             }
-
             SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
-
         }
         else
         {
@@ -253,50 +241,51 @@ public class Player : AnimatedEntity
 
             SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
-
         }
 
+        // If the player is dashing
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // A check to see if the dash cooldown is regenerated
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
-                activeMoveSpeed = dashSpeed;
+                activeMoveSpeed = dashSpeed;  // sets the players current move speed to be faster
                 GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f,0.5f);
-
-
-                dashCounter = dashLength;
+                
+                dashCounter = dashLength;  // counter is set to the time the dash is in effect for
                 if (movement != Vector2.zero)
                 {
                     SoundFXManager.instance.PlaySoundFXClip("PlayerDash", this.transform);
-
                 }
             }
         }
 
+        // If the player is currently dashing
         if (dashCounter > 0)
         {
             dashCounter -= Time.deltaTime;
 
-
+            // When the dash time has depleted
             if (dashCounter <= 0)
             {
-                activeMoveSpeed = Speed;
-                dashCoolCounter = dashCooldown;
+                activeMoveSpeed = Speed;  // movement speed goes back to normal
+                dashCoolCounter = dashCooldown;  // dash cooldown begins
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
                 GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
-
-
             }
         }
-
+        
+        // If the player has used a dash already and is on cooldown
         if (dashCoolCounter > 0)
         {
             dashCoolCounter -= Time.deltaTime;
         }
-
+        
+        // For the sake of the UI to not have the counter be less than 0
         if (dashCoolCounter < 0)
             dashCoolCounter = 0;
 
+        
         Sprite currentSprite = GetCurrentSprite();
         if (currentSprite.name.ToLower().Contains("walk"))
         {
