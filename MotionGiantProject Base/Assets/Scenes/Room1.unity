@@ -922,7 +922,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
-  enemy_no: 3
+  enemy_no: 4
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2
-  enemy_no: 4
+  enemy_no: 2
   path:
   - {x: 1.09, y: 8.29, z: -1.5}
   - {x: 8.32, y: 8.29, z: -1.5}
