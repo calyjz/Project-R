@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 765560751}
   - component: {fileID: 765560752}
   m_Layer: 0
-  m_Name: Title
+  m_Name: title_draft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 1539120828}
   - component: {fileID: 1539120829}
   m_Layer: 0
-  m_Name: Nev Lantern Art
+  m_Name: nev_holding_lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
