@@ -139,6 +139,7 @@ public class UIButtonBehavior : MonoBehaviour
 
     private void Update()
     {
+        Dash = 1 - GameController.dashCooldown;
 
         if (HPClicks == 0) //disables down button if no points have been allocated
         {
