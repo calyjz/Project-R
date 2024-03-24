@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
-    private AudioSource audioSource;
-    private int currentTrack = 0;
-    public AudioClip[] tracks = new AudioClip[3];
+    public AudioSource audioSource;
+    public AudioClip enemyTrack;
+    public AudioClip mainTheme;
     public AudioClip youDied;
+
+    public AudioMixerGroup enemyTrackMixerGroup;
+    public AudioMixerGroup mainThemeMixerGroup;
+
     public float[] volumes = new float[3];
-    private bool isPlayerDead = false;
 
     public static MusicManager instance;
 
@@ -25,44 +29,47 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         PlayNextTrack();
     }
+
+
 
     void Update()
     {
-        if (!audioSource.isPlaying && !isPlayerDead)
-        {
-            PlayNextTrack();
-        }
-    }
-
-    void PlayNextTrack()
-    {
-        audioSource.clip = tracks[currentTrack];
-        audioSource.volume = volumes[currentTrack];
-        audioSource.Play();
-
-        currentTrack = (currentTrack + 1) % tracks.Length;
-    }
-
-    public void PlayDeathMusic()
-    {
-        isPlayerDead = true;
-        audioSource.clip = youDied;
-        audioSource.Play();
-    }
-
-    public void ResumeMusic()
-    {
-        isPlayerDead = false;
         PlayNextTrack();
     }
 
-    public AudioSource GetAudioSource()
+
+    public void PlayNextTrack()
     {
-        return audioSource;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (SceneManager.GetActiveScene().name != "StartScene" && enemies.Length != 0)
+        {
+            if (!audioSource.isPlaying || audioSource.clip != enemyTrack)
+            {
+                PlayAudioClip(enemyTrack, enemyTrackMixerGroup);
+            }
+        }
+        else if (SceneManager.GetActiveScene().name != "StartScene")
+        {
+            if (!audioSource.isPlaying || audioSource.clip != mainTheme)
+            {
+                PlayAudioClip(mainTheme, mainThemeMixerGroup);
+            }
+        }
     }
+
+
+
+    public void PlayAudioClip(AudioClip clip, AudioMixerGroup mixerGroup)
+    {
+        if (clip != null && clip != audioSource.clip)
+        {
+            audioSource.clip = clip;
+            audioSource.outputAudioMixerGroup = mixerGroup;
+            audioSource.Play();
+        }
+    }
+
+
 }
-
-
