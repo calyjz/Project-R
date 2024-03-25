@@ -24,12 +24,20 @@ public class Enemy : MonoBehaviour
     private int reversed = 1;
     public int enemy_no;
 
+    private int hp = 100;
 
     public List<Vector3> path;
+
+    private float colorTimeCounter;
+
+    public bool MedEnemy = false;
+
+    private Vector3 originalScale;
     void Start()
     {
         spawner = transform.Find("spawner");
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        originalScale = transform.localScale;
     }
 
 
@@ -41,8 +49,24 @@ public class Enemy : MonoBehaviour
     {
         if (attackTime <= 0)
         {
-            Instantiate(shoot, spawner.position, Quaternion.identity);
-            attackTime = startTimeAttack;
+            if (MedEnemy)
+            {
+                var newProjectile = Instantiate(shoot, spawner.position, Quaternion.identity);
+                newProjectile.GetComponent<ShootTowardsPlayer>().initalRotate = (-30);
+
+                newProjectile = Instantiate(shoot, spawner.position, Quaternion.identity);
+                newProjectile.GetComponent<ShootTowardsPlayer>().initalRotate = (0);
+
+                newProjectile = Instantiate(shoot, spawner.position, Quaternion.identity);
+                newProjectile.GetComponent<ShootTowardsPlayer>().initalRotate = (30);
+
+                attackTime = startTimeAttack;
+            }
+            else
+            {
+                Instantiate(shoot, spawner.position, Quaternion.identity);
+                attackTime = startTimeAttack;
+            }
         }
     }
     bool isPlayerInAttackRange()
@@ -132,9 +156,26 @@ public class Enemy : MonoBehaviour
         }
         return true;
     }
+    void FacePlayer()
+    {
+        if((playerPos.position - transform.position).x > 0)
+        {
+            var scale = (originalScale);
+            scale.x *= -1;
+            transform.localScale = scale;
+        } else
+        {
+            transform.localScale = originalScale;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        colorTimeCounter -= Time.deltaTime;
+        if (colorTimeCounter < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
         // There are 3 enemy models
         // ..Patroll
         // ..Follow Player (When Visible)
@@ -142,6 +183,7 @@ public class Enemy : MonoBehaviour
         //isPlayerInCleanSight();
         //return;
         //Debug.Log(mode);
+        FacePlayer();
 
         bool isPlayerAttackable = isPlayerInAttackRange();
         bool isPlayerVisible = isPlayerInCleanSight();
@@ -171,7 +213,7 @@ public class Enemy : MonoBehaviour
             attackTime -= Time.deltaTime;
         }
 
-        Debug.Log("Debugging" + enemy_no.ToString() + " to " + PlayerPrefs.GetInt("Enemy_no " + enemy_no));
+        //Debug.Log("Debugging" + enemy_no.ToString() + " to " + PlayerPrefs.GetInt("Enemy_no " + enemy_no));
         //check if enemy was previously defeated 
         if (PlayerPrefs.GetInt("Enemy_no " + enemy_no) == 1)
         {
@@ -198,6 +240,16 @@ public class Enemy : MonoBehaviour
 
         }
 
+    }
+    public void TakeDamage(int hitpoints)
+    {
+        hp -= hitpoints;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        colorTimeCounter = 0.1f;
+        if (hp <= 0)
+        {
+            RemoveEnemy();
+        }
     }
     //void OnDestroy()
     //{

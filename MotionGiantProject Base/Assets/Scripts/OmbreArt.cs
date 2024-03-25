@@ -66,6 +66,13 @@ public class OmbreArt : MonoBehaviour
         colorStops[index].color = color2;
         DrawTexture();
     }
+    public void ChangeAlpha(float a)
+    {
+        for (int i = 0; i < colorStops.Length; i += 1)
+        {
+            colorStops[i].color.a = a;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

@@ -37,8 +37,8 @@ public class AnimatedEntity : MonoBehaviour
     //Default animation update
     protected void AnimationUpdate()
     {
-        Debug.Log(index);
-        Debug.Log(DefaultAnimationCycle);
+        //Debug.Log(index);
+        //Debug.Log(DefaultAnimationCycle);
         animationTimer += Time.deltaTime;
 
         if (animationTimer > animationTimerMax)
@@ -56,7 +56,7 @@ public class AnimatedEntity : MonoBehaviour
                 if (DefaultAnimationCycle.Count > 0)
                 {
                     SpriteRenderer.sprite = DefaultAnimationCycle[index];
-                    Debug.Log("anything");
+                    //Debug.Log("anything");
                 }
             }
             else
@@ -88,7 +88,7 @@ public class AnimatedEntity : MonoBehaviour
     
     protected void switchAnimation(string mode)
     {
-        Debug.Log(mode);
+        //Debug.Log(mode);
         if(mode == "walk")
         {
             DefaultAnimationCycle = WalkAnimationCycle;

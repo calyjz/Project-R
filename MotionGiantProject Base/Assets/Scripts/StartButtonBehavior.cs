@@ -10,7 +10,7 @@ public class StartButtonBehavior : MonoBehaviour
         Debug.Log("Button Clicked");
         if (tag.Contains("Respawn"))
         {
-            MusicManager.instance.ResumeMusic();
+            MusicManager.instance.PlayNextTrack();
         }
         GameController.Instance.UpdateGameState(GameState.Run);
         
