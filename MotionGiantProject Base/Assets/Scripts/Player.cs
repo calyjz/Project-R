@@ -1,6 +1,9 @@
-﻿//using System.Collections;
+﻿// using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+
 //using UnityEngine.UIElements;
 //using UnityEngine.Audio;
 
@@ -16,12 +19,12 @@ public class Player : AnimatedEntity
     
     // Values which are used for move speed and dash speed
     private float activeMoveSpeed;
-    public float dashSpeed = 15f;
+    public float dashSpeed;
     private float dashCounter;
     private float dashCoolCounter;
     [Header("Dash Settings")]
-    public float smoothMovementCountdown = 0.06f;
-    public float dashLength = 0.3f;
+    private float smoothMovementCountdown = 0.06f;
+    public float dashLength;
 
     // Player Stats
     public int hp = GameController.hp_max;
@@ -62,6 +65,10 @@ public class Player : AnimatedEntity
     // Attack cooldown
     public float freezeDuration = 0.4f;
     private float freezeTime = 0f;
+
+    private bool damaged;
+    private float damageCounter;
+    private float damageCooldown = 0.5f;
     
     public LayerMask obstacles;  // idfk
 
@@ -151,11 +158,9 @@ public class Player : AnimatedEntity
     void checkForDamage()
     {
         Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
-
-
+        
         if (damage.Length > 0)
             {
-            
                 for (int i = 0; i < damage.Length; i++)
                 {
                     if (attackTime > 0f)
@@ -173,23 +178,29 @@ public class Player : AnimatedEntity
                     }
 
                 } else {
-                    
-                        Destroy(damage[i].gameObject);
-                        
-                        freezeTime = freezeDuration;
-                    //SpriteRenderer.sprite = NevHurtSprite;
-                    switchAnimation("hurt");
+                        if (GameController.canTakeDamage)
+                        {
 
-                    //change nev red when hit for a sec
+                            Destroy(damage[i].gameObject);
 
-                    SpriteRenderer.color = Color.red;
-                  
+                            freezeTime = freezeDuration;
+                            //SpriteRenderer.sprite = NevHurtSprite;
+                            switchAnimation("hurt");
 
-                        hp -= 10;
-                        SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
-                        //Debug.Log(HP);
+                            //change nev red when hit for a sec
 
-                    if (hp<=0)
+                            SpriteRenderer.color = Color.red;
+
+                            hp -= 10;
+
+                            SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
+                            damaged = true;
+
+                            //Debug.Log(HP);
+                        }
+                    }
+
+                        if (hp<=0)
                         {
                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                             //MusicManager.instance.PlayDeathMusic();
@@ -197,13 +208,8 @@ public class Player : AnimatedEntity
                         }
                     }
                 }
-            }
-
-
-
-
-
-
+            
+        
         //damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
         damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, obstacles);
 
@@ -224,14 +230,29 @@ public class Player : AnimatedEntity
                         Destroy(damage[i].gameObject);
                     }
                 }
-                else
-                {
-
-                    
-                }
             }
         }
+
+        if (damaged)
+        {
+            damageCounter = damageCooldown;
+            damaged = false;
+        }
+
+        if (damageCounter > 0)
+        {
+            GameController.canTakeDamage = false;
+            damageCounter -= Time.deltaTime;
+        }
+
+        if (damageCounter <= 0)
+        {
+            GameController.canTakeDamage = true;
+        }
+        
     }
+
+   
     void MovePlayer()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -288,6 +309,8 @@ public class Player : AnimatedEntity
         if (dashCounter > 0)
         {
             dashCounter -= Time.deltaTime;
+            GameController.canTakeDamage = false;
+            Physics2D.IgnoreLayerCollision(0, 9, true);
 
             // When the dash time has depleted
             if (dashCounter <= 0)
@@ -296,6 +319,9 @@ public class Player : AnimatedEntity
                 dashCoolCounter = dashCooldown;  // dash cooldown begins
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
                 GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 1f);
+                GameController.canTakeDamage = true;
+                Physics2D.IgnoreLayerCollision(0, 9, false);
+
             }
         }
         
@@ -308,7 +334,7 @@ public class Player : AnimatedEntity
         // For the sake of the UI to not have the counter be less than 0
         if (dashCoolCounter < 0)
             dashCoolCounter = 0;
-
+        
         
         Sprite currentSprite = GetCurrentSprite();
         if (currentSprite.name.ToLower().Contains("walk"))
@@ -323,20 +349,33 @@ public class Player : AnimatedEntity
             oldAnimFrameIndex = index;
         }
     }
+
+    void checkIFrame()
+    {
+        if (GameController.canTakeDamage == false)
+        {
+            Physics2D.IgnoreLayerCollision(0, 9, true);
+        }
+        else
+        {
+            Physics2D.IgnoreLayerCollision(0, 9, false);
+        }
+            
+    }
     void Update()
     {
         AnimationUpdate();
         checkForAttack();
         checkForDamage();
+        checkIFrame();
+        
         
         if (freezeTime <= 0)
         {
             MovePlayer();
-
         }
         else
         {
-
             freezeTime -= Time.deltaTime;
         }
         
@@ -376,4 +415,5 @@ public class Player : AnimatedEntity
     {
         return (dashCooldown - dashCoolCounter);
     }
+    
 }

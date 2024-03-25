@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnterDoor : MonoBehaviour
 {
 	public char Door;
+	public string NextScene;
 	
 	void OnCollisionEnter2D(Collision2D col)
 	{
@@ -34,7 +35,7 @@ public class EnterDoor : MonoBehaviour
 					break;
 			}
 			
-			GameController.Instance.loadNextRoom(doorDirection);
+			GameController.Instance.loadNextRoom(doorDirection, NextScene);
 		}
 	}
 }

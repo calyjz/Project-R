@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -221,6 +222,7 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    
 
     public void RemoveEnemy()
     {   //check if player is not dead
