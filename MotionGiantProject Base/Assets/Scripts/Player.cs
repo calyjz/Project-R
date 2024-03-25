@@ -178,25 +178,27 @@ public class Player : AnimatedEntity
                     }
 
                 } else {
-                    
-                        Destroy(damage[i].gameObject);
-                        
-                        freezeTime = freezeDuration;
-                    //SpriteRenderer.sprite = NevHurtSprite;
-                    switchAnimation("hurt");
+                        if (GameController.canTakeDamage)
+                        {
+
+                            Destroy(damage[i].gameObject);
+
+                            freezeTime = freezeDuration;
+                            //SpriteRenderer.sprite = NevHurtSprite;
+                            switchAnimation("hurt");
 
                             //change nev red when hit for a sec
 
                             SpriteRenderer.color = Color.red;
-                            
+
                             hp -= 10;
-                            
+
                             SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
                             damaged = true;
 
                             //Debug.Log(HP);
-
                         }
+                    }
 
                         if (hp<=0)
                         {
@@ -206,7 +208,7 @@ public class Player : AnimatedEntity
                         }
                     }
                 }
-            }
+            
         
         //damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
         damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, obstacles);
@@ -227,11 +229,6 @@ public class Player : AnimatedEntity
                     {
                         Destroy(damage[i].gameObject);
                     }
-                }
-                else
-                {
-
-                    
                 }
             }
         }

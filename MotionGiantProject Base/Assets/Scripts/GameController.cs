@@ -107,7 +107,7 @@ public class GameController : MonoBehaviour
         //Makes player object visible and loads first scene
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(MainCamera);
-        SceneManager.LoadScene("Room1");
+        SceneManager.LoadScene("SpawnRoom");
 
         Player.SetActive(true);
 
