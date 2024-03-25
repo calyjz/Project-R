@@ -83,6 +83,7 @@ public class UIButtonBehavior : MonoBehaviour
         if (GameController.exp >= DashCost && GameController.dashCooldown > DashMax)//increase stat if user has enough exp
         {
             SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
+       
             GameController.dashCooldown -= DashIncrease;//subtracts the decrease in cooldown time from gamecontroller stat
             DashClicks += 1;
             GameController.exp -= DashCost;
