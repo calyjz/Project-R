@@ -550,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   currentRoom: 0
-  numOfEnemies: 4
+  numOfEnemies: 8
   numOfLanterns: 8
 --- !u!4 &792764560
 Transform:

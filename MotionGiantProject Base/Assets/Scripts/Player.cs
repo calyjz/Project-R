@@ -111,11 +111,12 @@ public class Player : AnimatedEntity
                 {
                     SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
 
-                    //call the defeated function from the enemy script
-                    if (damage[i].gameObject.GetComponent<Enemy>() != null)
-                    {
-                        damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
-                    }
+                    //call the defeated function from the enemy script  
+                    //damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
+                    //try
+                    //{
+                        damage[i].gameObject.GetComponent<Enemy>().TakeDamage(35);
+                    //}
                     //Destroy(damage[i].gameObject);
                 }
                 attackTime = startTimeAttack;
@@ -160,10 +161,18 @@ public class Player : AnimatedEntity
                     if (attackTime > 0f)
                     {
                         Vector2 normal = (transform.position - damage[i].transform.position).normalized;
-                        //movingDir = Vector2.Reflect(movingDir, normal);
+                    //movingDir = Vector2.Reflect(movingDir, normal);
+                    if (damage[i].gameObject.GetComponent<ShootTowardsPlayer>().Deflectable)
+                    {
                         damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
 
-                    } else {
+                    }
+                    else
+                    {
+                        Destroy(damage[i].gameObject);
+                    }
+
+                } else {
                     
                         Destroy(damage[i].gameObject);
                         
@@ -206,7 +215,19 @@ public class Player : AnimatedEntity
                 {
                     Vector2 normal = (transform.position - damage[i].transform.position).normalized;
                     //movingDir = Vector2.Reflect(movingDir, normal);
-                    damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+                    if (damage[i].gameObject.GetComponent<ShootTowardsPlayer>().Deflectable)
+                    {
+                        damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+                    }
+                    else
+                    {
+                        Destroy(damage[i].gameObject);
+                    }
+                }
+                else
+                {
+
+                    
                 }
             }
         }

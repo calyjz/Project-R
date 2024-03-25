@@ -92,14 +92,14 @@ public class GameController : MonoBehaviour
         //sets all enemy states to undefeated (1 for defeated, 0 for undefeated)
         for (int i = 0; i < numOfEnemies; i++)
         {
-            Debug.Log("creating " + "Enemy_no key " + (i + 1).ToString());
+            //Debug.Log("creating " + "Enemy_no key " + (i + 1).ToString());
             PlayerPrefs.SetInt("Enemy_no " + (i + 1).ToString(), 0);
         }
 
         //displays all lanterns (1 for removed, 0 for displayed)
         for (int i = 0; i < numOfLanterns; i++)
         {
-            Debug.Log("creating " + "Lantern_no key " + (i + 1).ToString());
+            //Debug.Log("creating " + "Lantern_no key " + (i + 1).ToString());
             PlayerPrefs.SetInt("Lantern_no " + (i + 1).ToString(), 0);
         }
 
@@ -172,7 +172,7 @@ public class GameController : MonoBehaviour
         //resets all enemy states to undefeated (1 for defeated, 0 for undefeated)
         for (int i = 0; i < numOfEnemies; i++)
         {
-            Debug.Log("creating " + "Enemy_no key " + (i + 1).ToString());
+            //Debug.Log("creating " + "Enemy_no key " + (i + 1).ToString());
             PlayerPrefs.SetInt("Enemy_no " + (i + 1).ToString(), 0);
         }
         SceneManager.LoadScene("Respawn");

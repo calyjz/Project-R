@@ -14,6 +14,8 @@ public class Light : MonoBehaviour
     public GameObject ombre;
     public GameObject winOmbre;
 
+    private float ColorTimer = 0;
+    private string state;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +44,22 @@ public class Light : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        if (ColorTimer > 0)
+        {
+            ColorTimer -= Time.deltaTime;
+        }
+        //Debug.Log(ColorTimer);
+        //Color newColor = Color.white;
+        //newColor.a = ColorTimer;
+        //ombre.GetComponent<OmbreArt>().ChangeAlpha(1-ColorTimer);
+        //////Color newColor2 = Color.white;
+        //newColor2.a = 1 - ColorTimer;
+        //winOmbre.GetComponent<OmbreArt>().ChangeAlpha(ColorTimer);
+
+        //winOmbre.GetComponent<Renderer>().sharedMaterial.SetColor("Tint", newColor2);
+
+
         transform.localScale = new Vector3(initialX*lightSize, initialY*lightSize, initialZ*lightSize);
         darkness = GameObject.FindGameObjectWithTag("Darkness");
         if (!GameObject.FindGameObjectWithTag("Enemy"))
@@ -50,12 +67,20 @@ public class Light : MonoBehaviour
             ombre.SetActive(false);
             Destroy(darkness);
             run_light = false;
+            //if(state != "noEnemiesLeft")
+            //{
+            //ColorTimer = 1;
+
+            //}
+            //state = "noEnemiesLeft";
             winOmbre.SetActive(true);
         }
         else
         {
+            //ColorTimer = 0;
             ombre.SetActive(true);
             run_light = true;
+            //state = "killEnemies";
             winOmbre.SetActive(false);
         }
         
