@@ -7,7 +7,10 @@ public class ShootTowardsPlayer : MonoBehaviour
     // Start is called before the first frame update
     Vector3 startPos;
     Vector3 endPos;
-    
+
+
+    public bool killOtherEnemies = true;
+
     private Vector3 movingDir;
 
     private float startTime;
@@ -18,30 +21,31 @@ public class ShootTowardsPlayer : MonoBehaviour
     private float totalTime = 0f;
 
     public LayerMask wallsLayer;
+
+    // For Medium Enemies
+    public float initalRotate = 0;
+
+    public bool Deflectable = true;
     void Start()
     {
         startPos = transform.position;
-        movingDir = (GameObject.FindGameObjectWithTag("Player").transform.position- transform.position).normalized * 10f;
+        Debug.Log(initalRotate);
+        movingDir = (Quaternion.Euler(0, 0, initalRotate) * (GameObject.FindGameObjectWithTag("Player").transform.position- transform.position).normalized).normalized * 10f;
         startTime = Time.time;
     }
 
-
-    //IEnumerator LerpFunction(Vector3 targePosition)
+    /// For the triple projectile shot
+    //public void RotateDir(float angle)
     //{
-    //    float time = 0;
-    //    Vector3 startPosition = transform.position;
-    //    while (time < duration)
-    //    {
-    //        transform.position = Vector3.Lerp(startPos, endPos,)
-    //        time += Time.deltaTime;
-    //    }
+    //    movingDir = Quaternion.Euler(0, angle, 0) * (movingDir);
     //}
-    // Update is called once per frame
+
+
+
     void Update()
     {
         float timeSpent= (Time.time - startTime);
-        //Debug.Log(fractionOfJourney);
-        //Debug.Log(timeSpent);
+
         if (timeSpent > spawnTime)
         {
             Destroy(gameObject);
@@ -49,28 +53,37 @@ public class ShootTowardsPlayer : MonoBehaviour
         float distCovered = (Time.time - startTime) * speed;
         transform.position = startPos+distCovered* movingDir;
 
-        Collider2D[] enemiesSelf = Physics2D.OverlapCircleAll(transform.position, 0.12f, enemiesLayer);
-
-        //// Reflect the bullet's direction if it hits an obstacle
-        if (enemiesSelf.Length > 0)
+        if (killOtherEnemies)
         {
-            for (int i = 0; i < enemiesSelf.Length; i++)
-            {
-                
-                if(timeSpent>0.22f)
-                {
-                    Destroy(enemiesSelf[i].gameObject);
-                    //Debug.Log("De");
-                    Destroy(gameObject);
-                }
-                
-            }
-                //    // Get the normal of the first obstacle hit
-                ///    Vector2 normal = (transform.position - obstacles[0].transform.position).normalized;
+            Collider2D[] enemiesSelf = Physics2D.OverlapCircleAll(transform.position, 0.12f, enemiesLayer);
 
-                //    // Reflect the direction
-                //    movingDir = Vector2.Reflect(movingDir, normal);
+            if (enemiesSelf.Length > 0)
+            {
+                for (int i = 0; i < enemiesSelf.Length; i++)
+                {
+
+                    if (timeSpent > 0.22f)
+                    {
+                        //try
+                        //{
+                        if (!enemiesSelf[i].gameObject.GetComponent<Enemy>().MedEnemy)
+                        {
+                            enemiesSelf[i].gameObject.GetComponent<Enemy>().TakeDamage(70);
+
+                        }
+                        //}
+                        //catch
+                        //{
+                        //    enemiesSelf[i].gameObject.GetComponent<EnemyMed>().TakeDamage(70);
+
+                        //}
+                        Destroy(gameObject);
+                    }
+
+                }
+            }
         }
+
 
         Collider2D[] wallHit = Physics2D.OverlapCircleAll(transform.position, 0.12f, wallsLayer);
         if (wallHit.Length>0)
@@ -87,16 +100,4 @@ public class ShootTowardsPlayer : MonoBehaviour
         startTime = Time.time-0.05f;
     }
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    Debug.Log(collision);
-    //    //if (collision.gameObject.tag == "myObject")//you can also have a specific name as well
-    //    //{
-    //    //    do something
-    //    //}
-    //}
-    //void CollisionEnter2D(Collision2D collide) {
-    //    Debug.Log(collide);
-    //    movingDir = Vector3.Reflect(movingDir, collide.contacts[0].normal);
-    //}
 }
