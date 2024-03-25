@@ -111,20 +111,12 @@ public class Player : AnimatedEntity
                 {
                     SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
 
-<<<<<<< HEAD
-                    //call the defeated function from the enemy script
-                    if (damage[i].gameObject.GetComponent<Enemy>() != null)
-                    {
-                        damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
-                    }
-=======
                     //call the defeated function from the enemy script  
                     //damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
                     //try
                     //{
                         damage[i].gameObject.GetComponent<Enemy>().TakeDamage(35);
                     //}
->>>>>>> Med-Enemy
                     //Destroy(damage[i].gameObject);
                 }
                 attackTime = startTimeAttack;
