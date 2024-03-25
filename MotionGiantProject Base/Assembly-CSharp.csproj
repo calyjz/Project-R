@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\AnimatedEntity.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\EnterDoor.cs" />
      <Compile Include="Assets\Scripts\ExperiencePointUI.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
