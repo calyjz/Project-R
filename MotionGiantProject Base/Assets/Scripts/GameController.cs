@@ -13,9 +13,8 @@ public class GameController : MonoBehaviour
     //creates a public enum that contains the current game state
     public GameState state;
     //{N, E, S, W}, index refers to the room# -1
-    public int[,] roomDoors = {{0, 0, 0, 2}, { 3, 1, 0, 0 }, { 0, 0, 2, 0 } };
 
-    public int currentRoom = 0;
+    public string currentRoom;
 
     // The player statistics that last for the duration of the game
     public static bool death;
@@ -88,7 +87,7 @@ public class GameController : MonoBehaviour
     {//called at the start of each run
         //TODO: Create room layout here
 
-        currentRoom = 1;
+        currentRoom = "SpawnRoom";
 
         //sets all enemy states to undefeated (1 for defeated, 0 for undefeated)
         for (int i = 0; i < numOfEnemies; i++)
@@ -117,9 +116,8 @@ public class GameController : MonoBehaviour
 
     }
 
-    public void loadNextRoom(int DoorDirection)
+    public void loadNextRoom(int DoorDirection, string NextRoom)
     {//loads the next room
-        int nextRoom = roomDoors[currentRoom-1, DoorDirection];
     
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         if (Player == null)
@@ -129,12 +127,12 @@ public class GameController : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newRoom();
 
         //debug message
-        Debug.Log("Exiting Room" + currentRoom.ToString() + "through D" + DoorDirection.ToString() + ", entering Room" + nextRoom.ToString());
+        Debug.Log("Exiting Room" + currentRoom + "through D" + DoorDirection.ToString() + ", entering Room" + NextRoom);
 
         //loads new scene
         DontDestroyOnLoad(Player);
-        SceneManager.LoadScene("Room" + nextRoom.ToString());
-        currentRoom = nextRoom;
+        SceneManager.LoadScene(NextRoom);
+        currentRoom = NextRoom;
         
         //set new player position
         switch (DoorDirection)
@@ -158,7 +156,7 @@ public class GameController : MonoBehaviour
 
     }
 
-    public int GetCurrentRoom()
+    public string GetCurrentRoom()
     {//helper function to retrieve the current room #
         return currentRoom;
     }
