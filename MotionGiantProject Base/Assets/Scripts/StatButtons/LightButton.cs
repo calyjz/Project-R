@@ -8,6 +8,7 @@ public class LightButton : MonoBehaviour
     private float[] lightLevels = { 0.5f, 0.8f, 1.2f, 1.4f, 1.6f, 1.8f, 2.0f, 2.2f, 2.5f };
     public void OnButtonPress()
     {
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         Debug.Log("Button Clicked");
         if (GameController.exp >= 50 && level < 9)
         {

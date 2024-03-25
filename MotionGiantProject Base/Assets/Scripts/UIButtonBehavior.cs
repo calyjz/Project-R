@@ -59,6 +59,7 @@ public class UIButtonBehavior : MonoBehaviour
     {
         if (GameController.exp >= HPCost && GameController.hp_max < HPMax)//increase stat if user has enough exp
         {
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             GameController.hp_max += HPIncrease;
             HPClicks += 1;
             GameController.exp -= HPCost;
@@ -70,6 +71,7 @@ public class UIButtonBehavior : MonoBehaviour
     {
         if (HPClicks > 0)//checks if the user already clicked  the up button previously
         {
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             GameController.hp_max -= HPIncrease;
             HPClicks -= 1;
             GameController.exp += HPCost;
@@ -83,6 +85,7 @@ public class UIButtonBehavior : MonoBehaviour
         Debug.Log(DashIncrease);
         if (GameController.exp >= DashCost && Dash < DashMax)//increase stat if user has enough exp
         {
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             Dash += DashIncrease;//faster dash cooldown
             GameController.dashCooldown -= DashIncrease;//subtracts the decrease in cooldown time from gamecontroller stat
             DashClicks += 1;
@@ -94,6 +97,7 @@ public class UIButtonBehavior : MonoBehaviour
     {
         if (DashClicks > 0)//checks if the user already clicked the up button previously
         {
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             Dash -= DashIncrease;
             GameController.dashCooldown += DashIncrease;//increase cooldown
             DashClicks -= 1;
@@ -108,6 +112,7 @@ public class UIButtonBehavior : MonoBehaviour
         Debug.Log(AttackIncrease);
         if (GameController.exp >= AttackCost && Dash < AttackMax)//increase stat if user has enough exp
         {
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             GameController.attackPower += AttackIncrease;//subtracts the decrease in cooldown time from gamecontroller stat
             AttackClicks += 1;
             GameController.exp -= AttackCost;
@@ -118,6 +123,7 @@ public class UIButtonBehavior : MonoBehaviour
     {
         if (AttackClicks > 0)//checks if the user already clicked the up button previously
         {
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             GameController.attackPower -= AttackIncrease;//increase cooldown
             AttackClicks -= 1;
             GameController.exp += AttackCost;

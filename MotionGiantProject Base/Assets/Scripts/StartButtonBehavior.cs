@@ -7,6 +7,7 @@ public class StartButtonBehavior : MonoBehaviour
 {
     public void OnButtonPress()
     {
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         Debug.Log("Button Clicked");
         if (tag.Contains("Respawn"))
         {

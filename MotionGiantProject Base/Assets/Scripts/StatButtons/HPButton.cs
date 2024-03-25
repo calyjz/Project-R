@@ -8,6 +8,7 @@ public class HPButton : MonoBehaviour
     private int[] hpLevels = { 100, 125, 150, 175, 200, 225, 250, 275, 300 };
     public void OnButtonPress()
     {
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         Debug.Log("Button Clicked");
         if (GameController.exp >= 50 && level < 9)
         {
