@@ -392,6 +392,25 @@ public class Player : AnimatedEntity
             //Destroy(other.gameObject);
             lightObject.Pickup();
         }
+
+        if (other.tag == "Laser")
+        {
+            if (GameController.canTakeDamage)
+            {
+                SpriteRenderer.color = Color.red;
+
+                hp -= 25;
+
+                SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
+                damaged = true;
+            }
+            if (hp<=0)
+            {
+                SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
+                //MusicManager.instance.PlayDeathMusic();
+                GameController.Instance.UpdateGameState(GameState.Respawn);
+            }
+        }
     }
 
     string ChooseRandomFootstepSound()
