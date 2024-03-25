@@ -8,6 +8,7 @@ public class DashButton : MonoBehaviour
     private float[] dashLevels = { 1.00f, 0.85f, 0.75f, 0.65f, 0.6f, 0.55f, 0.5f, 0.45f, 0.4f };
     public void OnButtonPress()
     {
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         Debug.Log("Button Clicked");
         if (GameController.exp >= 50 && level < 9)
         {
