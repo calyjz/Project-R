@@ -49,7 +49,7 @@ public class ShootTowardsPlayer : MonoBehaviour
         float distCovered = (Time.time - startTime) * speed;
         transform.position = startPos+distCovered* movingDir;
 
-        Collider2D[] enemiesSelf = Physics2D.OverlapCircleAll(transform.position, 0.12f, enemiesLayer);
+        Collider2D[] enemiesSelf = Physics2D.OverlapCircleAll(transform.position, 0.2f, enemiesLayer);
 
         //// Reflect the bullet's direction if it hits an obstacle
         if (enemiesSelf.Length > 0)
