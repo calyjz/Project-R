@@ -10,6 +10,7 @@ public class UIButtonBehavior : MonoBehaviour
     public int HPCost = 50;
     public int HPIncrease = 25;
     public int HPMax = 300; 
+    private int HP;
     private int HPClicks = 0;
     public Text textHP;
     public Button HPButtonUP;
@@ -19,6 +20,7 @@ public class UIButtonBehavior : MonoBehaviour
     public int DashCost = 50;
     public float DashMax = 0.5f;
     public float DashIncrease = 0.05f;
+    private float Dash = 0f;
     private int DashClicks = 0;
     public Text textDash;
     public Button DashButtonUP;
@@ -28,6 +30,7 @@ public class UIButtonBehavior : MonoBehaviour
     public int AttackCost = 50;
     public int AttackIncrease = 1;
     public int AttackMax = 10;
+    private int Attack;
     private int AttackClicks = 0;
     public Text textAttack;
     public Button AttackButtonUP;
@@ -36,7 +39,7 @@ public class UIButtonBehavior : MonoBehaviour
     [Header("Light")]
     public int LightCost = 50;
     public float LightIncrease = 0.3f;
-    public float LightMax = 2.9f;
+    public float LightMax = 2.6f;
     private float Light;
     private int LightClicks = 0;
     public Text textLight;
@@ -80,13 +83,14 @@ public class UIButtonBehavior : MonoBehaviour
     public void dashUP()
     {
         Debug.Log(DashIncrease);
-        if (GameController.exp >= DashCost && GameController.dashCooldown > DashMax)//increase stat if user has enough exp
+        if (GameController.exp >= DashCost && Dash < DashMax)//increase stat if user has enough exp
         {
             SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
+            Dash += DashIncrease;//faster dash cooldown
             GameController.dashCooldown -= DashIncrease;//subtracts the decrease in cooldown time from gamecontroller stat
             DashClicks += 1;
             GameController.exp -= DashCost;
-            textDash.text = (1-GameController.dashCooldown).ToString();
+            textDash.text = Dash.ToString();
         }
     }
     public void dashDOWN()
@@ -94,10 +98,11 @@ public class UIButtonBehavior : MonoBehaviour
         if (DashClicks > 0)//checks if the user already clicked the up button previously
         {
             SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
+            Dash -= DashIncrease;
             GameController.dashCooldown += DashIncrease;//increase cooldown
             DashClicks -= 1;
             GameController.exp += DashCost;
-            textDash.text = (1-GameController.dashCooldown).ToString();
+            textDash.text = Dash.ToString();
         }
 
     }
@@ -105,10 +110,10 @@ public class UIButtonBehavior : MonoBehaviour
     public void attackUP()
     {
         Debug.Log(AttackIncrease);
-        if (GameController.exp >= AttackCost && GameController.attackPower < AttackMax)//increase stat if user has enough exp
+        if (GameController.exp >= AttackCost && Dash < AttackMax)//increase stat if user has enough exp
         {
             SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
-            GameController.attackPower += AttackIncrease;//increases attack
+            GameController.attackPower += AttackIncrease;//subtracts the decrease in cooldown time from gamecontroller stat
             AttackClicks += 1;
             GameController.exp -= AttackCost;
             textAttack.text = GameController.attackPower.ToString();
@@ -124,39 +129,15 @@ public class UIButtonBehavior : MonoBehaviour
             GameController.exp += AttackCost;
             textAttack.text = GameController.attackPower.ToString();
         }
-    }
-
-
-
-    public void LanternUP()
-    {
-        if (GameController.exp >= LightCost && GameController.lightDecrease < LightMax)//increase stat if user has enough exp
-        {
-            
-            GameController.lightDecrease += LightIncrease;//Adds to light decrease
-            LightClicks += 1;
-            GameController.exp -= LightCost;
-            textLight.text = GameController.lightDecrease.ToString();
-        }
-    }
-    public void LanternDOWN()
-    {
-        if (LightClicks > 0)//checks if the user already clicked the up button previously
-        {
-            GameController.lightDecrease -= LightIncrease;//increase cooldown
-            LightClicks -= 1;
-            GameController.exp += LightCost;
-            textLight.text = GameController.lightDecrease.ToString();
-        }
 
     }
+
 
     void Start()
     {
         textHP.text = GameController.hp_max.ToString();
-        textDash.text = (1- GameController.dashCooldown).ToString();
+        textDash.text = Dash.ToString();
         textAttack.text = GameController.attackPower.ToString();
-        textLight.text = GameController.lightDecrease.ToString();
         //textbox = GetComponent<Text>();
         //playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Debug.Log(DashIncrease);
@@ -216,26 +197,6 @@ public class UIButtonBehavior : MonoBehaviour
         else
         {
             AttackButtonUP.interactable = true;
-        }
-
-
-
-        //-----------------
-        if (LightClicks == 0) //disables down button if no points have been allocated
-        {
-            LightButtonDOWN.interactable = false;
-        }
-        else
-        {
-            LightButtonDOWN.interactable = true;
-        }
-        if (GameController.exp < LightCost)//disables up button if no more points can be allocated
-        {
-            LightButtonUP.interactable = false;
-        }
-        else
-        {
-            LightButtonUP.interactable = true;
         }
     }
 
