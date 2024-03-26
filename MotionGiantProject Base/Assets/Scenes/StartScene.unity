@@ -339,7 +339,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &238970438
 AudioSource:
@@ -552,6 +552,9 @@ MonoBehaviour:
   currentRoom: 0
   numOfEnemies: 10000
   numOfLanterns: 10000
+  Player: {fileID: 0}
+  MainCamera: {fileID: 0}
+  intro: 1
 --- !u!4 &792764560
 Transform:
   m_ObjectHideFlags: 0
@@ -822,7 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7692f7c1bcee23240a34d94441847d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1442735279}
+  player: {fileID: 6652373980688321537}
   smoothSpeed: 0.125
 --- !u!1 &1365437806
 GameObject:
@@ -1054,12 +1057,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435915867}
   m_CullTransparentMesh: 0
---- !u!1 &1442735279 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6652373981393643695, guid: 288f541c248898544b6b26fb65421985,
-    type: 3}
-  m_PrefabInstance: {fileID: 6652373980688321536}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1539120827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundFXManager 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109786, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_TagString
+      value: SoundFXManager
       objectReference: {fileID: 0}
     - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
         type: 3}
@@ -1488,6 +1490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643695, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643702, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1496,7 +1503,7 @@ PrefabInstance:
     - target: {fileID: 6652373981393643703, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643703, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
@@ -1597,3 +1604,9 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288f541c248898544b6b26fb65421985, type: 3}
+--- !u!1 &6652373980688321537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6652373981393643695, guid: 288f541c248898544b6b26fb65421985,
+    type: 3}
+  m_PrefabInstance: {fileID: 6652373980688321536}
+  m_PrefabAsset: {fileID: 0}

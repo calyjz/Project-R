@@ -85,6 +85,10 @@ public class Player : AnimatedEntity
         leftFacingDirection.x *= -1;
         Debug.Log(GameObject.FindGameObjectWithTag("LightObject"));
         lightObject = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
+        if (lightObject != null)
+        {
+            Debug.Log("WHY IS IT FUCKING NULL");
+        }
     }
 
 
@@ -157,7 +161,8 @@ public class Player : AnimatedEntity
 
     public void newRoom()
     {
-        lightObject.RestartLight();
+        Debug.Log("WOEIRUWIEOURWIOEUR");
+        lightObject.GetComponent<Light>().RestartLight();
     }
     void checkForDamage()
     {

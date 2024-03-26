@@ -16,9 +16,11 @@ public class SwitchCutsceneIntro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (index > cutscenes.Length)
+        if (index >= cutscenes.Length)
         {
             //start game
+            Debug.Log(GameController.Instance.GetCurrentRoom());
+            GameController.Instance.UpdateGameState(GameState.Run);
         }
         if (index == 0)
         {
@@ -27,11 +29,14 @@ public class SwitchCutsceneIntro : MonoBehaviour
     }
     public void Next()
     {
-        index += 1;
+        
         for(int i=0; i < cutscenes.Length; i++)
         {
+            Debug.Log(cutscenes.Length.ToString() + index.ToString());
             cutscenes[i].gameObject.SetActive(false);
             cutscenes[index].gameObject.SetActive(true);
+            
         }
+        index += 1;
     }
 }

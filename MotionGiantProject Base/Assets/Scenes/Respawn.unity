@@ -282,7 +282,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817374515}
+      - m_Target: {fileID: 0}
         m_MethodName: OnButtonPress
         m_Mode: 1
         m_Arguments:
@@ -1275,11 +1275,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 817374514}
-  - component: {fileID: 817374513}
-  - component: {fileID: 817374515}
-  - component: {fileID: 817374518}
-  - component: {fileID: 817374516}
-  - component: {fileID: 817374517}
   - component: {fileID: 817374519}
   m_Layer: 0
   m_Name: ButtonController
@@ -1288,18 +1283,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &817374513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817374512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceff4a691b2a127469f8b9f18484e145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &817374514
 Transform:
   m_ObjectHideFlags: 0
@@ -1314,54 +1297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &817374515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817374512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d9f9cc4e6644f559f58945eb96a435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &817374516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817374512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f033eeadc9304da6a0773d4673bb49f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &817374517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817374512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2386f721c6a914bd3ab093b13bb0d10a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &817374518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817374512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a972c30533dd44cb6921bcdc1d5b5ab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &817374519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2101,8 +2036,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817374513}
-        m_MethodName: OnButtonPress
+      - m_Target: {fileID: 817374519}
+        m_MethodName: RespawnPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2366,7 +2301,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817374516}
+      - m_Target: {fileID: 0}
         m_MethodName: OnButtonPress
         m_Mode: 1
         m_Arguments:
@@ -2578,7 +2513,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817374517}
+      - m_Target: {fileID: 0}
         m_MethodName: OnButtonPress
         m_Mode: 1
         m_Arguments:
@@ -2787,7 +2722,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817374518}
+      - m_Target: {fileID: 0}
         m_MethodName: OnButtonPress
         m_Mode: 1
         m_Arguments:

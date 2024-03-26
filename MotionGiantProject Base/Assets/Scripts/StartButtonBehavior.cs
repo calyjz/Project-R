@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartButtonBehavior : MonoBehaviour
 {
+
     public void OnButtonPress()
     {
         SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
@@ -13,7 +14,13 @@ public class StartButtonBehavior : MonoBehaviour
         {
             MusicManager.instance.PlayNextTrack();
         }
-        GameController.Instance.UpdateGameState(GameState.Run);
+
+        GameController.Instance.IntroCutscene();
+
+        
+        //GameController.Instance.UpdateGameState(GameState.Run);
         
     }
+
+    
 }

@@ -164,6 +164,20 @@ public class UIButtonBehavior : MonoBehaviour
         Debug.Log(DashIncrease);
     }
 
+    public void RespawnPress()
+    {
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
+        Debug.Log("Button Clicked");
+        MusicManager.instance.PlayNextTrack();
+        
+
+        GameController.Instance.UpdateGameState(GameState.Run);
+
+
+        //GameController.Instance.UpdateGameState(GameState.Run);
+
+    }
+
     private void Update()
     {
 

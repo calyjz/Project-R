@@ -101,6 +101,8 @@ public class Light : MonoBehaviour
 
     public void RestartLight()
     {
+        run_light = true;
+        Debug.Log("FLSKJFSDLKFJSDLKFJSDLKFJ");
         StartCoroutine("decreaseLightSize");
     }
     public void NotifyChange()
