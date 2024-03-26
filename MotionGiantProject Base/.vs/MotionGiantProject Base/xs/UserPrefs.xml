@@ -1,20 +1,20 @@
 ﻿<Properties StartupConfiguration="{EB1DE711-FF18-CBA0-A64A-07334A376EF5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UIButtonBehavior.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="187" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="144" Column="6" />
       <File FileName="Assets/Scripts/MusicManager.cs" />
       <File FileName="Assets/Scripts/EnemyMovement.cs" />
-      <File FileName="Assets/Scripts/StartButtonBehavior.cs" Line="14" Column="51" />
+      <File FileName="Assets/Scripts/StartButtonBehavior.cs" Line="13" Column="10" />
       <File FileName="Assets/Scripts/OmbreArt.cs" />
       <File FileName="Assets/Scripts/GameController.cs" />
       <File FileName="Assets/Scripts/Dialogue.cs" />
       <File FileName="Assets/Scripts/SoundFXManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="62" Column="91" />
-      <File FileName="Assets/Scripts/UIButtonBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StatButtons/HPButton.cs" Line="11" Column="80" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="61" Column="86" />
+      <File FileName="Assets/Scripts/UIButtonBehavior.cs" Line="245" Column="1" />
+      <File FileName="Assets/Scripts/StatButtons/HPButton.cs" Line="13" Column="51" />
       <File FileName="Assets/Scripts/StatButtons/DashButton.cs" Line="11" Column="80" />
       <File FileName="Assets/Scripts/StatButtons/LightButton.cs" Line="11" Column="80" />
-      <File FileName="Assets/Scripts/StatButtons/AttackButton.cs" Line="11" Column="80" />
+      <File FileName="Assets/Scripts/StatButtons/AttackButton.cs" Line="12" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
