@@ -722,7 +722,6 @@ MonoBehaviour:
   lightSize: 1
   lightDecrease: 0.5
   ombre: {fileID: 6652373981118951355}
-  winOmbre: {fileID: 0}
 --- !u!1 &6652373981118951355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,8 +1032,8 @@ MonoBehaviour:
   dashSpeed: 15
   dashLength: 0.3
   hp: 100
-  attackTime: 0.1
-  startTimeAttack: 0.1
+  attackTime: 0
+  startTimeAttack: 0.2
   attackLocation: {fileID: 6652373981393643703}
   attackRange: 0.9
   enemies:
@@ -1050,6 +1049,7 @@ MonoBehaviour:
   obstacles:
     serializedVersion: 2
     m_Bits: 512
+  hitBoxRange: 0.35
 --- !u!1 &6652373981435121653
 GameObject:
   m_ObjectHideFlags: 0
