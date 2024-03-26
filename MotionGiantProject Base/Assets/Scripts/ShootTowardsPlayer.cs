@@ -55,7 +55,7 @@ public class ShootTowardsPlayer : MonoBehaviour
 
         if (killOtherEnemies)
         {
-            Collider2D[] enemiesSelf = Physics2D.OverlapCircleAll(transform.position, 0.12f, enemiesLayer);
+            Collider2D[] enemiesSelf = Physics2D.OverlapCircleAll(transform.position, 0.3f, enemiesLayer);
 
             if (enemiesSelf.Length > 0)
             {

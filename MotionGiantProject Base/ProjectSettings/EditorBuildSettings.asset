@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameRooms/GameRoom7.unity
     guid: d97738ec949834d449946dccfd4befaa
   - enabled: 1
-    path: Assets/Scenes/GameRooms/GameRoom6.unity
+    path: Assets/Scenes/GameRooms/GameRoom3.unity
     guid: 8ba2836c45bad42a0bc00fc3ec3bc062
   - enabled: 1
     path: Assets/Scenes/GameRooms/GameRoom5.unity
@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameRooms/GameRoom4.unity
     guid: 4d781db9cbff344ba8956f6fbb9d5522
   - enabled: 1
-    path: Assets/Scenes/GameRooms/GameRoom3.unity
+    path: Assets/Scenes/GameRooms/GameRoom6.unity
     guid: 41446da6760cd4e0b9f743a830da22d0
   - enabled: 1
     path: Assets/Scenes/GameRooms/GameRoom2.unity

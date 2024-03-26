@@ -12,7 +12,7 @@ public class Light : MonoBehaviour
     public float lightSize = 1f;
     public float lightDecrease = GameController.lightDecrease;
     public GameObject ombre;
-    public GameObject winOmbre;
+    //public GameObject winOmbre;
 
     private float ColorTimer = 0;
     private string state;
@@ -73,7 +73,7 @@ public class Light : MonoBehaviour
 
             //}
             //state = "noEnemiesLeft";
-            winOmbre.SetActive(true);
+            //winOmbre.SetActive(true);
         }
         else
         {
@@ -81,7 +81,7 @@ public class Light : MonoBehaviour
             ombre.SetActive(true);
             run_light = true;
             //state = "killEnemies";
-            winOmbre.SetActive(false);
+            //winOmbre.SetActive(false);
         }
         
        
