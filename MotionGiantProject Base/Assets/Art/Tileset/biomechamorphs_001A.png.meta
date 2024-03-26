@@ -381,7 +381,7 @@ TextureImporter:
       213: 5269484461853607330
     second: biomechamorphs_001A_125
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -398,9 +398,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -410,8 +413,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 1
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -432,10 +435,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -447,6 +455,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -459,6 +468,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -471,6 +481,46 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3132,9 +3182,135 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      biomechamorphs_001A_0: 7084787043453783688
+      biomechamorphs_001A_1: 7739059663044764935
+      biomechamorphs_001A_10: 4822024467482039913
+      biomechamorphs_001A_100: -3632714735571558788
+      biomechamorphs_001A_101: -7840887491914412244
+      biomechamorphs_001A_102: -8543163369722555780
+      biomechamorphs_001A_103: -3021633931300585713
+      biomechamorphs_001A_104: 7960833012736074721
+      biomechamorphs_001A_105: 2291226119954204499
+      biomechamorphs_001A_106: -6250806079248164750
+      biomechamorphs_001A_107: -7080891468957378780
+      biomechamorphs_001A_108: -1832198320784441869
+      biomechamorphs_001A_109: 4908277365956519693
+      biomechamorphs_001A_11: -8222974966811838590
+      biomechamorphs_001A_110: -4291769010216347959
+      biomechamorphs_001A_111: -606795412688481758
+      biomechamorphs_001A_112: 2708664446063803320
+      biomechamorphs_001A_113: 5689652512225255446
+      biomechamorphs_001A_114: 4866323893110054842
+      biomechamorphs_001A_115: -8854605045725473386
+      biomechamorphs_001A_116: -3697506274170393000
+      biomechamorphs_001A_117: -5710575480859502307
+      biomechamorphs_001A_118: 7976082652231845255
+      biomechamorphs_001A_119: 4145728058008350378
+      biomechamorphs_001A_12: 5625633276025882748
+      biomechamorphs_001A_120: -6082909685654968314
+      biomechamorphs_001A_121: 876304838516230474
+      biomechamorphs_001A_122: -2385445439242915270
+      biomechamorphs_001A_123: 4829601652726749927
+      biomechamorphs_001A_124: -7154123756193400730
+      biomechamorphs_001A_125: 5269484461853607330
+      biomechamorphs_001A_13: -6136095003466852359
+      biomechamorphs_001A_14: 7781068530841106647
+      biomechamorphs_001A_15: -948253455591853954
+      biomechamorphs_001A_16: -628515703905136501
+      biomechamorphs_001A_17: -4323997785707520082
+      biomechamorphs_001A_18: -7221107739219889894
+      biomechamorphs_001A_19: -3630635698167351459
+      biomechamorphs_001A_2: -8638036025554192386
+      biomechamorphs_001A_20: 6976234414819391392
+      biomechamorphs_001A_21: -950609931638942398
+      biomechamorphs_001A_22: -2384635126538005995
+      biomechamorphs_001A_23: 348760284661238564
+      biomechamorphs_001A_24: -6578256983484038463
+      biomechamorphs_001A_25: -5101279812017428752
+      biomechamorphs_001A_26: -6498216818341077103
+      biomechamorphs_001A_27: -7579559221267617724
+      biomechamorphs_001A_28: 7866027354586328714
+      biomechamorphs_001A_29: -4378237763888924555
+      biomechamorphs_001A_3: -2664355933566335754
+      biomechamorphs_001A_30: -8306061331618117533
+      biomechamorphs_001A_31: 7396096916345570457
+      biomechamorphs_001A_32: -5758248647726985560
+      biomechamorphs_001A_33: -887671133056696716
+      biomechamorphs_001A_34: 4921815661107313409
+      biomechamorphs_001A_35: -124542787685868995
+      biomechamorphs_001A_36: 5901684768154357929
+      biomechamorphs_001A_37: -4387271297382871085
+      biomechamorphs_001A_38: 3979992370699178651
+      biomechamorphs_001A_39: 3694551417917628184
+      biomechamorphs_001A_4: -3657648031254928911
+      biomechamorphs_001A_40: 964329061107354284
+      biomechamorphs_001A_41: 3744782365269636812
+      biomechamorphs_001A_42: -8736571787887628982
+      biomechamorphs_001A_43: 3434144566536520505
+      biomechamorphs_001A_44: 174112917536089643
+      biomechamorphs_001A_45: -7315434286602271879
+      biomechamorphs_001A_46: 30143449669832138
+      biomechamorphs_001A_47: -898021569946997183
+      biomechamorphs_001A_48: 6175039132445577723
+      biomechamorphs_001A_49: -8140026847171283894
+      biomechamorphs_001A_5: 3403034921039909205
+      biomechamorphs_001A_50: -4179975487413661897
+      biomechamorphs_001A_51: 920966992884161612
+      biomechamorphs_001A_52: -4257394503581685330
+      biomechamorphs_001A_53: -9012352137183670800
+      biomechamorphs_001A_54: -4518263821240735763
+      biomechamorphs_001A_55: -2139615004475702338
+      biomechamorphs_001A_56: -7826800723856221791
+      biomechamorphs_001A_57: -5109121945658041373
+      biomechamorphs_001A_58: 5948739814007929335
+      biomechamorphs_001A_59: -7625935459390232289
+      biomechamorphs_001A_6: 5429178791606026175
+      biomechamorphs_001A_60: 5844058845784938621
+      biomechamorphs_001A_61: 53920603133760021
+      biomechamorphs_001A_62: 1549446734949355846
+      biomechamorphs_001A_63: 8254656148447349124
+      biomechamorphs_001A_64: 306240436783402937
+      biomechamorphs_001A_65: -4323970039879777568
+      biomechamorphs_001A_66: 866386087470387551
+      biomechamorphs_001A_67: -4306930912101061380
+      biomechamorphs_001A_68: 2449216405645955895
+      biomechamorphs_001A_69: -4723335021981164760
+      biomechamorphs_001A_7: -3808155418781529822
+      biomechamorphs_001A_70: 3714066895008483390
+      biomechamorphs_001A_71: 4286629168884710678
+      biomechamorphs_001A_72: 2358612476742701241
+      biomechamorphs_001A_73: -7296344385829814654
+      biomechamorphs_001A_74: 2191915497495022361
+      biomechamorphs_001A_75: -6559018571073697090
+      biomechamorphs_001A_76: 2658560330954063452
+      biomechamorphs_001A_77: 30436206759262387
+      biomechamorphs_001A_78: -6008670914607195043
+      biomechamorphs_001A_79: -8185979524113625660
+      biomechamorphs_001A_8: -892311835473598319
+      biomechamorphs_001A_80: 6045016896718999743
+      biomechamorphs_001A_81: -6778716724270337236
+      biomechamorphs_001A_82: 5583566512854923442
+      biomechamorphs_001A_83: 1583322178351512766
+      biomechamorphs_001A_84: -6926130760444532917
+      biomechamorphs_001A_85: -2721936925628650287
+      biomechamorphs_001A_86: -5803897420290696883
+      biomechamorphs_001A_87: -526621006717672415
+      biomechamorphs_001A_88: 5089500659555813568
+      biomechamorphs_001A_89: 1756819024336542730
+      biomechamorphs_001A_9: -5323404861620190791
+      biomechamorphs_001A_90: 9056434382419931381
+      biomechamorphs_001A_91: -8362541586881805810
+      biomechamorphs_001A_92: 1761790902485345205
+      biomechamorphs_001A_93: 1975364671832459322
+      biomechamorphs_001A_94: 1840555872073685698
+      biomechamorphs_001A_95: -8479844933840254117
+      biomechamorphs_001A_96: 6641024543751234308
+      biomechamorphs_001A_97: 7467440595883269008
+      biomechamorphs_001A_98: 5327158929261576953
+      biomechamorphs_001A_99: -7897239086770650114
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
