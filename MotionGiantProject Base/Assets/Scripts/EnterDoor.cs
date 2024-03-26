@@ -34,8 +34,11 @@ public class EnterDoor : MonoBehaviour
 					Debug.Log("Wrong Direction entered");
 					break;
 			}
-			
-			GameController.Instance.loadNextRoom(doorDirection, NextScene);
+
+			if (!GameObject.FindGameObjectWithTag("Enemy"))
+			{
+				GameController.Instance.loadNextRoom(doorDirection, NextScene);
+			}
 		}
 	}
 }

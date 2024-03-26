@@ -1712,10 +1712,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
+      propertyPath: attackTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
       propertyPath: swordSprite
       value: 
       objectReference: {fileID: 21300000, guid: cd9623baced0c3748a29def044b7f64e,
         type: 3}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: freezeDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: startTimeAttack
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6652373981435121654, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
       propertyPath: m_AnchoredPosition.x

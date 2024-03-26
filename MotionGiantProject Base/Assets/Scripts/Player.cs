@@ -73,8 +73,9 @@ public class Player : AnimatedEntity
     public LayerMask obstacles;  // idfk
     [Header("Hit Box")]
     public float hitBoxRange = 0.35f;
-    
 
+    private float laserFreezeDuration = 2f;
+    private float laserFreezeTime = -1f;
     void Start()
     {
         AnimationSetup();
@@ -362,10 +363,12 @@ public class Player : AnimatedEntity
         if (GameController.canTakeDamage == false)
         {
             Physics2D.IgnoreLayerCollision(0, 9, true);
+            Physics2D.IgnoreLayerCollision(0, 13, true);
         }
         else
         {
-            Physics2D.IgnoreLayerCollision(0, 9, false);    
+            Physics2D.IgnoreLayerCollision(0, 9, false);  
+            Physics2D.IgnoreLayerCollision(0, 13, false);
         }
             
     }
@@ -375,8 +378,11 @@ public class Player : AnimatedEntity
         checkForAttack();
         checkForDamage();
         checkIFrame();
-        
-        
+
+        if (laserFreezeTime >= 0)
+        {
+            laserFreezeTime -= Time.deltaTime;
+        }
         if (freezeTime <= 0)
         {
             MovePlayer();
@@ -402,10 +408,11 @@ public class Player : AnimatedEntity
 
         if (other.tag == "Laser")
         {
-            if (GameController.canTakeDamage)
+            
+            if (GameController.canTakeDamage && laserFreezeTime<0)
             {
                 SpriteRenderer.color = Color.red;
-
+                laserFreezeTime = laserFreezeDuration;
                 hp -= 25;
 
                 SoundFXManager.instance.PlaySoundFXClip("PlayerHitByLaser", this.transform);
