@@ -60,10 +60,14 @@ public class Enemy : MonoBehaviour
                 newProjectile = Instantiate(shoot, spawner.position, Quaternion.identity);
                 newProjectile.GetComponent<ShootTowardsPlayer>().initalRotate = (30);
 
+                SoundFXManager.instance.PlaySoundFXClip("MedEnemyShoot", this.transform);
+
                 attackTime = startTimeAttack;
             }
             else
             {
+                SoundFXManager.instance.PlaySoundFXClip("SmallEnemyShoot", this.transform);
+
                 Instantiate(shoot, spawner.position, Quaternion.identity);
                 attackTime = startTimeAttack;
             }

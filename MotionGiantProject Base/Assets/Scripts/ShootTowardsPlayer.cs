@@ -68,6 +68,7 @@ public class ShootTowardsPlayer : MonoBehaviour
                         //{
                         if (!enemiesSelf[i].gameObject.GetComponent<Enemy>().MedEnemy)
                         {
+                            SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", this.transform);
                             enemiesSelf[i].gameObject.GetComponent<Enemy>().TakeDamage(70.00f);
 
                         }

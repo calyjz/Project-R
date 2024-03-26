@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 238970437}
   - component: {fileID: 238970436}
   - component: {fileID: 238970435}
+  - component: {fileID: 238970439}
   - component: {fileID: 238970438}
   m_Layer: 0
   m_Name: MusicManager
@@ -316,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 238970435}
+  enemeySource: {fileID: 238970439}
   enemyTrack: {fileID: 8300000, guid: c48e91a41c0034421967d123538ecccb, type: 3}
   mainTheme: {fileID: 8300000, guid: 2b9c2f9465497404ab9573e83e7dec71, type: 3}
   youDied: {fileID: 8300000, guid: d1f3ea330152141dfab51bf4a1dd95b2, type: 3}
@@ -357,6 +359,103 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &238970439
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238970434}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 111825916188679576, guid: 48b9932c52db9409d967b5fc4c7d680d,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: a4279bde4e0e740659dfb6e35ee6e630, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -686,7 +785,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: af4e21d06a751f549b356faddc518e00, type: 2}
+  - {fileID: 2100000, guid: dbc19ba8ad330804b87f756a6106e198, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1288,6 +1387,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[11].name
+      value: PlayerHitByLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[12].name
+      value: MedEnemyShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[13].name
+      value: SmallEnemyShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[11].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d002e8f297e754586a1600a215e0b3eb, type: 3}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[12].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f387c289e93f04e2f839b3baa964fc9d, type: 3}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[13].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 22a1ff3f7123b4a6e94c1347052289c7, type: 3}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[11].audioMixerGroup
+      value: 
+      objectReference: {fileID: -5393490551388840755, guid: 48b9932c52db9409d967b5fc4c7d680d,
+        type: 2}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[12].audioMixerGroup
+      value: 
+      objectReference: {fileID: 8330916005850118657, guid: 48b9932c52db9409d967b5fc4c7d680d,
+        type: 2}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[13].audioMixerGroup
+      value: 
+      objectReference: {fileID: -6274983180976607243, guid: 48b9932c52db9409d967b5fc4c7d680d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 859971690e1794898831575940b4abd1, type: 3}
 --- !u!1001 &6652373980688321536

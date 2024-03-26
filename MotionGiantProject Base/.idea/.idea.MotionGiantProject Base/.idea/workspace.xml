@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5de0c422-6f12-436b-bcde-eb6d7fe836d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Respawn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Respawn.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,7 @@
       <workItem from="1710200947770" duration="3313000" />
       <workItem from="1710212291600" duration="48000" />
       <workItem from="1710806249677" duration="11819000" />
-      <workItem from="1711386684264" duration="10518000" />
+      <workItem from="1711386684264" duration="11128000" />
     </task>
     <servers />
   </component>

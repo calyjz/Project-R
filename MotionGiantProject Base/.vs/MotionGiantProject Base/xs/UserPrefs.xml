@@ -1,25 +1,26 @@
 ﻿<Properties StartupConfiguration="{EB1DE711-FF18-CBA0-A64A-07334A376EF5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ShootTowardsPlayer.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="144" Column="6" />
-      <File FileName="Assets/Scripts/MusicManager.cs" />
-      <File FileName="Assets/Scripts/EnemyMovement.cs" />
-      <File FileName="Assets/Scripts/StartButtonBehavior.cs" Line="13" Column="10" />
+      <File FileName="Assets/Scripts/Player.cs" Line="407" Column="10" />
+      <File FileName="Assets/Scripts/MusicManager.cs" Line="3" Column="13" />
+      <File FileName="Assets/Scripts/StartButtonBehavior.cs" />
       <File FileName="Assets/Scripts/OmbreArt.cs" />
       <File FileName="Assets/Scripts/GameController.cs" />
       <File FileName="Assets/Scripts/Dialogue.cs" />
-      <File FileName="Assets/Scripts/SoundFXManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="61" Column="86" />
-      <File FileName="Assets/Scripts/UIButtonBehavior.cs" Line="245" Column="1" />
-      <File FileName="Assets/Scripts/StatButtons/HPButton.cs" Line="13" Column="51" />
-      <File FileName="Assets/Scripts/StatButtons/DashButton.cs" Line="11" Column="80" />
-      <File FileName="Assets/Scripts/StatButtons/LightButton.cs" Line="11" Column="80" />
-      <File FileName="Assets/Scripts/StatButtons/AttackButton.cs" Line="12" Column="37" />
+      <File FileName="Assets/Scripts/SoundFXManager.cs" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="252" Column="21" />
+      <File FileName="Assets/Scripts/UIButtonBehavior.cs" />
+      <File FileName="Assets/Scripts/StatButtons/HPButton.cs" />
+      <File FileName="Assets/Scripts/StatButtons/DashButton.cs" />
+      <File FileName="Assets/Scripts/StatButtons/LightButton.cs" />
+      <File FileName="Assets/Scripts/StatButtons/AttackButton.cs" />
+      <File FileName="Assets/Scripts/DialogueScriptableObject.cs" />
+      <File FileName="Assets/Scripts/ShootTowardsPlayer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cc12c28d-9570-4cda-af14-08f72796ab4c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5dfde934-e6d4-4929-8e15-7915cd9fdfc2" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
