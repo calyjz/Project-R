@@ -196,7 +196,10 @@ public class Player : AnimatedEntity
 
                             hp -= 10;
 
-                            SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
+                            SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform); 
+
+                            
+                            
                             damaged = true;
 
                             //Debug.Log(HP);
@@ -405,7 +408,7 @@ public class Player : AnimatedEntity
 
                 hp -= 25;
 
-                SoundFXManager.instance.PlaySoundFXClip("PlayerOof", this.transform);
+                SoundFXManager.instance.PlaySoundFXClip("PlayerHitByLaser", this.transform);
                 damaged = true;
             }
             if (hp<=0)
@@ -414,6 +417,11 @@ public class Player : AnimatedEntity
                 //MusicManager.instance.PlayDeathMusic();
                 GameController.Instance.UpdateGameState(GameState.Respawn);
             }
+        }
+
+        if (other.tag == "TripleProjectile")
+        {
+            SoundFXManager.instance.PlaySoundFXClip("PlayerHitByLaser", this.transform);
         }
     }
 
