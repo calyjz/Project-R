@@ -551,7 +551,7 @@ MonoBehaviour:
   state: 0
   currentRoom: 0
   numOfEnemies: 10000
-  numOfLanterns: 8
+  numOfLanterns: 10000
 --- !u!4 &792764560
 Transform:
   m_ObjectHideFlags: 0
@@ -683,7 +683,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5748c6d3eba144017b51283fdd5fcb9d, type: 2}
+  - {fileID: 2100000, guid: af4e21d06a751f549b356faddc518e00, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1457,6 +1457,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 233
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951356, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951356, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: firstColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].position
+      value: 0.341
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[2].position
+      value: 0.979
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643695, guid: 288f541c248898544b6b26fb65421985,
         type: 3}

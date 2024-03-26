@@ -26,8 +26,9 @@ public class UIButtonBehavior : MonoBehaviour
 
     [Header("Attack")]
     public int AttackCost = 50;
-    public int AttackIncrease = 1;
-    public int AttackMax = 10;
+    public int AttackIncrease = 5;
+    public int AttackMax = 100;
+    private int Attack;
     private int AttackClicks = 0;
     public Text textAttack;
     public Button AttackButtonUP;
