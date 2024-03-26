@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2090422420604948396}
   m_Layer: 9
   m_Name: TripleProjectile
-  m_TagString: Untagged
+  m_TagString: TripleProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
