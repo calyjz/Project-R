@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private int reversed = 1;
     public int enemy_no;
 
-    private int hp = 100;
+    private float hp = 100;
 
     public List<Vector3> path;
 
@@ -147,6 +147,10 @@ public class Enemy : MonoBehaviour
     }
     bool isPlayerInCleanSight()
     {
+        if (Vector3.Distance(playerPos.position, transform.position) > 10f)
+        {
+            return false;
+        }
         int walls = LayerMask.GetMask("Obstacle");
 
         RaycastHit2D hit = Physics2D.Linecast(transform.position, playerPos.position, walls);
@@ -243,7 +247,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    public void TakeDamage(int hitpoints)
+    public void TakeDamage(float hitpoints)
     {
         hp -= hitpoints;
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;

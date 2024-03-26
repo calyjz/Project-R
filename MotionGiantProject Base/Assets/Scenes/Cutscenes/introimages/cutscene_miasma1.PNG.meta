@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:MotionGiantProject Base/Assets/Art/intern_idle_2.PNG.meta
-guid: 4121846bb9eaf304397b04dade9aa056
-========
-guid: 5244638c45aba7d4fbdf48d6489c5fd6
->>>>>>>> ad7761430186a5d28d6e1de34815def29b27e50b:MotionGiantProject Base/Assets/Art/UI/Round Button.png.meta
+guid: 061335bab6d406e41a6c831785c388c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

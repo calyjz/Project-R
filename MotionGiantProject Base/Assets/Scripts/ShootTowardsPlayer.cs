@@ -68,7 +68,7 @@ public class ShootTowardsPlayer : MonoBehaviour
                         //{
                         if (!enemiesSelf[i].gameObject.GetComponent<Enemy>().MedEnemy)
                         {
-                            enemiesSelf[i].gameObject.GetComponent<Enemy>().TakeDamage(70);
+                            enemiesSelf[i].gameObject.GetComponent<Enemy>().TakeDamage(70.00f);
 
                         }
                         //}
