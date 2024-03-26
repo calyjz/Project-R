@@ -147,6 +147,10 @@ public class Enemy : MonoBehaviour
     }
     bool isPlayerInCleanSight()
     {
+        if (Vector3.Distance(playerPos.position, transform.position) > 10f)
+        {
+            return false;
+        }
         int walls = LayerMask.GetMask("Obstacle");
 
         RaycastHit2D hit = Physics2D.Linecast(transform.position, playerPos.position, walls);

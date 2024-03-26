@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: {fileID: 5880681318752493371, guid: edba26aa443ffb94aa4ee464027f79b3, type: 3}
-  attackRange: 3
+  attackRange: 5
   attackTime: 0
   startTimeAttack: 0.5
   Speed: 2

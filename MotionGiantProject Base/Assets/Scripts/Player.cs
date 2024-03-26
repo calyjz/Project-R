@@ -262,6 +262,7 @@ public class Player : AnimatedEntity
         movement.y = Input.GetAxisRaw("Vertical");
 
         movement.Normalize();
+        Debug.Log((movement.x,movement.y));
 
         smoothMovement = Vector2.SmoothDamp(smoothMovement, movement, ref movementSmoothVelocity, smoothMovementCountdown, Mathf.Infinity, Time.deltaTime);
 
