@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - WinOmbre
   - Laser
+  - Pebble
+  - TripleProjectile
   layers:
   - Default
   - TransparentFX

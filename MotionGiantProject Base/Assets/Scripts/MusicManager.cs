@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
     public AudioSource audioSource;
+    public AudioSource enemeySource;
     public AudioClip enemyTrack;
     public AudioClip mainTheme;
     public AudioClip youDied;
@@ -42,15 +43,30 @@ public class MusicManager : MonoBehaviour
 
     public void PlayNextTrack()
     {
+        if (SceneManager.GetActiveScene().name == "Respawn")
+        {
+            audioSource.Pause();
+        } else
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (SceneManager.GetActiveScene().name != "StartScene" && enemies.Length != 0)
         {
-            if (!audioSource.isPlaying || audioSource.clip != enemyTrack)
+            if (!enemeySource.isPlaying)
             {
-                PlayAudioClip(enemyTrack, enemyTrackMixerGroup);
+                StartCoroutine(FadeIn(enemeySource, 1f)); // Start the fade in over 1 second
             }
         }
-        else if (SceneManager.GetActiveScene().name != "StartScene")
+        else
+        {
+            enemeySource.Stop();
+        }
+        if (SceneManager.GetActiveScene().name != "StartScene")
         {
             if (!audioSource.isPlaying || audioSource.clip != mainTheme)
             {
@@ -59,6 +75,20 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    IEnumerator FadeIn(AudioSource audioSource, float duration)
+    {
+        audioSource.volume = 0;
+        audioSource.Play();
+
+        while (audioSource.volume < 1.0f)
+        {
+            audioSource.volume += Time.deltaTime / duration;
+
+            yield return null;
+        }
+
+        audioSource.volume = 1f;
+    }
 
 
     public void PlayAudioClip(AudioClip clip, AudioMixerGroup mixerGroup)
