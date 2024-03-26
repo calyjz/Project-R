@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SwitchCutscene : MonoBehaviour
+public class SwitchCutsceneIntro : MonoBehaviour
 {
     public GameObject[] cutscenes;
     int index;
@@ -18,7 +18,7 @@ public class SwitchCutscene : MonoBehaviour
     {
         if (index > cutscenes.Length)
         {
-            //load game
+            //start game
         }
         if (index == 0)
         {
