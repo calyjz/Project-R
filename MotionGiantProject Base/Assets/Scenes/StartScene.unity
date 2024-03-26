@@ -551,7 +551,7 @@ MonoBehaviour:
   state: 0
   currentRoom: 0
   numOfEnemies: 10000
-  numOfLanterns: 8
+  numOfLanterns: 10000
 --- !u!4 &792764560
 Transform:
   m_ObjectHideFlags: 0

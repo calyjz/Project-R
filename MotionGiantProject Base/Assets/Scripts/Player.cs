@@ -69,8 +69,11 @@ public class Player : AnimatedEntity
     private bool damaged;
     private float damageCounter;
     private float damageCooldown = 0.5f;
-    
+
     public LayerMask obstacles;  // idfk
+    [Header("Hit Box")]
+    public float hitBoxRange = 0.35f;
+    
 
     void Start()
     {
@@ -122,7 +125,7 @@ public class Player : AnimatedEntity
                     //damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
                     //try
                     //{
-                        damage[i].gameObject.GetComponent<Enemy>().TakeDamage(35);
+                        damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
                     //}
                     //Destroy(damage[i].gameObject);
                 }
@@ -157,27 +160,27 @@ public class Player : AnimatedEntity
     }
     void checkForDamage()
     {
-        Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
+        Collider2D[] damage = Physics2D.OverlapCircleAll(transform.position, hitBoxRange, obstacles);
         
         if (damage.Length > 0)
             {
                 for (int i = 0; i < damage.Length; i++)
                 {
-                    if (attackTime > 0f)
-                    {
-                        Vector2 normal = (transform.position - damage[i].transform.position).normalized;
-                    //movingDir = Vector2.Reflect(movingDir, normal);
-                    if (damage[i].gameObject.GetComponent<ShootTowardsPlayer>().Deflectable)
-                    {
-                        damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+                //    if (attackTime > 0f)
+                //    {
+                //        Vector2 normal = (transform.position - damage[i].transform.position).normalized;
+                //    //movingDir = Vector2.Reflect(movingDir, normal);
+                //    if (damage[i].gameObject.GetComponent<ShootTowardsPlayer>().Deflectable)
+                //    {
+                //        damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
 
-                    }
-                    else
-                    {
-                        Destroy(damage[i].gameObject);
-                    }
+                //    }
+                //    else
+                //    {
+                //        Destroy(damage[i].gameObject);
+                //    }
 
-                } else {
+                //} else {
                         if (GameController.canTakeDamage)
                         {
 
@@ -207,7 +210,7 @@ public class Player : AnimatedEntity
                             GameController.Instance.UpdateGameState(GameState.Respawn);
                         }
                     }
-                }
+                //}
             
         
         //damage = Physics2D.OverlapCircleAll(transform.position, attackRange, obstacles);
@@ -358,7 +361,7 @@ public class Player : AnimatedEntity
         }
         else
         {
-            Physics2D.IgnoreLayerCollision(0, 9, false);
+            Physics2D.IgnoreLayerCollision(0, 9, false);    
         }
             
     }

@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private int reversed = 1;
     public int enemy_no;
 
-    private int hp = 100;
+    private float hp = 100;
 
     public List<Vector3> path;
 
@@ -243,7 +243,7 @@ public class Enemy : MonoBehaviour
         }
 
     }
-    public void TakeDamage(int hitpoints)
+    public void TakeDamage(float hitpoints)
     {
         hp -= hitpoints;
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
