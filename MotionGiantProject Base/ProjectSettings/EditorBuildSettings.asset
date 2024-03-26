@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SpawnRoom.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/Room2.unity
-    guid: 06069489a75ec02468acbf39a85167f8
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Respawn.unity
     guid: 36c6cfdf791501b41b429d29187938cf
