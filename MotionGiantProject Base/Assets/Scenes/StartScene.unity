@@ -649,8 +649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   currentRoom: 0
-  numOfEnemies: 10000
-  numOfLanterns: 10000
+  numOfEnemies: 90
+  numOfLanterns: 25
   Player: {fileID: 0}
   MainCamera: {fileID: 0}
   intro: 1

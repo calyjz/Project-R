@@ -446,7 +446,7 @@ PrefabInstance:
     - target: {fileID: 1865299126746673527, guid: 82dfb81a747d84244930a0399948cec6,
         type: 3}
       propertyPath: enemy_no
-      value: 201
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfb81a747d84244930a0399948cec6, type: 3}
@@ -1027,7 +1027,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66cd6a0b0437e0b4385000cf3f1233a4, type: 2}
+  - {fileID: 2100000, guid: ffd8cf2f12a11dc4193ee605bd30e917, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3522,7 +3522,7 @@ PrefabInstance:
     - target: {fileID: 1865299126746673527, guid: 82dfb81a747d84244930a0399948cec6,
         type: 3}
       propertyPath: enemy_no
-      value: 202
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfb81a747d84244930a0399948cec6, type: 3}
@@ -3946,7 +3946,7 @@ PrefabInstance:
     - target: {fileID: 796105755368304609, guid: da181fe69639cc4439c9c02176036b48,
         type: 3}
       propertyPath: lantern_no
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 796105755368304621, guid: da181fe69639cc4439c9c02176036b48,
         type: 3}
