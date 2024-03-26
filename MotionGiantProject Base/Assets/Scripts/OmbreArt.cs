@@ -77,7 +77,7 @@ public class OmbreArt : MonoBehaviour
     void Update()
     {
         // Create a new texture
-        DrawTexture();
+        //DrawTexture();
         // Useful in Edit Mode
         //DrawTexture();
         //GetComponent<Renderer>().material.mainTexture = texture;
