@@ -11,15 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SpawnRoom.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Room2.unity
-    guid: 06069489a75ec02468acbf39a85167f8
   - enabled: 1
     path: Assets/Scenes/Respawn.unity
     guid: 36c6cfdf791501b41b429d29187938cf
-  - enabled: 1
-    path: Assets/Scenes/TutorialRooms/TutorialRoom1.unity
-    guid: fc5b5879647a04732b734c38411a9c72
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TutorialRooms/TutorialRoom2.unity
     guid: dec9fd379ad4945d7a137fbf867fbe3d
@@ -53,4 +50,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameRooms/GameRoom1.unity
     guid: 485d91a5071bb4b779f98b4dc3653802
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Intro.unity
+    guid: a964ba1f64130ac40863fba68201135a
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Outro.unity
+    guid: cc939907012f1dd4e91b4c043c5b7f3f
+  - enabled: 1
+    path: Assets/Scenes/TutorialRooms/TutorialRoom1.unity
+    guid: a637c669a5187694986101e89d3ab4ad
   m_configObjects: {}

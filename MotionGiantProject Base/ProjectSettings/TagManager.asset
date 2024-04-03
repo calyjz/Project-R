@@ -10,8 +10,7 @@ TagManager:
   - Enemy
   - WinOmbre
   - Laser
-  - Pebble
-  - TripleProjectile
+  - SoundFXManager
   layers:
   - Default
   - TransparentFX

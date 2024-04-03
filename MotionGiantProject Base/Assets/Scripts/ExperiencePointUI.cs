@@ -19,6 +19,6 @@ public class ExperiencePointUI : MonoBehaviour
     void Update()
     {
         exp = GameController.exp.ToString();
-        textbox.text = "Experience Points: " + exp;
+        textbox.text = "Experience Points: " + exp + "\nUse experience points to make Nev stronger!";
     }
 }

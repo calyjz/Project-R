@@ -7,10 +7,18 @@ public class SwitchCutsceneOutro : MonoBehaviour
 {
     public GameObject[] cutscenes;
     int index;
+    public GameObject Player;
+    public GameObject MainCamera;
     // Start is called before the first frame update
     void Start()
     {
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Destroy(MainCamera);
+        Destroy(Player);
+        
         index = 0;
+        
     }
 
     // Update is called once per frame
@@ -27,15 +35,19 @@ public class SwitchCutsceneOutro : MonoBehaviour
     }
     public void Next()
     {
-        index += 1;
-        for(int i=0; i < cutscenes.Length; i++)
+        if (index >= cutscenes.Length)
+        {
+            index = 12;
+        }
+
+        for (int i=0; i < cutscenes.Length; i++)
         {
             cutscenes[i].gameObject.SetActive(false);
             cutscenes[index].gameObject.SetActive(true);
         }
-        if (index > cutscenes.Length)
-        {
-            index = 12;
-        }
+        index += 1;
+
+
+        Debug.Log(index.ToString() + cutscenes.Length.ToString());
     }
 }

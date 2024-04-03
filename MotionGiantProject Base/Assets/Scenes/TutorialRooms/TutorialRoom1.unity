@@ -323,7 +323,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66cd6a0b0437e0b4385000cf3f1233a4, type: 2}
+  - {fileID: 2100000, guid: ffd8cf2f12a11dc4193ee605bd30e917, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2620,6 +2620,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6436855335326296070, guid: 3e31424cfa5ba4cadac3dcf5ce6bea58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e31424cfa5ba4cadac3dcf5ce6bea58, type: 3}
 --- !u!1 &1935621761
@@ -2843,6 +2848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 796105755368304609, guid: da181fe69639cc4439c9c02176036b48,
+        type: 3}
+      propertyPath: lantern_no
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 796105755368304621, guid: da181fe69639cc4439c9c02176036b48,
         type: 3}

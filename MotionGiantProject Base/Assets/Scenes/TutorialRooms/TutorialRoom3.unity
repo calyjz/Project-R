@@ -403,7 +403,7 @@ PrefabInstance:
     - target: {fileID: 1865299126746673527, guid: 82dfb81a747d84244930a0399948cec6,
         type: 3}
       propertyPath: enemy_no
-      value: 305
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfb81a747d84244930a0399948cec6, type: 3}
@@ -847,7 +847,7 @@ PrefabInstance:
     - target: {fileID: 1865299126746673527, guid: 82dfb81a747d84244930a0399948cec6,
         type: 3}
       propertyPath: enemy_no
-      value: 302
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfb81a747d84244930a0399948cec6, type: 3}
@@ -3041,7 +3041,7 @@ Tilemap:
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: ece77ad21c60e3e4b82ecc9434f399dd, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 5f76abe64f736b34e9d95ac77a348c90, type: 2}
+    m_Data: {fileID: 11400000, guid: 746374d363e47224fa8f910e5469d15e, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 9640462c8e8e5334da405b7da7802018, type: 2}
   - m_RefCount: 12
@@ -3078,7 +3078,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: -7869403223043187030, guid: 5bfe9290575b5714589a7daf7563cd5e,
+    m_Data: {fileID: -7245433517681746672, guid: 5bfe9290575b5714589a7daf7563cd5e,
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -6056380807486736462, guid: 5bfe9290575b5714589a7daf7563cd5e,
@@ -3127,9 +3127,9 @@ Tilemap:
   - m_RefCount: 200
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
-    m_Data: {r: 0.93614054, g: 0.48437458, b: 0.60499424, a: 1}
+    m_Data: {r: 2.4531e-41, g: 2.4531e-41, b: 2.4531e-41, a: 2.4531e-41}
   - m_RefCount: 0
-    m_Data: {r: 0.734216, g: 0.48626974, b: 0.5361188, a: 1}
+    m_Data: {r: 2.4531e-41, g: 2.4531e-41, b: 2.4531e-41, a: 2.4531e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3240,7 +3240,7 @@ PrefabInstance:
     - target: {fileID: 1865299126746673527, guid: 82dfb81a747d84244930a0399948cec6,
         type: 3}
       propertyPath: enemy_no
-      value: 304
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfb81a747d84244930a0399948cec6, type: 3}
@@ -4016,7 +4016,7 @@ PrefabInstance:
     - target: {fileID: 1865299126746673527, guid: 82dfb81a747d84244930a0399948cec6,
         type: 3}
       propertyPath: enemy_no
-      value: 301
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfb81a747d84244930a0399948cec6, type: 3}
@@ -4090,7 +4090,7 @@ PrefabInstance:
     - target: {fileID: 1865299126746673527, guid: 82dfb81a747d84244930a0399948cec6,
         type: 3}
       propertyPath: enemy_no
-      value: 303
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82dfb81a747d84244930a0399948cec6, type: 3}

@@ -30,8 +30,11 @@ public class GameController : MonoBehaviour
     //variable storing the total number of lanterns in a game
     public int numOfLanterns = 8;
 
-    GameObject Player;
-    GameObject MainCamera;
+    public GameObject Player;
+    public GameObject MainCamera;
+
+    //variable to play intro or not
+    public bool intro = true;
 
     private void Awake()
     {
@@ -39,6 +42,7 @@ public class GameController : MonoBehaviour
         UpdateGameState(GameState.Start);
         Player = GameObject.FindGameObjectWithTag("Player");
         MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
         if (Player == null)
         {
             Debug.Log("Player object not found");
@@ -60,9 +64,22 @@ public class GameController : MonoBehaviour
             case GameState.Run:
                 //Call function to start the run
                 death = false;
+                /*
+                if (intro == true)
+                {
+                    DontDestroyOnLoad(this);
+                    intro = false;
+                    SceneManager.LoadScene("Intro");
+                    break;
+                }
+                else
+                {
+                */
                 StartRun();
                 Player.GetComponent<Player>().resetMe();
                 break;
+                
+                
             case GameState.Respawn:
                 //call function to reset the layout and restart the run
                 death = true;
@@ -85,8 +102,7 @@ public class GameController : MonoBehaviour
 
     public void StartRun()
     {//called at the start of each run
-        //TODO: Create room layout here
-
+        
         currentRoom = "SpawnRoom";
 
         //sets all enemy states to undefeated (1 for defeated, 0 for undefeated)
@@ -107,7 +123,18 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(MainCamera);
         SceneManager.LoadScene("SpawnRoom");
-
+        /*
+        Player = GameObject.FindGameObjectWithTag("Player");
+        if (Player == null)
+        {
+            Debug.Log("WHY IS IT FUCKING NULL");
+        }
+        */
+        //MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+       
+        //DontDestroyOnLoad(Player);
+        //DontDestroyOnLoad(MainCamera);
+        //Instantiate(Player, new Vector3(0, 0, -1.1f), Quaternion.identity);
         Player.SetActive(true);
 
         //sets player positon
@@ -176,6 +203,15 @@ public class GameController : MonoBehaviour
         }
         SceneManager.LoadScene("Respawn");
 
+    }
+
+    public void IntroCutscene()
+    {
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(MainCamera);
+
+        SceneManager.LoadScene("Intro");
     }
     
 }

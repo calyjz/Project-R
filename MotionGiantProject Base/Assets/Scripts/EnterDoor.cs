@@ -35,10 +35,13 @@ public class EnterDoor : MonoBehaviour
 					break;
 			}
 
+
+			
 			if (!GameObject.FindGameObjectWithTag("Enemy"))
 			{
 				GameController.Instance.loadNextRoom(doorDirection, NextScene);
 			}
+
 		}
 	}
 }
