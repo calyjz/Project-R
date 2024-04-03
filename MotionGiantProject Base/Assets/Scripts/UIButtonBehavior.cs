@@ -151,7 +151,6 @@ public class UIButtonBehavior : MonoBehaviour
 
     void Start()
     {
-        GameController.exp = 1000;
         textHP.text = GameController.hp_max.ToString();
         textDash.text = (0.6f- GameController.dashCooldown).ToString("F2");
         textAttack.text = GameController.attackPower.ToString();

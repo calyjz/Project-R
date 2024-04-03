@@ -567,6 +567,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundFXManager 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109786, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
         type: 3}
       propertyPath: m_RootOrder
@@ -1968,7 +1973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1092239078
 MonoBehaviour:
   m_ObjectHideFlags: 0
