@@ -365,8 +365,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 320, y: 40}
+  m_AnchoredPosition: {x: 0, y: 62.1}
+  m_SizeDelta: {x: 450, y: 50.40287}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &188172237
 MonoBehaviour:
@@ -389,7 +389,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3baf27a4d6bdbca4f80cada5b9a911f5, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -400,7 +400,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Total Experience
+  m_Text: 'Total Experience
+
+    Use Experience Points to make Nev stronger!'
 --- !u!222 &188172238
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -553,6 +555,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259512753}
   m_CullTransparentMesh: 0
+--- !u!1001 &421035315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2446830293708109786, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundFXManager 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.029395804
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.09106943
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.100206
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446830293708109788, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 859971690e1794898831575940b4abd1, type: 3}
 --- !u!1 &426630771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,7 +1387,7 @@ MonoBehaviour:
   HPButtonUP: {fileID: 797954810}
   HPButtonDOWN: {fileID: 488958601}
   DashCost: 50
-  DashMax: 0.44
+  DashMax: 0.5
   DashIncrease: 0.05
   textDash: {fileID: 722351410}
   DashButtonUP: {fileID: 1062921027}
@@ -1333,7 +1404,6 @@ MonoBehaviour:
   textLight: {fileID: 1861011432}
   LightButtonUP: {fileID: 853805166}
   LightButtonDOWN: {fileID: 1455769245}
-  points: 100
 --- !u!1 &853805164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1603,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 50 Experience \n+1 Attack"
+  m_Text: "- 50 Experience \n+5 Attack"
 --- !u!222 &855164134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1880,6 +1950,104 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062921025}
   m_CullTransparentMesh: 0
+--- !u!1 &1092239077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092239081}
+  - component: {fileID: 1092239080}
+  - component: {fileID: 1092239079}
+  - component: {fileID: 1092239078}
+  m_Layer: 0
+  m_Name: Main Camera (1)
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1092239078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092239077}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7692f7c1bcee23240a34d94441847d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  smoothSpeed: 0.125
+--- !u!81 &1092239079
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092239077}
+  m_Enabled: 1
+--- !u!20 &1092239080
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092239077}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1092239081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092239077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1148932344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,7 +2586,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 50 Experience \n+0.4s Max Brightness"
+  m_Text: "- 50 Experience \n+0.3s Longer Light"
 --- !u!222 &1524098211
 CanvasRenderer:
   m_ObjectHideFlags: 0
