@@ -110,24 +110,16 @@ public class Player : AnimatedEntity
         //if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
         //{
             Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
-            //Debug.Log(rangeVector);
-            float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
+            
+        float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
             swingPivot.transform.eulerAngles = new Vector3(0, 0, angle);
 
 
             for (int i = 0; i < damage.Length; i++)
             {
                 SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
-
-                //call the defeated function from the enemy script  
-                //damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
-                //try
-                //{
                 damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
-                //}
-                //Destroy(damage[i].gameObject);
             }
-            //attackTime = startTimeAttack;
             SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
         //}
     }
@@ -156,35 +148,6 @@ public class Player : AnimatedEntity
             swing.sprite = null;
             sword.sprite = swordSprite;
         }
-
-
-        //if ((attackTime- freezeAttack) <= 0)
-        //{
-        //    if (Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
-        //    {
-        //        attackTime = startTimeAttack;
-        //    }
-        //    swing.sprite = null;
-        //    sword.sprite = swordSprite;
-        //    //if (attackTime < freezeAttack)
-        //    //{
-        //    //}
-
-        //}
-        //else
-        //{
-
-        //    //if (attackTime > freezeAttack)
-        //    //{
-        //    //    swing.sprite = swingSprite;
-        //    //    sword.sprite = null;
-        //    //}
-        //    //else
-        //    //{
-
-        //    //}
-        //    //anim.SetBool("Is_attacking", false);
-        //}
     }
     public void resetMe()
     {
