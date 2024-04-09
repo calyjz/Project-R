@@ -1454,10 +1454,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6652373980619001689, guid: 288f541c248898544b6b26fb65421985,
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
-      propertyPath: lightSize
-      value: 0.25
+      propertyPath: colorStops.Array.data[1].color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643695, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
@@ -1518,6 +1528,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: freezeAttack
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: startTimeAttack
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288f541c248898544b6b26fb65421985, type: 3}
