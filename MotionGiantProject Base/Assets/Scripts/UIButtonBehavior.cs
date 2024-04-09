@@ -45,12 +45,8 @@ public class UIButtonBehavior : MonoBehaviour
     public Button LightButtonDOWN;
 
 
-    private string exp;
     private static Player playerObject;
     private static Light lightObject;
-    private int dashClicks, attackClicks, lanternClicks;
-
-    public int points = 100;
    
 
     public void hpUP()
@@ -81,14 +77,14 @@ public class UIButtonBehavior : MonoBehaviour
     public void dashUP()
     {
         Debug.Log(DashIncrease);
-        if (GameController.exp >= DashCost && GameController.dashCooldown > DashMax)//increase stat if user has enough exp
+        if (GameController.exp >= DashCost && 0.6f - GameController.dashCooldown <= DashMax)//increase stat if user has enough exp
         {
             SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
        
             GameController.dashCooldown -= DashIncrease;//subtracts the decrease in cooldown time from gamecontroller stat
             DashClicks += 1;
             GameController.exp -= DashCost;
-            textDash.text = (1-GameController.dashCooldown).ToString();
+            textDash.text = (0.6f-GameController.dashCooldown).ToString("F2");
         }
     }
     public void dashDOWN()
@@ -99,7 +95,7 @@ public class UIButtonBehavior : MonoBehaviour
             GameController.dashCooldown += DashIncrease;//increase cooldown
             DashClicks -= 1;
             GameController.exp += DashCost;
-            textDash.text = (1-GameController.dashCooldown).ToString();
+            textDash.text = (0.6f-GameController.dashCooldown).ToString("F2");
         }
 
     }
@@ -138,7 +134,7 @@ public class UIButtonBehavior : MonoBehaviour
             GameController.lightDecrease += LightIncrease;//Adds to light decrease
             LightClicks += 1;
             GameController.exp -= LightCost;
-            textLight.text = GameController.lightDecrease.ToString();
+            textLight.text = GameController.lightDecrease.ToString("F1");
         }
     }
     public void LanternDOWN()
@@ -148,7 +144,7 @@ public class UIButtonBehavior : MonoBehaviour
             GameController.lightDecrease -= LightIncrease;//increase cooldown
             LightClicks -= 1;
             GameController.exp += LightCost;
-            textLight.text = GameController.lightDecrease.ToString();
+            textLight.text = GameController.lightDecrease.ToString("F1");
         }
 
     }
@@ -156,12 +152,11 @@ public class UIButtonBehavior : MonoBehaviour
     void Start()
     {
         textHP.text = GameController.hp_max.ToString();
-        textDash.text = (1- GameController.dashCooldown).ToString();
+        textDash.text = (0.6f- GameController.dashCooldown).ToString("F2");
         textAttack.text = GameController.attackPower.ToString();
-        textLight.text = GameController.lightDecrease.ToString();
+        textLight.text = GameController.lightDecrease.ToString("F1");
         //textbox = GetComponent<Text>();
         //playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        Debug.Log(DashIncrease);
     }
 
     public void RespawnPress()
@@ -189,7 +184,7 @@ public class UIButtonBehavior : MonoBehaviour
         {
             HPButtonDOWN.interactable = true;
         }
-        if (GameController.exp < HPCost)//disables up button if no more points can be allocated
+        if (GameController.exp < HPCost || GameController.hp_max >= HPMax)//disables up button if no more points can be allocated
         {
             HPButtonUP.interactable = false;
         }
@@ -207,7 +202,7 @@ public class UIButtonBehavior : MonoBehaviour
             DashButtonDOWN.interactable = true;
         }
 
-        if (GameController.exp < DashCost)//disables up button if no more points can be allocated
+        if (GameController.exp < DashCost || 0.6f - GameController.dashCooldown > DashMax)//disables up button if no more points can be allocated
         {
             DashButtonUP.interactable = false;
         }
@@ -225,7 +220,7 @@ public class UIButtonBehavior : MonoBehaviour
         {
             AttackButtonDOWN.interactable = true;
         }
-        if (GameController.exp < AttackCost)//disables up button if no more points can be allocated
+        if (GameController.exp < AttackCost || GameController.attackPower >= AttackMax)//disables up button if no more points can be allocated
         {
             AttackButtonUP.interactable = false;
         }
@@ -245,7 +240,7 @@ public class UIButtonBehavior : MonoBehaviour
         {
             LightButtonDOWN.interactable = true;
         }
-        if (GameController.exp < LightCost)//disables up button if no more points can be allocated
+        if (GameController.exp < LightCost || GameController.lightDecrease >= LightMax)//disables up button if no more points can be allocated
         {
             LightButtonUP.interactable = false;
         }
