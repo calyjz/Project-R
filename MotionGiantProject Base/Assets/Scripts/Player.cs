@@ -46,6 +46,7 @@ public class Player : AnimatedEntity
     [Header("Attack Settings")]
     public float attackTime;
     public float startTimeAttack;
+    public float freezeAttack;
     // Start is called before the first frame update
     public Transform attackLocation;
     public float attackRange;
@@ -98,54 +99,92 @@ public class Player : AnimatedEntity
         Gizmos.color = Color.yellow;
         Vector2 rangeVector2 = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
 
-        Gizmos.DrawSphere(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector2, attackRange);
+        Gizmos.DrawSphere(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange);
     }
     // Update is called once per frame
+    void kilThem()
+    {
+        swing.sprite = swingSprite;
+        sword.sprite = null;
+        //Debug.Log("Waiting for fire1");
+        //if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
+        //{
+            Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
+            //Debug.Log(rangeVector);
+            float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
+            swingPivot.transform.eulerAngles = new Vector3(0, 0, angle);
 
+
+            for (int i = 0; i < damage.Length; i++)
+            {
+                SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
+
+                //call the defeated function from the enemy script  
+                //damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
+                //try
+                //{
+                damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
+                //}
+                //Destroy(damage[i].gameObject);
+            }
+            //attackTime = startTimeAttack;
+            SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
+        //}
+    }
     void checkForAttack()
     {
-        if(Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
+        if (attackTime > 0)
         {
-            attackTime = -1;
-        }
-        if (attackTime <= 0)
-        {
-            swing.sprite = null;
-            sword.sprite = swordSprite;
-            //Debug.Log("Waiting for fire1");
-            if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
-            {
-                rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
-                Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
-                //Debug.Log(rangeVector);
-                float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
-                swingPivot.transform.eulerAngles = new Vector3(0, 0, angle);
-
-
-                for (int i = 0; i < damage.Length; i++)
-                {
-                    SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
-
-                    //call the defeated function from the enemy script  
-                    //damage[i].gameObject.GetComponent<Enemy>().RemoveEnemy();
-                    //try
-                    //{
-                        damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
-                    //}
-                    //Destroy(damage[i].gameObject);
-                }
-                attackTime = startTimeAttack;
-                SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
-            }
-
+            kilThem();
+            attackTime -= Time.deltaTime;
         }
         else
         {
-            attackTime -= Time.deltaTime;
-            swing.sprite = swingSprite;
-            sword.sprite = null;
-            //anim.SetBool("Is_attacking", false);
+            if(attackTime< (-freezeAttack))
+            {
+                if (Input.GetAxis("Fire1") != 0 || Input.GetAxis("Fire2")!=0)
+                {
+                    rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
+                    print(rangeVector);
+                    attackTime = startTimeAttack;
+                }
+            } else
+            {
+                attackTime -= Time.deltaTime;
+
+            }
+            swing.sprite = null;
+            sword.sprite = swordSprite;
         }
+
+
+        //if ((attackTime- freezeAttack) <= 0)
+        //{
+        //    if (Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
+        //    {
+        //        attackTime = startTimeAttack;
+        //    }
+        //    swing.sprite = null;
+        //    sword.sprite = swordSprite;
+        //    //if (attackTime < freezeAttack)
+        //    //{
+        //    //}
+
+        //}
+        //else
+        //{
+
+        //    //if (attackTime > freezeAttack)
+        //    //{
+        //    //    swing.sprite = swingSprite;
+        //    //    sword.sprite = null;
+        //    //}
+        //    //else
+        //    //{
+
+        //    //}
+        //    //anim.SetBool("Is_attacking", false);
+        //}
     }
     public void resetMe()
     {
@@ -419,7 +458,7 @@ public class Player : AnimatedEntity
                 SpriteRenderer.color = Color.red;
                 laserFreezeTime = laserFreezeDuration;
                 hp -= 25;
-
+                SpriteRenderer.color = Color.red;
                 SoundFXManager.instance.PlaySoundFXClip("PlayerHitByLaser", this.transform);
                 damaged = true;
             }

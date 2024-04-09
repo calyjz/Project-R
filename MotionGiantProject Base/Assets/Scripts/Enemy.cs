@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     private int reversed = 1;
     public int enemy_no;
 
-    private float hp = 100;
+    public float hp = 100;
 
     public List<Vector3> path;
 
