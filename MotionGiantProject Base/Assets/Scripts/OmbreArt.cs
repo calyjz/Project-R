@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//[ExecuteInEditMode]
+[ExecuteInEditMode]
 
 public class OmbreArt : MonoBehaviour
 {
@@ -79,7 +79,7 @@ public class OmbreArt : MonoBehaviour
         // Create a new texture
         //DrawTexture();
         // Useful in Edit Mode
-        //DrawTexture();
+        DrawTexture();
         //GetComponent<Renderer>().material.mainTexture = texture;
     }
 }
