@@ -11,6 +11,8 @@ TagManager:
   - WinOmbre
   - Laser
   - SoundFXManager
+  - Pebble
+  - MusicManager
   layers:
   - Default
   - TransparentFX

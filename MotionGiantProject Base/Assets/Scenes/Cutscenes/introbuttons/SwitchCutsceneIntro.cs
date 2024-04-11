@@ -11,6 +11,11 @@ public class SwitchCutsceneIntro : MonoBehaviour
     void Start()
     {
         index = 0;
+
+        for (int i = 1; i < cutscenes.Length; i++)
+        {
+            cutscenes[i].gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -29,14 +34,15 @@ public class SwitchCutsceneIntro : MonoBehaviour
     }
     public void Next()
     {
+
         
-        for(int i=0; i < cutscenes.Length; i++)
-        {
-            Debug.Log(cutscenes.Length.ToString() + index.ToString());
-            cutscenes[i].gameObject.SetActive(false);
-            cutscenes[index].gameObject.SetActive(true);
-            
-        }
+        Debug.Log(index.ToString() + " false, " + (index+1).ToString() + " true");
+        cutscenes[index].gameObject.SetActive(false);
         index += 1;
+        if (index < cutscenes.Length)
+        {
+            cutscenes[index].gameObject.SetActive(true);
+        }
+        
     }
 }

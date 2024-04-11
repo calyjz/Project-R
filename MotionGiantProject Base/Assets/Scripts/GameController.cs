@@ -213,6 +213,24 @@ public class GameController : MonoBehaviour
 
         SceneManager.LoadScene("Intro");
     }
+
+    public void GameReset()
+    {
+        canTakeDamage = true;
+        exp = 50; // Default XP
+        hp_max = 100;
+        dashCooldown = 0.6f;
+        attackPower = 35.00f;
+        lightDecrease = 0.5f;
+
+        Destroy(Player);
+        Destroy(MainCamera);
+        Destroy(GameObject.FindGameObjectWithTag("SoundFXManager"));
+        Destroy(GameObject.FindGameObjectWithTag("MusicManager"));
+        SceneManager.LoadScene("StartScene");
+        Destroy(gameObject);
+
+    }
     
 }
 
