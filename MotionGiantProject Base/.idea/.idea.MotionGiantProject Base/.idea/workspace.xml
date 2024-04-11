@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5de0c422-6f12-436b-bcde-eb6d7fe836d9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TutorialRooms/TutorialRoom1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TutorialRooms/TutorialRoom1.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +36,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;damon-sequel&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;new-branch-new-me&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -102,6 +105,7 @@
       <workItem from="1710212291600" duration="48000" />
       <workItem from="1710806249677" duration="11819000" />
       <workItem from="1711386684264" duration="11128000" />
+      <workItem from="1712863316253" duration="8000" />
     </task>
     <servers />
   </component>

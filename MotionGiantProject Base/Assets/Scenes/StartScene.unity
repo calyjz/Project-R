@@ -1454,6 +1454,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6652373980619001689, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: lightSize
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
       propertyPath: colorStops.Array.data[1].color.b

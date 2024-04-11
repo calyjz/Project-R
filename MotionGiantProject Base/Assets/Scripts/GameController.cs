@@ -165,13 +165,13 @@ public class GameController : MonoBehaviour
         switch (DoorDirection)
         {
             case 0://set player in front of South door
-                Player.transform.position = new Vector3(0, (float)-3.6, (float)-1.1);
+                Player.transform.position = new Vector3(0, (float)-6.6, (float)-1.1);
                 break;
             case 1://set player in front of West door
                 Player.transform.position = new Vector3((float)8.89, 0, (float)-1.1);
                 break;
             case 2://set player in front of North door
-                Player.transform.position = new Vector3(0, (float)3.6, (float)-1.1);
+                Player.transform.position = new Vector3(0, (float)6.6, (float)-1.1);
                 break;
             case 3://set player in front of East door
                 Player.transform.position = new Vector3((float)-8.89, 0, (float)-1.1);

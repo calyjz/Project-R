@@ -120,7 +120,6 @@ public class Player : AnimatedEntity
                 SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
                 damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
             }
-            SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
         //}
     }
     void checkForAttack()
@@ -138,6 +137,7 @@ public class Player : AnimatedEntity
                 {
                     rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
                     print(rangeVector);
+                    SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
                     attackTime = startTimeAttack;
                 }
             } else
