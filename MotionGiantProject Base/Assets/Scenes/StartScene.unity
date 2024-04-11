@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 238970438}
   m_Layer: 0
   m_Name: MusicManager
-  m_TagString: Untagged
+  m_TagString: MusicManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1452,6 +1452,36 @@ PrefabInstance:
     - target: {fileID: 6652373980360200577, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951355, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981118951357, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].position
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643695, guid: 288f541c248898544b6b26fb65421985,

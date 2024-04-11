@@ -283,6 +283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ombre
       objectReference: {fileID: 0}
+    - target: {fileID: 8925681548722752683, guid: 4e9f41015d57a754ca4c03096ead17e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8925681548722752684, guid: 4e9f41015d57a754ca4c03096ead17e7,
         type: 3}
       propertyPath: m_RootOrder
@@ -362,6 +367,16 @@ PrefabInstance:
         type: 3}
       propertyPath: colorStops.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925681548722752685, guid: 4e9f41015d57a754ca4c03096ead17e7,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925681548722752685, guid: 4e9f41015d57a754ca4c03096ead17e7,
+        type: 3}
+      propertyPath: colorStops.Array.data[1].color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925681548722752685, guid: 4e9f41015d57a754ca4c03096ead17e7,
         type: 3}
