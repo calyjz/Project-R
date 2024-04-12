@@ -32,6 +32,7 @@ public class ShootTowardsPlayer : MonoBehaviour
         Debug.Log(initalRotate);
         movingDir = (Quaternion.Euler(0, 0, initalRotate) * (GameObject.FindGameObjectWithTag("Player").transform.position- transform.position).normalized).normalized * 10f;
         startTime = Time.time;
+        //Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Player").GetComponent<CircleCollider2D>(), GetComponent<CircleCollider2D>());
     }
 
     /// For the triple projectile shot
