@@ -100,7 +100,7 @@ public class Player : AnimatedEntity
         Gizmos.color = Color.yellow;
         Vector2 rangeVector2 = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
 
-        Gizmos.DrawSphere(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange);
+        Gizmos.DrawSphere(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, hitBoxRange);
     }
     // Update is called once per frame
     void killThem()
