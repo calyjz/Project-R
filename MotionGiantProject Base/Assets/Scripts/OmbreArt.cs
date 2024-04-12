@@ -18,6 +18,7 @@ public class OmbreArt : MonoBehaviour
         public float position; // Position of the color stop as a percentage of the radius
         public Color color; // Color of the stop
     }
+    private bool loaded = false;
     // Start is called before the first frame update
     void DrawTexture()
     {
@@ -76,10 +77,16 @@ public class OmbreArt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!loaded)
+        {
+            DrawTexture();
+            loaded = true;
+        }
+        
         // Create a new texture
         //DrawTexture();
         // Useful in Edit Mode
-        DrawTexture();
+        //DrawTexture();
         //GetComponent<Renderer>().material.mainTexture = texture;
     }
 }
