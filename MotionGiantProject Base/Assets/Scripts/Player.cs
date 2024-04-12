@@ -77,6 +77,7 @@ public class Player : AnimatedEntity
 
     private float laserFreezeDuration = 2f;
     private float laserFreezeTime = -1f;
+    List<GameObject> damagedList = new List<GameObject>();
     void Start()
     {
         AnimationSetup();
@@ -102,14 +103,14 @@ public class Player : AnimatedEntity
         Gizmos.DrawSphere(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange);
     }
     // Update is called once per frame
-    void kilThem()
+    void killThem()
     {
         swing.sprite = swingSprite;
         sword.sprite = null;
         //Debug.Log("Waiting for fire1");
         //if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
         //{
-            Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
+        Collider2D[] damage = Physics2D.OverlapCircleAll(new Vector2(attackLocation.position.x, attackLocation.position.y) + rangeVector, attackRange, enemies);
             
         float angle = Mathf.Atan2(rangeVector.y * leftorRight, rangeVector.x * leftorRight) * Mathf.Rad2Deg; // #strangebug?
             swingPivot.transform.eulerAngles = new Vector3(0, 0, angle);
@@ -117,8 +118,13 @@ public class Player : AnimatedEntity
 
             for (int i = 0; i < damage.Length; i++)
             {
+            if (!damagedList.Contains(damage[i].gameObject))
+            {
                 SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
                 damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
+                damagedList.Add(damage[i].gameObject);
+
+            }
             }
         //}
     }
@@ -126,7 +132,9 @@ public class Player : AnimatedEntity
     {
         if (attackTime > 0)
         {
-            kilThem();
+            killThem();
+            swing.sprite = swingSprite;
+            sword.sprite = null;
             attackTime -= Time.deltaTime;
         }
         else
@@ -135,10 +143,12 @@ public class Player : AnimatedEntity
             {
                 if (Input.GetAxis("Fire1") != 0 || Input.GetAxis("Fire2")!=0)
                 {
+                    damagedList = new List<GameObject>();
                     rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
                     print(rangeVector);
                     SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
                     attackTime = startTimeAttack;
+                    
                 }
             } else
             {
@@ -286,7 +296,7 @@ public class Player : AnimatedEntity
             {
                 transform.localScale = rightFacingDirection;
                 leftorRight = 1;
-            }
+            }   
             else
             {
                 transform.localScale = leftFacingDirection;
