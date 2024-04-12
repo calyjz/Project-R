@@ -7,7 +7,7 @@ using System;
 public class UIButtonBehavior : MonoBehaviour
 {
     [Header("HP")]
-    public int HPCost = 50;
+    public int HPCost = 75;
     public int HPIncrease = 25;
     public int HPMax = 300; 
     private int HPClicks = 0;
@@ -25,9 +25,9 @@ public class UIButtonBehavior : MonoBehaviour
     public Button DashButtonDOWN;
 
     [Header("Attack")]
-    public int AttackCost = 50;
-    public int AttackIncrease = 5;
-    public int AttackMax = 100;
+    public int AttackCost = 250;
+    public int AttackIncrease = 50;
+    public int AttackMax = 135;
     private int Attack;
     private int AttackClicks = 0;
     public Text textAttack;
@@ -130,7 +130,7 @@ public class UIButtonBehavior : MonoBehaviour
     {
         if (GameController.exp >= LightCost && GameController.lightDecrease < LightMax)//increase stat if user has enough exp
         {
-            
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             GameController.lightDecrease += LightIncrease;//Adds to light decrease
             LightClicks += 1;
             GameController.exp -= LightCost;
@@ -141,6 +141,7 @@ public class UIButtonBehavior : MonoBehaviour
     {
         if (LightClicks > 0)//checks if the user already clicked the up button previously
         {
+            SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
             GameController.lightDecrease -= LightIncrease;//increase cooldown
             LightClicks -= 1;
             GameController.exp += LightCost;
