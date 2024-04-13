@@ -222,9 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 7502582913774170670}
-  lines:
-  - Hello
-  - World
-  - Welcome
+  line: 
   textSpeed: 0.1
   delayBeforeNextLine: 0
+  allLines: {fileID: 0}
