@@ -37,6 +37,32 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
+    public bool isPlaying(string clipname)
+    {
+        if (this.getCurrentClipName() == clipname && soundFXObject.isPlaying)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    public string getCurrentClipName()
+    {
+        if (soundFXObject.isPlaying)
+        {
+            foreach (var pair in audioClips)
+            {
+                if (pair.Value == soundFXObject.clip)
+                {
+                    return pair.Key;
+                }
+            }
+        }
+        return null;
+    }
+
     public AudioSource PlaySoundFXClip(string audioClipName, Transform spawnTransform)
     {
         // Check if the audio clip exists in the dictionary

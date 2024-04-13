@@ -1390,7 +1390,7 @@ PrefabInstance:
     - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
         type: 3}
       propertyPath: audioDataList.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
         type: 3}
@@ -1409,6 +1409,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
         type: 3}
+      propertyPath: audioDataList.Array.data[14].name
+      value: Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
       propertyPath: audioDataList.Array.data[11].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: d002e8f297e754586a1600a215e0b3eb, type: 3}
@@ -1422,6 +1427,11 @@ PrefabInstance:
       propertyPath: audioDataList.Array.data[13].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 22a1ff3f7123b4a6e94c1347052289c7, type: 3}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[14].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4957425dc3970439eb6b9e2ed72a4d12, type: 3}
     - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
         type: 3}
       propertyPath: audioDataList.Array.data[11].audioMixerGroup
@@ -1439,6 +1449,12 @@ PrefabInstance:
       propertyPath: audioDataList.Array.data[13].audioMixerGroup
       value: 
       objectReference: {fileID: -6274983180976607243, guid: 48b9932c52db9409d967b5fc4c7d680d,
+        type: 2}
+    - target: {fileID: 5651850948504818271, guid: 859971690e1794898831575940b4abd1,
+        type: 3}
+      propertyPath: audioDataList.Array.data[14].audioMixerGroup
+      value: 
+      objectReference: {fileID: -4132395405875959361, guid: 48b9932c52db9409d967b5fc4c7d680d,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 859971690e1794898831575940b4abd1, type: 3}

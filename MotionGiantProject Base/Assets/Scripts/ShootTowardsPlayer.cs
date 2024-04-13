@@ -13,6 +13,8 @@ public class ShootTowardsPlayer : MonoBehaviour
 
     private Vector3 movingDir;
 
+    private float lastSoundPlayTime = -2.0f;
+
     private float startTime;
     public float speed = 1.0f;
     public float spawnTime = 2f;
@@ -96,10 +98,17 @@ public class ShootTowardsPlayer : MonoBehaviour
 
     public void deflect(Vector3 normal)
     {
+        //Debug.Log("CALLLED");
+        if (Time.time - lastSoundPlayTime >= 1.0f) // Check if 2 seconds have passed since the last sound play
+        {
+            Debug.Log("CALLLED " + lastSoundPlayTime);
+            SoundFXManager.instance.PlaySoundFXClip("Counter", this.transform);
+            lastSoundPlayTime = Time.time; // Update the last sound play time
+        }
         movingDir = Vector2.Reflect(movingDir, normal);
         startPos = transform.position;
         totalTime += Time.time - startTime;
-        startTime = Time.time-0.05f;
+        startTime = Time.time - 0.05f;
     }
 
 }
