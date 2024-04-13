@@ -26,9 +26,9 @@ public class PlayerStatUI : MonoBehaviour
     {
         hp = playerObject.hp.ToString();
         dashCurrent = Math.Round(playerObject.getDashCoolCurrent(), 2).ToString();
-        dashCooldown = GameController.dashCooldown.ToString();
-        attackPower = GameController.attackPower.ToString();
-        lanternTime = GameController.lightDecrease.ToString();
+        dashCooldown = Math.Round(GameController.dashCooldown, 2).ToString();
+        attackPower = Math.Round(GameController.attackPower, 2).ToString();
+        lanternTime = Math.Round(GameController.lightDecrease, 2).ToString();
         textbox.text = hp + "\n" + dashCurrent + " / " + dashCooldown + "\n" + attackPower + " AP\n-" + lanternTime + "s";
     }
 }

@@ -38,12 +38,14 @@ public class PauseButtonBehavior : MonoBehaviour
     public void PauseButtonOnPress()
     {
         //pause the game after pause button gets pressed
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         pause();
     }
 
     public void ResumeButtonOnPress()
     {
         //unpause the game after respawn button gets pressed
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         unpause();
     }
     
@@ -51,6 +53,7 @@ public class PauseButtonBehavior : MonoBehaviour
     {
         //restart the entire game
         Time.timeScale = 1f;
+        SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         GameController.Instance.GameReset();
     }
 

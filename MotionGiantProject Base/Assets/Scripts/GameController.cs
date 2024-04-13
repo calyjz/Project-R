@@ -20,10 +20,10 @@ public class GameController : MonoBehaviour
     public static bool death;
     public static bool canTakeDamage = true;
     public static int exp = 50; // Default XP
-    public static int hp_max = 100;
+    public static int hp_max = 125;
     public static float dashCooldown = 0.6f;
     public static float attackPower = 35.00f;
-    public static float lightDecrease = 0.5f;
+    public static float lightDecrease = 0.2f;
 
     //variable storing the total number of enemies in a game
     public int numOfEnemies = 4;

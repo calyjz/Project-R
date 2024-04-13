@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d720bea1eca38b343941b50fffb50070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPCost: 50
+  HPCost: 75
   HPIncrease: 25
   HPMax: 300
   textHP: {fileID: 2054285456}
@@ -1397,15 +1397,15 @@ MonoBehaviour:
   textDash: {fileID: 722351410}
   DashButtonUP: {fileID: 1062921027}
   DashButtonDOWN: {fileID: 426630773}
-  AttackCost: 50
-  AttackIncrease: 5
-  AttackMax: 100
+  AttackCost: 200
+  AttackIncrease: 50
+  AttackMax: 135
   textAttack: {fileID: 1723268277}
   AttackButtonUP: {fileID: 981736349}
   AttackButtonDOWN: {fileID: 259512755}
-  LightCost: 50
+  LightCost: 25
   LightIncrease: 0.3
-  LightMax: 2.6
+  LightMax: 2.9
   textLight: {fileID: 1861011432}
   LightButtonUP: {fileID: 853805166}
   LightButtonDOWN: {fileID: 1455769245}
@@ -1602,13 +1602,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 50 Experience \n+5 Attack"
+  m_Text: "- 200 Experience \n+ Increases Attack Damage by 50"
 --- !u!222 &855164134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1680,13 +1680,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 50 Experience \n+0.05s Faster Dash"
+  m_Text: "- 50 Experience \n+ Decreases Dash Cooldown by 0.05s"
 --- !u!222 &956870294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2585,13 +2585,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 50 Experience \n+0.3s Longer Light"
+  m_Text: "- 25 Experience \n+ Light Lasts 0.3s Longer Between Decrease Increments "
 --- !u!222 &1524098211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3006,13 +3006,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 50 Experience \n+25 Health Points"
+  m_Text: "- 75 Experience \n+ 25 Health Points"
 --- !u!222 &1555772713
 CanvasRenderer:
   m_ObjectHideFlags: 0
