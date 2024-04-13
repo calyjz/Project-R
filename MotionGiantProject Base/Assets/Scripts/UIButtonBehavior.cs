@@ -25,7 +25,7 @@ public class UIButtonBehavior : MonoBehaviour
     public Button DashButtonDOWN;
 
     [Header("Attack")]
-    public int AttackCost = 250;
+    public int AttackCost = 200;
     public int AttackIncrease = 50;
     public int AttackMax = 135;
     private int Attack;
