@@ -37,6 +37,6 @@ public class Dialogue : MonoBehaviour
             yield return new WaitForSecondsRealtime(textSpeed); // Use WaitForSecondsRealtime so the typing isn't paused
         }
         yield return new WaitForSecondsRealtime(delayBeforeNextLine); // Add this line
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }
