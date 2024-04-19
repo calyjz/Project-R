@@ -34,6 +34,8 @@ public class ShootTowardsPlayer : MonoBehaviour
         Debug.Log(initalRotate);
         movingDir = (Quaternion.Euler(0, 0, initalRotate) * (GameObject.FindGameObjectWithTag("Player").transform.position- transform.position).normalized).normalized * 10f;
         startTime = Time.time;
+
+        
         //Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Player").GetComponent<CircleCollider2D>(), GetComponent<CircleCollider2D>());
     }
 
@@ -91,6 +93,12 @@ public class ShootTowardsPlayer : MonoBehaviour
 
         Collider2D[] wallHit = Physics2D.OverlapCircleAll(transform.position, 0.12f, wallsLayer);
         if (wallHit.Length>0)
+        {
+            Destroy(gameObject);
+        }
+
+        //checks if room is cleared
+        if (!GameObject.FindGameObjectWithTag("Enemy"))
         {
             Destroy(gameObject);
         }
