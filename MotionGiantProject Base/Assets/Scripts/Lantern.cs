@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lantern : MonoBehaviour
+public class Lantern : AnimatedLantern
 {
     public int lantern_no;
+
+    public void Start()
+    {
+        AnimationSetup();
+    }
 
     public void RemoveLantern()
     {   //check if player is not dead
@@ -21,6 +26,8 @@ public class Lantern : MonoBehaviour
 
     private void Update()
     {
+        AnimationUpdate();
+
         if (PlayerPrefs.GetInt("Lantern_no " + lantern_no) == 1)
         {
             Destroy(this.gameObject);
