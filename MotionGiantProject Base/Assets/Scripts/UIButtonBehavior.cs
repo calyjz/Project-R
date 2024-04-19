@@ -7,7 +7,7 @@ using System;
 public class UIButtonBehavior : MonoBehaviour
 {
     [Header("HP")]
-    public int HPCost = 75;
+    public int HPCost = 50;
     public int HPIncrease = 25;
     public int HPMax = 300; 
     private int HPClicks = 0;
@@ -35,7 +35,7 @@ public class UIButtonBehavior : MonoBehaviour
     public Button AttackButtonDOWN;
 
     [Header("Light")]
-    public int LightCost = 50;
+    public int LightCost = 25;
     public float LightIncrease = 0.3f;
     public float LightMax = 2.9f;
     private float Light;
