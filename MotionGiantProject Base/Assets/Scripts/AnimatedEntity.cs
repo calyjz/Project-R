@@ -10,6 +10,7 @@ public class AnimatedEntity : MonoBehaviour
     public List<Sprite> DashAnimationCycle; // just player maybe
     public List<Sprite> HurtAnimationCycle;
     public List<Sprite> IdleAnimationCycle;
+    public List<Sprite> FriedAnimationCycle;
 
 
     public float Framerate = 12f;//frames per second
@@ -85,25 +86,33 @@ public class AnimatedEntity : MonoBehaviour
         interruptAnimation = _interruptAnimation;
         SpriteRenderer.sprite = interruptAnimation[index];
     }
-    
+
     protected void switchAnimation(string mode)
     {
         //Debug.Log(mode);
-        if(mode == "walk")
+        if (mode == "walk")
         {
             DefaultAnimationCycle = WalkAnimationCycle;
         }
-        if(mode == "hurt")
+        if (mode == "hurt")
         {
             DefaultAnimationCycle = HurtAnimationCycle;
         }
-        if(mode == "dash")
+        if (mode == "dash")
         {
             DefaultAnimationCycle = DashAnimationCycle;
         }
-        if( mode == "idle")
+        if (mode == "idle")
         {
             DefaultAnimationCycle = IdleAnimationCycle;
+        }
+        if (mode == "fry")
+        {
+            Debug.Log(mode);
+            DefaultAnimationCycle = FriedAnimationCycle;
+            index = 0;
+            //animationTimer = 0;
+            previousIndex = 0;
         }
     }
 

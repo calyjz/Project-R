@@ -229,6 +229,7 @@ public class Player : AnimatedEntity
                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                             //MusicManager.instance.PlayDeathMusic();
                             GameController.Instance.UpdateGameState(GameState.Respawn);
+                            SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
                         }
                     }
                 //}
@@ -434,12 +435,17 @@ public class Player : AnimatedEntity
                 SpriteRenderer.color = Color.red;
                 SoundFXManager.instance.PlaySoundFXClip("PlayerHitByLaser", this.transform);
                 damaged = true;
+                switchAnimation("fry");
+
+                freezeTime = 0.3f;
             }
             if (hp<=0)
             {
                 SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                 //MusicManager.instance.PlayDeathMusic();
                 GameController.Instance.UpdateGameState(GameState.Respawn);
+                freezeTime = 0;
+                SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
         }
 
@@ -464,7 +470,7 @@ public class Player : AnimatedEntity
         lastFootstepSound = footstepSounds[randomIndex];
         return lastFootstepSound;
     }
-
+    
     
     public float getDashCoolCurrent()
     {
