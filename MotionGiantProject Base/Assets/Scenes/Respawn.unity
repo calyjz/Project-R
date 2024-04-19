@@ -1397,7 +1397,7 @@ MonoBehaviour:
   textDash: {fileID: 722351410}
   DashButtonUP: {fileID: 1062921027}
   DashButtonDOWN: {fileID: 426630773}
-  AttackCost: 200
+  AttackCost: 150
   AttackIncrease: 50
   AttackMax: 135
   textAttack: {fileID: 1723268277}
@@ -1608,7 +1608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 200 Experience \n+ Increases Attack Damage by 50"
+  m_Text: "- 150 Experience \n+ Increases Attack Damage by 50"
 --- !u!222 &855164134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2591,7 +2591,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 25 Experience \n+ Light Lasts 0.3s Longer Between Decrease Increments "
+  m_Text: "- 25 Experience \n+ 0.3 s slower light decrease"
 --- !u!222 &1524098211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3012,7 +3012,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "- 75 Experience \n+ 25 Health Points"
+  m_Text: "- 50 Experience \n+ 25 Health Points"
 --- !u!222 &1555772713
 CanvasRenderer:
   m_ObjectHideFlags: 0
