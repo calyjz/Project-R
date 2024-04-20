@@ -36,6 +36,9 @@ public class GameController : MonoBehaviour
     //variable to play intro or not
     public bool intro = true;
 
+    //keeps track of wether the controls need to be displayed
+    public bool firstrun = true;
+
     private void Awake()
     {
         _instance = this;
@@ -195,6 +198,8 @@ public class GameController : MonoBehaviour
         Player.GetComponent<Player>().resetMe();
         Player.SetActive(false);
 
+        firstrun = false;
+
         //resets all enemy states to undefeated (1 for defeated, 0 for undefeated)
         for (int i = 0; i < numOfEnemies; i++)
         {
@@ -222,6 +227,7 @@ public class GameController : MonoBehaviour
         dashCooldown = 0.6f;
         attackPower = 35.00f;
         lightDecrease = 0.5f;
+        firstrun = true;
 
         Destroy(Player);
         Destroy(MainCamera);

@@ -77,11 +77,11 @@ public class OmbreArt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!loaded)
-        {
-            DrawTexture();
-            loaded = true;
-        }
+        //if (!loaded)
+        //{
+            //DrawTexture();
+        //    loaded = true;
+        //}
         
         // Create a new texture
         //DrawTexture();

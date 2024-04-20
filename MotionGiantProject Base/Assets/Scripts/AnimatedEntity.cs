@@ -10,6 +10,7 @@ public class AnimatedEntity : MonoBehaviour
     public List<Sprite> DashAnimationCycle; // just player maybe
     public List<Sprite> HurtAnimationCycle;
     public List<Sprite> IdleAnimationCycle;
+    public List<Sprite> FriedAnimationCycle;
 
 
     public float Framerate = 12f;//frames per second
@@ -104,6 +105,12 @@ public class AnimatedEntity : MonoBehaviour
         if( mode == "idle")
         {
             DefaultAnimationCycle = IdleAnimationCycle;
+        }
+        if (mode == "fry")
+        {
+            DefaultAnimationCycle = FriedAnimationCycle;
+            index = 0;
+            previousIndex = 0;
         }
     }
 
