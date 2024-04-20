@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class DialogueScriptableObject : ScriptableObject
 {
 
-    string[] tutorialRoom1Dialogue = new string[] { "No! My research has escaped! This isn't good" };
-    string[] tutorialRoom2Dialogue = new string[] { "Lasers!? Maybe my dash can get put to use..." };
+    string[] tutorialRoom1Dialogue = new string[] { "No! My research has escaped! This isn't good." };
+    string[] tutorialRoom2Dialogue = new string[] { "Lasers!? Maybe my dash can be put to use..." };
     string[] tutorialRoom3Dialogue = new string[] { "What are those... pits? I can’t reach the enemies, but I might be able to counter." };
 
     string[] gameRoom1Dialogue = new string[] { "Are those... the Corvid interns?" };
@@ -21,7 +21,7 @@ public class DialogueScriptableObject : ScriptableObject
 
     public string getDialogueByScene(string sceneName)
     {
-        string dialogue = "I haven't been here before";
+        string dialogue = "What happened to the power? This is bad… the backup should have been activated. I must see what’s happening in the rest of the lab.";;
         if (sceneName == "TutorialRoom1")
         {
             return tutorialRoom1Dialogue[0];

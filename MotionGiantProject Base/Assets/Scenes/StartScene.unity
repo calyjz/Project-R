@@ -1586,6 +1586,23 @@ PrefabInstance:
       propertyPath: startTimeAttack
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: FriedAnimationCycle.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: FriedAnimationCycle.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: fd1c2d57833868143959173e8644a05a,
+        type: 3}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: FriedAnimationCycle.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: f6e5fc5b52bea074fa89684dbd14262c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288f541c248898544b6b26fb65421985, type: 3}
 --- !u!1 &6652373980688321537 stripped
