@@ -11,6 +11,8 @@ public class AnimatedEntity : MonoBehaviour
     public List<Sprite> HurtAnimationCycle;
     public List<Sprite> IdleAnimationCycle;
     public List<Sprite> FriedAnimationCycle;
+    public List<Sprite> DeathAnimationCycle;
+
 
 
     public float Framerate = 12f;//frames per second
@@ -112,6 +114,12 @@ public class AnimatedEntity : MonoBehaviour
             index = 0;
             previousIndex = 0;
         }
+        if (mode == "die")
+        {
+            DefaultAnimationCycle = DeathAnimationCycle;
+
+        }
+
     }
 
     public int getIndex()

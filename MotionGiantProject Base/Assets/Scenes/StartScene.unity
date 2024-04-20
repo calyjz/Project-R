@@ -1706,6 +1706,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6652373980569269463, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6652373980569269464, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
       propertyPath: m_SizeDelta.x

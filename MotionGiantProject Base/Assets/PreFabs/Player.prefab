@@ -998,6 +998,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 464bbe55a0dcce34092746ead1c3bed5, type: 3}
   - {fileID: 21300000, guid: 651242622375ffb49a3f41e8389ace2c, type: 3}
   FriedAnimationCycle: []
+  DeathAnimationCycle:
+  - {fileID: 21300000, guid: e7c859a2091e3b148ab196ef402f19d1, type: 3}
+  - {fileID: 21300000, guid: 57325c2fb487f11459a60f70f951fd82, type: 3}
+  - {fileID: 21300000, guid: 131be2d39e18624468186f7dd39e3e82, type: 3}
+  - {fileID: 21300000, guid: a35860645238fde4a83541de48fc3379, type: 3}
+  - {fileID: 21300000, guid: 4612e306dc0a4294ebc237a1c34ce014, type: 3}
+  - {fileID: 21300000, guid: 7b5d15cd13e46ee4eb212fff72fb9f95, type: 3}
+  - {fileID: 21300000, guid: 5de804c0f4b170d4a8750a18f0635448, type: 3}
+  - {fileID: 21300000, guid: 4d95527561b193d47b78f94eb1be63a6, type: 3}
+  - {fileID: 21300000, guid: ba175e9eb6f96f44aa9daf29a93c14c7, type: 3}
   Framerate: 5
   SpriteRenderer: {fileID: 6652373981393643702}
   Speed: 5
