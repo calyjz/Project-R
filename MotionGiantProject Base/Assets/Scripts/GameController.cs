@@ -218,6 +218,25 @@ public class GameController : MonoBehaviour
 
         SceneManager.LoadScene("Intro");
     }
+    public void Credits()
+    {
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(MainCamera);
+
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void Death()
+    {
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(Player);
+        DontDestroyOnLoad(MainCamera);
+
+        SceneManager.LoadScene("Death");
+
+    }
+
 
     public void GameReset()
     {

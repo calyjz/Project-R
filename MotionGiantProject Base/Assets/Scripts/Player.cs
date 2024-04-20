@@ -227,13 +227,17 @@ public class Player : AnimatedEntity
 
                         if (hp<=0)
                         {
+                              hp = 0;
                              SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                              SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
                              // do shit here for death                            
                              
                               //MusicManager.instance.PlayDeathMusic();
+                              GameController.Instance.Death();
                               switchAnimation("die");
-                              GameController.Instance.UpdateGameState(GameState.Respawn);
+                              Invoke(nameof(LoadRespawn), 1);
+
+
 
                 //Player.GetComponents<StatUI>().enabled=false;
 
@@ -284,9 +288,14 @@ public class Player : AnimatedEntity
         }
         
     }
-  
-    
-   
+    void LoadRespawn()
+    {
+        GameController.Instance.UpdateGameState(GameState.Respawn);
+
+    }
+
+
+
 
 
     void MovePlayer()

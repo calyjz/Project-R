@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\AnimatedLantern.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\ControlsDisplay.cs" />
+     <Compile Include="Assets\Scripts\CreditsButtonBehavior.cs" />
      <Compile Include="Assets\Scripts\CreditsScript.cs" />
      <Compile Include="Assets\Scripts\Dialogue.cs" />
      <Compile Include="Assets\Scripts\DialogueScriptableObject.cs" />
