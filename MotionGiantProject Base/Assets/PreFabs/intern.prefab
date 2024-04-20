@@ -252,6 +252,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b27bff90fdb3794cb32d66777778e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultAnimationCycle:
+  - {fileID: 21300000, guid: 428411092b88896489c7752e2e187fe2, type: 3}
+  - {fileID: 21300000, guid: cc8ceb67090824c4e89d3104970999ee, type: 3}
+  WalkAnimationCycle:
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 6b84360bb2ed27d48b976f0d1d54ae59, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  - {fileID: 21300000, guid: 8b20f55146d647a4db678fffaab65525, type: 3}
+  DashAnimationCycle: []
+  HurtAnimationCycle:
+  - {fileID: 21300000, guid: 428411092b88896489c7752e2e187fe2, type: 3}
+  - {fileID: 21300000, guid: cc8ceb67090824c4e89d3104970999ee, type: 3}
+  IdleAnimationCycle:
+  - {fileID: 21300000, guid: 428411092b88896489c7752e2e187fe2, type: 3}
+  - {fileID: 21300000, guid: cc8ceb67090824c4e89d3104970999ee, type: 3}
+  FriedAnimationCycle:
+  - {fileID: 21300000, guid: f4ff4b0eb38b6c049a03cf918fffcfe3, type: 3}
+  - {fileID: 21300000, guid: f4ff4b0eb38b6c049a03cf918fffcfe3, type: 3}
+  - {fileID: 21300000, guid: f4ff4b0eb38b6c049a03cf918fffcfe3, type: 3}
+  - {fileID: 21300000, guid: f4ff4b0eb38b6c049a03cf918fffcfe3, type: 3}
+  - {fileID: 21300000, guid: f4ff4b0eb38b6c049a03cf918fffcfe3, type: 3}
+  - {fileID: 21300000, guid: f64eca48362774d40a75e1aba41d9c3a, type: 3}
+  - {fileID: 21300000, guid: f64eca48362774d40a75e1aba41d9c3a, type: 3}
+  - {fileID: 21300000, guid: f64eca48362774d40a75e1aba41d9c3a, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  - {fileID: 21300000, guid: 0ae218fa1c95ba64cb5a3934a5a9fc76, type: 3}
+  Framerate: 1
+  SpriteRenderer: {fileID: 6385234499164984182}
   shoot: {fileID: 5880681318752493371, guid: e6e63db02829be94eac3f43618863d40, type: 3}
   attackRange: 5
   attackTime: 0

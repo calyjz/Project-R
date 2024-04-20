@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : AnimatedEntity
 {
     // Start is called before the first frame update
 
@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
 
     void FollowPlayer()
     {
+
         transform.position += (playerPos.position - transform.position).normalized * Time.deltaTime * Speed;
     }
     void attackPlayer()
@@ -179,6 +180,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AnimationUpdate();
+
         colorTimeCounter -= Time.deltaTime;
         if (colorTimeCounter < 0)
         {
@@ -199,18 +202,23 @@ public class Enemy : MonoBehaviour
         if (isPlayerAttackable)
         {
             mode = "attack";
+            switchAnimation("fry");
+
             attackPlayer();
         } else if (isPlayerVisible)
         {
             mode = "follow";
+            switchAnimation("walk");
             FollowPlayer();
         } else if (mode == "patrol")
         {
+            switchAnimation("walk");
             keepPatrolling();
         }
         else
         {
             mode = "patrol";
+            switchAnimation("idle");
             setPatrolPath();
         }
         
@@ -252,8 +260,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float hitpoints)
     {
         hp -= hitpoints;
+        switchAnimation("hurt");
+
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         colorTimeCounter = 0.1f;
+
         if (hp <= 0)
         {
             RemoveEnemy();
