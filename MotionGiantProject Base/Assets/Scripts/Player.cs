@@ -78,6 +78,7 @@ public class Player : AnimatedEntity
     private float laserFreezeDuration = 2f;
     private float laserFreezeTime = -1f;
     List<GameObject> damagedList = new List<GameObject>();
+    List<GameObject> damagedList2 = new List<GameObject>();
     void Start()
     {
         AnimationSetup();
@@ -124,6 +125,7 @@ public class Player : AnimatedEntity
                 SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
                 damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
                 damagedList.Add(damage[i].gameObject);
+                damagedList2.Add(damage[i].gameObject);
 
             }
             }
@@ -258,15 +260,29 @@ public class Player : AnimatedEntity
                 {
                     Vector2 normal = (transform.position - damage[i].transform.position).normalized;
                     //movingDir = Vector2.Reflect(movingDir, normal);
-                    if (damage[i].gameObject.GetComponent<ShootTowardsPlayer>().Deflectable)
+                    if (!damagedList2.Contains(damage[i].gameObject))
                     {
-                        damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+                        //SoundFXManager.instance.PlaySoundFXClip("MonsterTakesDamage", damage[i].gameObject.transform);
+                        //damage[i].gameObject.GetComponent<Enemy>().TakeDamage(attackPower);
+                        //damagedList.Add(damage[i].gameObject);
+
+
+
+                        if (damage[i].gameObject.GetComponent<ShootTowardsPlayer>().Deflectable)
+                        {
+                            damage[i].gameObject.GetComponent<ShootTowardsPlayer>().deflect(normal);
+                            damagedList2.Add(damage[i].gameObject);
+                        }
+                        else
+                        {
+                            Destroy(damage[i].gameObject);
+                        }
+                        
                     }
-                    else
-                    {
-                        Destroy(damage[i].gameObject);
-                    }
+
+                
                 }
+                
             }
         }
 

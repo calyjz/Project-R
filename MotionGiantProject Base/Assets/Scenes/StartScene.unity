@@ -2071,6 +2071,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
+      propertyPath: hitBoxRange
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
       propertyPath: freezeAttack
       value: 0.3
       objectReference: {fileID: 0}
@@ -2082,7 +2087,7 @@ PrefabInstance:
     - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
       propertyPath: scaleAttackRange
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
