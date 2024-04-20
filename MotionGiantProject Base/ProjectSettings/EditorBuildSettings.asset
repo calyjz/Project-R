@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SpawnRoom.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 46a37582cd9a0e4489cd2d5bcaa3a40e
+  - enabled: 1
     path: Assets/Scenes/Respawn.unity
     guid: 36c6cfdf791501b41b429d29187938cf
   - enabled: 1
@@ -60,7 +63,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EasterEgg.unity
     guid: 400e7b70655874314bc99b1d4f0ca6b9
   - enabled: 1
-    path: Assets/Scenes/GameRooms/Death.unity
+    path: Assets/Scenes/Death.unity
     guid: 4d226a8e6f627f247a6a05c926ec4974
   - enabled: 1
     path: Assets/Scenes/SpawnRoomSpecial.unity
