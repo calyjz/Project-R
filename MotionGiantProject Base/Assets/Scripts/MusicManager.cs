@@ -46,13 +46,20 @@ public class MusicManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Respawn")
         {
             audioSource.Pause();
-        } else
+        } else if (SceneManager.GetActiveScene().name == "Intro")
+        {
+            Debug.Log("HELP");
+            audioSource.Pause();
+        }
+        else 
         {
             if (!audioSource.isPlaying)
             {
+                Debug.Log("WTF");
                 audioSource.Play();
             }
         }
+        
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (SceneManager.GetActiveScene().name != "StartScene" && enemies.Length != 0)
@@ -66,7 +73,7 @@ public class MusicManager : MonoBehaviour
         {
             enemeySource.Stop();
         }
-        if (SceneManager.GetActiveScene().name != "StartScene")
+        if (SceneManager.GetActiveScene().name != "StartScene" && SceneManager.GetActiveScene().name != "Intro")
         {
             if (!audioSource.isPlaying || audioSource.clip != mainTheme)
             {

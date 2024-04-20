@@ -7,7 +7,7 @@ using System;
 public class UIButtonBehavior : MonoBehaviour
 {
     [Header("HP")]
-    public int HPCost = 50;
+    public int HPCost = 60;
     public int HPIncrease = 25;
     public int HPMax = 300; 
     private int HPClicks = 0;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraScript : MonoBehaviour
 {
@@ -19,5 +20,13 @@ public class CameraScript : MonoBehaviour
         Vector3 desiredPosition = player.transform.position - offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
+        if (SceneManager.GetActiveScene().name == "Intro" || SceneManager.GetActiveScene().name == "Outro")
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+        }
     }
 }
