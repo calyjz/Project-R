@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class CreditsButtonBehavior : MonoBehaviour
 {
+    public GameObject Canvas;
     public void OnButtonPress()
     {
         SoundFXManager.instance.PlaySoundFXClip("ButtonPress", this.transform);
         Debug.Log("Button Clicked");
 
 
-       
-
-            GameController.Instance.Credits();
 
 
+        Canvas.SetActive(true);
 
+
+
+    }
+
+    void Start()
+    {
+        Canvas.SetActive(false);
     }
 }
