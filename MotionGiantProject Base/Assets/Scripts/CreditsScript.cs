@@ -17,7 +17,8 @@ public class CreditsScript : MonoBehaviour
     {
         if (Input.GetKeyDown("return") || Input.GetKeyDown("enter"))
         {
-            SceneManager.LoadScene("StartScene");
+
+            GameController.Instance.GameReset();
         }
     }
 }
