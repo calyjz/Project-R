@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5de0c422-6f12-436b-bcde-eb6d7fe836d9" name="Changes" comment="" />
+    <list default="true" id="5de0c422-6f12-436b-bcde-eb6d7fe836d9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Intro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Intro.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Outro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Outro.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MusicManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +24,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ExperiencePointUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadedRoom.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStatUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/VideoEndCheck.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -103,6 +111,7 @@
       <workItem from="1712863316253" duration="8000" />
       <workItem from="1712956787939" duration="2634000" />
       <workItem from="1713485552908" duration="3000" />
+      <workItem from="1713588458147" duration="6043000" />
     </task>
     <servers />
   </component>
