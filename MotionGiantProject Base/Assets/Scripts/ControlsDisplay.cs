@@ -7,10 +7,10 @@ public class ControlsDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameController.Instance.firstrun != true)
-        {
-            Destroy(gameObject);
-        }
+        // if (GameController.Instance.firstrun != true)
+        // {
+        //     Destroy(gameObject);
+        // }
         
     }
 }

@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d720bea1eca38b343941b50fffb50070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPCost: 50
+  HPCost: 60
   HPIncrease: 25
   HPMax: 300
   textHP: {fileID: 2054285456}
@@ -1397,7 +1397,7 @@ MonoBehaviour:
   textDash: {fileID: 722351410}
   DashButtonUP: {fileID: 1062921027}
   DashButtonDOWN: {fileID: 426630773}
-  AttackCost: 150
+  AttackCost: 200
   AttackIncrease: 50
   AttackMax: 135
   textAttack: {fileID: 1723268277}

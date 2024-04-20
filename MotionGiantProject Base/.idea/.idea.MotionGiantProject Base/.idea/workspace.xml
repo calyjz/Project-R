@@ -5,12 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5de0c422-6f12-436b-bcde-eb6d7fe836d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Art/NewHole/hole.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/NewHole/hole.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/logos.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/logos/motiongiant_white.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/logos/motiongiant_white.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/logos/projectr_title_white.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/logos/projectr_title_white.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die1.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die1.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die2.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die2.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die3.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die3.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die4.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die4.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die5.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die5.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die6.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die6.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die7.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die7.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die8.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die8.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die9.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Art/nev/nev die/nev_die9.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ombre6.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ombre6.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ombre7.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/Ombre7.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/GameRooms/Death.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/GameRooms/Death.unity.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MotionGiantProject Base/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Intro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Intro.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Outro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Cutscenes/Outro.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MusicManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Credit Animation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Credit Animation.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PreFabs/Pit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PreFabs/Pit.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PreFabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PreFabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PreFabs/enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PreFabs/enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PreFabs/intern.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PreFabs/intern.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Credits.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Credits.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Respawn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Respawn.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AnimatedEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AnimatedEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ControlsDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ControlsDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIButtonBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIButtonBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MotionGiantProject Base.sln" beforeDir="false" afterPath="$PROJECT_DIR$/MotionGiantProject Base.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,27 +78,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;thirdbeta&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging thirdbeta",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/damongrant/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/damongrant/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
-      &quot;/Users/damongrant/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/damongrant/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/damongrant/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/damongrant/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/MacOS/Unity" />
@@ -111,7 +155,7 @@
       <workItem from="1712863316253" duration="8000" />
       <workItem from="1712956787939" duration="2634000" />
       <workItem from="1713485552908" duration="3000" />
-      <workItem from="1713588458147" duration="6043000" />
+      <workItem from="1713588458147" duration="8914000" />
     </task>
     <servers />
   </component>
