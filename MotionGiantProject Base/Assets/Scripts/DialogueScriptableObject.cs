@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "DialogueScriptableObject", menuName = "ScriptableObjects/DialogueScriptableObject", order = 1)]
 public class DialogueScriptableObject : ScriptableObject
 {
-
+    string[] startRoomSpecial = new string[] { "Wait... haven't I been here before? Things look different." };
+    string[] easterEgg = new string[] { ":3" };
     string[] tutorialRoom1Dialogue = new string[] { "No! My research has escaped! This isn't good." };
     string[] tutorialRoom2Dialogue = new string[] { "Lasers!? Maybe my dash can be put to use..." };
     string[] tutorialRoom3Dialogue = new string[] { "What are those... pits? I can’t reach the enemies, but I might be able to counter." };
@@ -70,6 +71,15 @@ public class DialogueScriptableObject : ScriptableObject
         {
             return gameRoom9Dialogue[0];
         }
+        else if (sceneName == "SpawnRoomSpecial")
+        {
+            return startRoomSpecial[0];
+        }
+        else if (sceneName == "EasterEgg")
+        {
+            return easterEgg[0];
+        }
+            
 
         return dialogue;
     }
