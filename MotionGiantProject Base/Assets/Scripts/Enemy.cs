@@ -245,7 +245,7 @@ public class Enemy : AnimatedEntity
             //check if the enemy wasnt defeated before (store a value inside a file associated with enemy#. 1 for removed, 0 for not defeated)
             if (PlayerPrefs.GetInt("Enemy_no " + enemy_no) == 0)
             {
-                GameController.exp += 5;
+                GameController.exp += 10;
                 Debug.Log("Enemy killed bruh");
                 Debug.Log(GameController.exp);
 

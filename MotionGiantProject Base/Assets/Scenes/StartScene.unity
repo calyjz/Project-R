@@ -2081,6 +2081,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
         type: 3}
+      propertyPath: scaleAttackRange
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652373981393643704, guid: 288f541c248898544b6b26fb65421985,
+        type: 3}
       propertyPath: FriedAnimationCycle.Array.size
       value: 2
       objectReference: {fileID: 0}

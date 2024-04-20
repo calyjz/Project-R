@@ -146,7 +146,7 @@ public class Player : AnimatedEntity
                 {
                     damagedList = new List<GameObject>();
                     rangeVector = new Vector2(Input.GetAxis("Fire2") * scaleAttackRange, Input.GetAxis("Fire1") * scaleAttackRange);
-                    print(rangeVector);
+                    //print(rangeVector);
                     SoundFXManager.instance.PlaySoundFXClip("AxeSwish", this.transform);
                     attackTime = startTimeAttack;
                     
@@ -462,9 +462,13 @@ public class Player : AnimatedEntity
             {
                 SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
                 //MusicManager.instance.PlayDeathMusic();
-                GameController.Instance.UpdateGameState(GameState.Respawn);
+                //GameController.Instance.UpdateGameState(GameState.Respawn);
                 freezeTime = 0;
                 SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+
+                GameController.Instance.Death();
+                switchAnimation("die");
+                Invoke(nameof(LoadRespawn), 1);
             }
         }
 

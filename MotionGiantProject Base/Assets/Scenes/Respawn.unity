@@ -1397,7 +1397,7 @@ MonoBehaviour:
   textDash: {fileID: 722351410}
   DashButtonUP: {fileID: 1062921027}
   DashButtonDOWN: {fileID: 426630773}
-  AttackCost: 200
+  AttackCost: 150
   AttackIncrease: 50
   AttackMax: 135
   textAttack: {fileID: 1723268277}
