@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 1865299126746673526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.84, y: 2.86, z: -1.121019}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 1865299125853359834}
   - {fileID: 8278040499490884710}
@@ -145,6 +145,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b27bff90fdb3794cb32d66777778e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultAnimationCycle:
+  - {fileID: 21300000, guid: 2c9245cbaadd74743b69854b32384fdd, type: 3}
+  - {fileID: 21300000, guid: 849e128fdcf510d428eb8d6ef4a0a30d, type: 3}
+  WalkAnimationCycle:
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: ebeb59843ff47cf41adc6f823e7007b8, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  - {fileID: 21300000, guid: 9a0721ac6de2e864f8e247b08cf27310, type: 3}
+  DashAnimationCycle: []
+  HurtAnimationCycle:
+  - {fileID: 21300000, guid: 60fc9f10bd6614e499b58a628b9471ad, type: 3}
+  - {fileID: 21300000, guid: c5d1436c626890641aa1de6570d25714, type: 3}
+  - {fileID: 21300000, guid: cff59e3e8bd1c704490448f7bf8bca2f, type: 3}
+  IdleAnimationCycle:
+  - {fileID: 21300000, guid: 2c9245cbaadd74743b69854b32384fdd, type: 3}
+  - {fileID: 21300000, guid: 849e128fdcf510d428eb8d6ef4a0a30d, type: 3}
+  FriedAnimationCycle:
+  - {fileID: 21300000, guid: 60fc9f10bd6614e499b58a628b9471ad, type: 3}
+  - {fileID: 21300000, guid: c5d1436c626890641aa1de6570d25714, type: 3}
+  - {fileID: 21300000, guid: cff59e3e8bd1c704490448f7bf8bca2f, type: 3}
+  Framerate: 1
+  SpriteRenderer: {fileID: 1865299126746673522}
   shoot: {fileID: 5880681318752493371, guid: edba26aa443ffb94aa4ee464027f79b3, type: 3}
   attackRange: 6
   attackTime: 0

@@ -86,6 +86,7 @@ public class Player : AnimatedEntity
         leftFacingDirection = transform.localScale;
         leftFacingDirection.x *= -1;
         Debug.Log(GameObject.FindGameObjectWithTag("LightObject"));
+
         lightObject = GameObject.FindGameObjectWithTag("LightObject").GetComponent<Light>();
         if (lightObject != null)
         {
@@ -226,10 +227,16 @@ public class Player : AnimatedEntity
 
                         if (hp<=0)
                         {
-                            SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
-                            //MusicManager.instance.PlayDeathMusic();
-                            GameController.Instance.UpdateGameState(GameState.Respawn);
-                            SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                             SoundFXManager.instance.PlaySoundFXClip("PlayerTakesDamage", this.transform);
+                             SpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+                             // do shit here for death                            
+                             
+                              //MusicManager.instance.PlayDeathMusic();
+                              switchAnimation("die");
+                              //Player.GetComponents<StatUI>().enabled=false;
+
+                              Invoke(nameof(respawnScreen), 3);//moved the respawn scene into diff function to move - this function just calls it after the second parameter (3 secs)
+
                         }
                     }
                 //}
@@ -276,8 +283,14 @@ public class Player : AnimatedEntity
         }
         
     }
+  
+    void respawnScreen()
+    {
+        GameController.Instance.UpdateGameState(GameState.Respawn);
 
-   
+    }
+
+
     void MovePlayer()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
