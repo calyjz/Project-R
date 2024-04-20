@@ -233,12 +233,13 @@ public class Player : AnimatedEntity
                              
                               //MusicManager.instance.PlayDeathMusic();
                               switchAnimation("die");
-                              //Player.GetComponents<StatUI>().enabled=false;
+                              GameController.Instance.UpdateGameState(GameState.Respawn);
 
-                              Invoke(nameof(respawnScreen), 3);//moved the respawn scene into diff function to move - this function just calls it after the second parameter (3 secs)
+                //Player.GetComponents<StatUI>().enabled=false;
 
-                        }
-                    }
+
+            }
+        }
                 //}
             
         
@@ -284,11 +285,8 @@ public class Player : AnimatedEntity
         
     }
   
-    void respawnScreen()
-    {
-        GameController.Instance.UpdateGameState(GameState.Respawn);
-
-    }
+    
+   
 
 
     void MovePlayer()
