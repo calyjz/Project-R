@@ -258,6 +258,7 @@ MonoBehaviour:
   startTimeAttack: 2
   Speed: 1.5
   enemy_no: 10
+  hp: 100
   path: []
   MedEnemy: 1
 --- !u!50 &4035895347609656795
@@ -361,6 +362,11 @@ PrefabInstance:
     - target: {fileID: 8925681548722752684, guid: 4e9f41015d57a754ca4c03096ead17e7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925681548722752685, guid: 4e9f41015d57a754ca4c03096ead17e7,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8925681548722752685, guid: 4e9f41015d57a754ca4c03096ead17e7,
