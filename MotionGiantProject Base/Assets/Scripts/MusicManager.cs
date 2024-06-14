@@ -48,14 +48,12 @@ public class MusicManager : MonoBehaviour
             audioSource.Pause();
         } else if (SceneManager.GetActiveScene().name == "Intro")
         {
-            Debug.Log("HELP");
             audioSource.Pause();
         }
         else 
         {
             if (!audioSource.isPlaying)
             {
-                Debug.Log("WTF");
                 audioSource.Play();
             }
         }
