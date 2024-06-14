@@ -270,38 +270,5 @@ public class Enemy : AnimatedEntity
             RemoveEnemy();
         }
     }
-    //void OnDestroy()
-    //{
-    //    if (!GameController.death)
-    //    {
-    //        GameController.exp += 5;
-    //        Debug.Log("Enemy killed bruh");
-    //        Debug.Log(GameController.exp);
 
-    //        //store a value inside a file associated with enemy#. 1 for defeated, 0 for not defeated
-    //        PlayerPrefs.SetInt("Enemy_no " + enemy_no.ToString(), 1);
-    //        Debug.Log("Setting to defeated " + PlayerPrefs.GetInt("Enemy_no " + enemy_no).ToString());
-    //    }
-
-    //}
-    /*
-    void OnDestroy()
-    {
-        if (!GameController.death)
-        {   
-            if (PlayerPrefs.GetInt("Enemy_no " + enemy_no) == 0)
-            {
-                GameController.exp += 5;
-                Debug.Log("Enemy killed bruh");
-                Debug.Log(GameController.exp);
-
-                //store a value inside a file associated with enemy#. 1 for defeated, 0 for not defeated
-                PlayerPrefs.SetInt("Enemy_no " + enemy_no, 1);
-                Debug.Log("setting" + enemy_no.ToString() + " to " + PlayerPrefs.GetInt("Enemy_no " + enemy_no));
-            }
-                
-        }
-
-    }
-    */
 }
