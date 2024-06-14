@@ -126,18 +126,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(MainCamera);
         SceneManager.LoadScene("SpawnRoom");
-        /*
-        Player = GameObject.FindGameObjectWithTag("Player");
-        if (Player == null)
-        {
-            Debug.Log("WHY IS IT FUCKING NULL");
-        }
-        */
-        //MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-       
-        //DontDestroyOnLoad(Player);
-        //DontDestroyOnLoad(MainCamera);
-        //Instantiate(Player, new Vector3(0, 0, -1.1f), Quaternion.identity);
+
         Player.SetActive(true);
 
         //sets player positon
